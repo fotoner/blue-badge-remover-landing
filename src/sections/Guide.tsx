@@ -63,7 +63,6 @@ export function Guide() {
         <Button
           href={CHROME_STORE_URL}
           onClick={handleCtaClick}
-          className="shadow-[0_0_20px_rgba(29,155,240,0.3)] transition-shadow hover:shadow-[0_0_30px_rgba(29,155,240,0.5)]"
         >
           {t("hero.cta")}
         </Button>

@@ -21,16 +21,16 @@ type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantStyles: Record<Variant, string> = {
   primary:
-    "bg-accent-blue hover:bg-accent-blue-hover text-white font-semibold",
+    "bg-accent-blue text-white font-semibold shadow-[0_4px_0_0_#1a6fb5] hover:brightness-110 active:translate-y-1 active:shadow-none",
   secondary:
-    "border border-border hover:border-text-secondary text-text-primary bg-transparent",
+    "border border-border text-text-primary bg-white/[0.04] shadow-[0_4px_0_0_rgba(255,255,255,0.06)] hover:border-text-secondary active:translate-y-1 active:shadow-none",
   ghost:
     "text-text-secondary hover:text-text-primary bg-transparent",
 };
 
 export function Button({ variant = "primary", children, ...props }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue";
+    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue";
 
   const className = `${baseStyles} ${variantStyles[variant]} ${(props as { className?: string }).className ?? ""}`.trim();
 
