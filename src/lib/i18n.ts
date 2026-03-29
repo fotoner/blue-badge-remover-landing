@@ -75,18 +75,30 @@ const translations = {
     "guide.step3.desc":
       "X의 팔로잉 페이지를 한 번 방문하여 팔로우 목록을 초기화한 뒤, 타임라인에서 바로 필터링이 시작됩니다",
     "faq.title": "자주 묻는 질문",
-    "faq.q1": "팔로우 중인 계정도 숨겨지나요?",
+    "faq.q1": "모바일(iOS/Android)에서도 쓸 수 있나요?",
     "faq.a1":
-      "아니요. 팔로우 중인 계정은 자동으로 제외됩니다. 팔로잉 페이지에서 목록을 동기화하면 더 정확하게 작동합니다.",
-    "faq.q2": "기업 인증 계정(금색/회색 뱃지)도 숨겨지나요?",
+      "현재 PC Chrome 확장 프로그램 전용입니다. 모바일은 구조상 브라우저 확장 프로그램 설치가 불가하여 지원이 어렵습니다.",
+    "faq.q2": "내 트친이 파란 뱃지인데 안 보이게 되나요?",
     "faq.a2":
-      "아니요. Blue Badge Remover는 유료 구독으로 받은 파란 뱃지만 감지합니다. 기업 인증(금색)이나 정부 기관(회색) 뱃지는 영향받지 않습니다.",
-    "faq.q3": "개인정보를 수집하나요?",
+      "아닙니다! 내가 팔로우한 사람은 파란 뱃지여도 숨겨지지 않습니다. 팔로잉 페이지를 방문하면 팔로우 목록이 자동 동기화됩니다.",
+    "faq.q3": "수익 목적이 아닌 파란 뱃지 유저도 숨기나요?",
     "faq.a3":
-      "전혀 수집하지 않습니다. 모든 처리는 브라우저 내에서 로컬로 이루어지며, 외부 서버와 통신하지 않습니다.",
-    "faq.q4": "Firefox나 Safari에서도 사용할 수 있나요?",
+      "현재는 파란 뱃지 유무로 필터링합니다. 팔로우한 사람은 자동 예외 처리되며, 수동 화이트리스트로 특정 계정을 예외 추가할 수도 있습니다.",
+    "faq.q4": "Firefox에서도 되나요?",
     "faq.a4":
-      "현재는 Chrome(및 Chromium 기반 브라우저)만 지원합니다. 다른 브라우저 지원은 검토 중입니다.",
+      "현재 Chrome(및 Chromium 기반 브라우저) 전용입니다. 네이버 웨일 등 Chromium 기반 브라우저에서는 Chrome 웹스토어에서 바로 설치 가능합니다. Firefox 지원은 검토 중입니다.",
+    "faq.q5": "이거 쓰면 계정 정지당하나요?",
+    "faq.a5":
+      "아닙니다. 브라우저에서 화면 표시만 변경하는 방식이라 X 서버와 직접 통신하거나 API를 호출하지 않습니다. 광고 차단기와 같은 원리입니다.",
+    "faq.q6": "파란 뱃지 트윗의 조회수도 안 올라가나요?",
+    "faq.a6":
+      "화면에서 숨기는 방식이라 트윗 로딩 자체는 발생합니다. 조회수 카운트는 올라갈 수 있습니다.",
+    "faq.q7": "기업 인증(금색/회색 뱃지)도 숨겨지나요?",
+    "faq.a7":
+      "아닙니다. 유료 구독으로 받은 파란 뱃지만 감지합니다. 기업 인증(금색)이나 정부 기관(회색) 뱃지는 영향받지 않습니다.",
+    "faq.q8": "개인정보를 수집하나요?",
+    "faq.a8":
+      "전혀 수집하지 않습니다. 모든 처리는 브라우저 내에서 로컬로 이루어지며, 외부 서버와 통신하지 않습니다.",
     "nav.features": "기능",
     "nav.guide": "설치",
     "nav.faq": "FAQ",
@@ -163,18 +175,30 @@ const translations = {
     "guide.step3.desc":
       "Visit your Following page on X once to sync your follow list, then filtering starts automatically on your timeline",
     "faq.title": "FAQ",
-    "faq.q1": "Are followed accounts also hidden?",
+    "faq.q1": "Can I use it on mobile (iOS/Android)?",
     "faq.a1":
-      "No. Followed accounts are automatically excluded. Syncing your follow list from the Following page makes it even more accurate.",
-    "faq.q2": "Are business verified accounts (gold/gray badge) hidden too?",
+      "Currently PC Chrome extension only. Mobile browsers don't support extensions, so mobile support is not possible.",
+    "faq.q2": "Will my followed friends with blue badges be hidden?",
     "faq.a2":
-      "No. Blue Badge Remover only detects blue badges from paid subscriptions. Business (gold) and government (gray) badges are not affected.",
-    "faq.q3": "Do you collect personal data?",
+      "No! People you follow are never hidden, even if they have a blue badge. Visit your Following page to sync your follow list automatically.",
+    "faq.q3": "Does it hide all blue badge users regardless of intent?",
     "faq.a3":
-      "Absolutely not. All processing happens locally in your browser with no external server communication.",
-    "faq.q4": "Can I use it on Firefox or Safari?",
+      "Currently it filters by blue badge presence. Followed accounts are auto-excluded, and you can also manually whitelist specific accounts.",
+    "faq.q4": "Does it work on Firefox?",
     "faq.a4":
-      "Currently only Chrome (and Chromium-based browsers) are supported. Other browser support is under consideration.",
+      "Currently Chrome (and Chromium-based browsers) only. Browsers like Naver Whale can install directly from the Chrome Web Store. Firefox support is under consideration.",
+    "faq.q5": "Will my account get suspended for using this?",
+    "faq.a5":
+      "No. It only changes what's displayed in your browser. It doesn't communicate with X servers or call any APIs. Same principle as an ad blocker.",
+    "faq.q6": "Do hidden tweets still get view counts?",
+    "faq.a6":
+      "Since it hides at the display level, tweets are still loaded. View counts may still increase.",
+    "faq.q7": "Are business verified (gold/gray badge) accounts hidden too?",
+    "faq.a7":
+      "No. Only blue badges from paid subscriptions are detected. Business (gold) and government (gray) badges are not affected.",
+    "faq.q8": "Do you collect personal data?",
+    "faq.a8":
+      "Absolutely not. All processing happens locally in your browser with no external server communication.",
     "nav.features": "Features",
     "nav.guide": "Install",
     "nav.faq": "FAQ",
@@ -252,18 +276,30 @@ const translations = {
     "guide.step3.desc":
       "Xのフォロー中ページを一度訪問してフォローリストを同期すると、タイムラインで自動的にフィルタリングが始まります",
     "faq.title": "よくある質問",
-    "faq.q1": "フォロー中のアカウントも非表示になりますか？",
+    "faq.q1": "モバイル（iOS/Android）でも使えますか？",
     "faq.a1":
-      "いいえ。フォロー中のアカウントは自動的に除外されます。フォローページでリストを同期するとより正確に動作します。",
-    "faq.q2": "企業認証アカウント（金色/灰色バッジ）も非表示になりますか？",
+      "現在はPC Chrome拡張機能専用です。モバイルブラウザは拡張機能のインストールに対応していないため、モバイルサポートは困難です。",
+    "faq.q2": "フォロー中の友達が青バッジだと非表示になりますか？",
     "faq.a2":
-      "いいえ。Blue Badge Removerは有料サブスクリプションの青バッジのみを検出します。企業認証（金色）や政府機関（灰色）バッジには影響しません。",
-    "faq.q3": "個人情報を収集しますか？",
+      "いいえ！フォロー中のユーザーは青バッジでも非表示になりません。フォロー中ページを訪問するとフォローリストが自動同期されます。",
+    "faq.q3": "収益目的でない青バッジユーザーも隠されますか？",
     "faq.a3":
-      "一切収集しません。すべての処理はブラウザ内でローカルに行われ、外部サーバーとの通信はありません。",
-    "faq.q4": "FirefoxやSafariでも使えますか？",
+      "現在は青バッジの有無でフィルタリングしています。フォロー中のアカウントは自動除外され、手動ホワイトリストで特定アカウントを例外追加することもできます。",
+    "faq.q4": "Firefoxでも使えますか？",
     "faq.a4":
-      "現在はChrome（およびChromiumベースのブラウザ）のみサポートしています。他のブラウザのサポートは検討中です。",
+      "現在はChrome（およびChromiumベースのブラウザ）専用です。ChromiumベースのブラウザならChrome Web Storeから直接インストールできます。Firefoxサポートは検討中です。",
+    "faq.q5": "使うとアカウントが凍結されますか？",
+    "faq.a5":
+      "いいえ。ブラウザの表示を変更するだけで、Xサーバーとの通信やAPIの呼び出しは一切行いません。広告ブロッカーと同じ原理です。",
+    "faq.q6": "非表示にしたツイートの閲覧数もカウントされませんか？",
+    "faq.a6":
+      "表示レベルで非表示にする方式のため、ツイートの読み込み自体は発生します。閲覧数はカウントされる可能性があります。",
+    "faq.q7": "企業認証（金色/灰色バッジ）も非表示になりますか？",
+    "faq.a7":
+      "いいえ。有料サブスクリプションの青バッジのみ検出します。企業認証（金色）や政府機関（灰色）バッジには影響しません。",
+    "faq.q8": "個人情報を収集しますか？",
+    "faq.a8":
+      "一切収集しません。すべての処理はブラウザ内でローカルに行われ、外部サーバーとの通信はありません。",
     "nav.features": "機能",
     "nav.guide": "インストール",
     "nav.faq": "FAQ",
