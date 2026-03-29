@@ -11,21 +11,22 @@ export function Hero() {
   }
 
   return (
-    <section className="relative flex min-h-[calc(100vh-3.5rem)] items-center overflow-hidden px-4">
+    <section className="bg-dot-grid relative flex min-h-[calc(100vh-3.5rem)] items-center overflow-hidden px-4">
       {/* Background glow effects */}
-      <div className="pointer-events-none absolute top-[-10%] right-[10%] h-[400px] w-[400px] rounded-full bg-accent-blue/[0.07] blur-[100px]" />
-      <div className="pointer-events-none absolute bottom-[-10%] left-[10%] h-[300px] w-[300px] rounded-full bg-accent-red/[0.05] blur-[100px]" />
+      <div className="animate-pulse-glow pointer-events-none absolute top-[-20%] right-[5%] h-[500px] w-[500px] rounded-full bg-accent-blue/[0.10] blur-[120px]" />
+      <div className="animate-pulse-glow pointer-events-none absolute bottom-[-15%] left-[5%] h-[400px] w-[400px] rounded-full bg-accent-red/[0.06] blur-[120px]" />
+      <div className="pointer-events-none absolute top-[30%] left-[40%] h-[300px] w-[300px] rounded-full bg-purple-500/[0.04] blur-[100px]" />
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-12 lg:flex-row lg:gap-16">
         {/* Left: Content */}
         <div className="flex-1 text-center lg:text-left">
           {/* Social proof badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent-blue/20 bg-accent-blue/[0.08] px-4 py-1.5 text-sm text-accent-blue">
-            <span className="inline-block h-2 w-2 rounded-full bg-green-500" />
+          <div className="glass-card mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm text-accent-blue">
+            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-green-500" />
             {t("hero.badge")}
           </div>
 
-          <h1 className="font-heading text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
+          <h1 className="text-gradient font-heading text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
             {t("hero.title")}
           </h1>
 
@@ -34,7 +35,11 @@ export function Hero() {
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row lg:items-start">
-            <Button href={CHROME_STORE_URL} onClick={handleCtaClick}>
+            <Button
+              href={CHROME_STORE_URL}
+              onClick={handleCtaClick}
+              className="shadow-[0_0_20px_rgba(29,155,240,0.3)] transition-shadow hover:shadow-[0_0_30px_rgba(29,155,240,0.5)]"
+            >
               {t("hero.cta")}
             </Button>
             <Button variant="secondary" href={GITHUB_URL}>
@@ -48,8 +53,8 @@ export function Hero() {
         </div>
 
         {/* Right: Popup Preview */}
-        <div className="w-full max-w-[280px] flex-shrink-0 lg:max-w-[300px]">
-          <div className="rounded-2xl border border-border bg-[#15202b] p-5 shadow-[0_25px_80px_rgba(0,0,0,0.6),0_0_40px_rgba(29,155,240,0.08)] [transform:perspective(1000px)_rotateY(-6deg)_rotateX(2deg)]">
+        <div className="w-full max-w-[300px] flex-shrink-0 lg:max-w-[320px]">
+          <div className="animate-float rounded-2xl border border-white/[0.08] bg-[#15202b] p-5 shadow-[0_25px_80px_rgba(0,0,0,0.6),0_0_60px_rgba(29,155,240,0.12)]">
             {/* Popup Header */}
             <div className="mb-3 flex items-center gap-2">
               <div className="flex h-6 w-6 items-center justify-center rounded-full bg-accent-red">
@@ -85,12 +90,8 @@ export function Hero() {
 
 function ToggleSwitch({ on }: { on?: boolean }) {
   return (
-    <div
-      className={`relative h-5 w-9 rounded-full ${on ? "bg-accent-blue" : "bg-border"}`}
-    >
-      <div
-        className={`absolute top-0.5 h-4 w-4 rounded-full bg-white transition-transform ${on ? "translate-x-4" : "translate-x-0.5"}`}
-      />
+    <div className={`relative h-5 w-9 rounded-full ${on ? "bg-accent-blue" : "bg-border"}`}>
+      <div className={`absolute top-0.5 h-4 w-4 rounded-full bg-white transition-transform ${on ? "translate-x-4" : "translate-x-0.5"}`} />
     </div>
   );
 }

@@ -20,4 +20,64 @@
   /* === Spacing === */
   --spacing-section: 5rem;
   --spacing-section-mobile: 3rem;
+
+  /* === Animations === */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out both;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+}
+
+/* === Keyframes === */
+@keyframes float {
+  0%, 100% { transform: perspective(1000px) rotateY(-6deg) rotateX(2deg) translateY(0); }
+  50% { transform: perspective(1000px) rotateY(-6deg) rotateX(2deg) translateY(-12px); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* === Utility: Gradient text === */
+.text-gradient {
+  background: linear-gradient(135deg, #e7e9ea 30%, #1d9bf0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === Utility: Glass card === */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* === Utility: Dot grid background === */
+.bg-dot-grid {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* === Utility: Glow border on hover === */
+.glow-border-hover {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.glow-border-hover:hover {
+  border-color: rgba(29, 155, 240, 0.3);
+  box-shadow: 0 0 20px rgba(29, 155, 240, 0.08), 0 0 40px rgba(29, 155, 240, 0.04);
+}
+
+/* === Reduced motion === */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -15,7 +15,7 @@ export function FAQ() {
   return (
     <section id="faq" className="bg-bg-card py-(--spacing-section)">
       <div className="mx-auto max-w-3xl px-4">
-        <h2 className="font-heading text-center text-3xl font-bold sm:text-4xl">
+        <h2 className="text-gradient font-heading text-center text-3xl font-bold sm:text-4xl">
           {t("faq.title")}
         </h2>
         <div className="mt-12">

@@ -50,11 +50,19 @@ export function BeforeAfter() {
         </div>
 
         {/* Arrow */}
-        <div className="hidden items-center text-2xl font-bold text-accent-blue md:flex">
-          →
+        <div className="hidden items-center md:flex">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-blue/10">
+            <svg className="h-5 w-5 animate-pulse text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </div>
         </div>
-        <div className="flex items-center justify-center text-2xl font-bold text-accent-blue md:hidden">
-          ↓
+        <div className="flex items-center justify-center md:hidden">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-blue/10">
+            <svg className="h-5 w-5 animate-pulse text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M7 11l5 5m0 0l5-5m-5 5V6" />
+            </svg>
+          </div>
         </div>
 
         {/* After */}
@@ -124,7 +132,7 @@ function Tweet({
 }) {
   return (
     <div
-      className={`flex gap-3 px-4 py-3 ${!last ? "border-b border-[#2f3336]" : ""} ${faded ? "opacity-50" : ""}`}
+      className={`flex gap-3 px-4 py-3 transition-opacity ${!last ? "border-b border-[#2f3336]" : ""} ${faded ? "opacity-40" : ""}`}
     >
       {/* Avatar */}
       <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#16181c] text-lg">

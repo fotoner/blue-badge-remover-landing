@@ -9,6 +9,7 @@ interface FeatureItem {
   titleKey: TranslationKeys;
   descKey: TranslationKeys;
   className?: string;
+  accent?: string;
 }
 
 const FEATURES: FeatureItem[] = [
@@ -17,32 +18,38 @@ const FEATURES: FeatureItem[] = [
     titleKey: "features.badge.title",
     descKey: "features.badge.desc",
     className: "sm:col-span-2",
+    accent: "accent-blue",
   },
   {
     icon: Filter,
     titleKey: "features.filter.title",
     descKey: "features.filter.desc",
+    accent: "purple-400",
   },
   {
     icon: EyeOff,
     titleKey: "features.hide.title",
     descKey: "features.hide.desc",
+    accent: "amber-400",
   },
   {
     icon: UserCheck,
     titleKey: "features.whitelist.title",
     descKey: "features.whitelist.desc",
+    accent: "green-400",
   },
   {
     icon: Quote,
     titleKey: "features.quote.title",
     descKey: "features.quote.desc",
+    accent: "rose-400",
   },
   {
     icon: Globe,
     titleKey: "features.i18n.title",
     descKey: "features.i18n.desc",
     className: "sm:col-span-2",
+    accent: "cyan-400",
   },
 ];
 
@@ -51,17 +58,18 @@ export function Features() {
 
   return (
     <section id="features" className="mx-auto max-w-5xl px-4 py-(--spacing-section)">
-      <h2 className="font-heading text-center text-3xl font-bold sm:text-4xl">
+      <h2 className="text-gradient font-heading text-center text-3xl font-bold sm:text-4xl">
         {t("features.title")}
       </h2>
       <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {FEATURES.map(({ icon, titleKey, descKey, className }) => (
+        {FEATURES.map(({ icon, titleKey, descKey, className, accent }) => (
           <FeatureCard
             key={titleKey}
             icon={icon}
             title={t(titleKey)}
             description={t(descKey)}
             className={className}
+            accent={accent}
           />
         ))}
       </div>

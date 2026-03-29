@@ -1,4 +1,4 @@
-import { ExternalLink, Download, Zap, Globe } from "lucide-react";
+import { ExternalLink, Download, Zap } from "lucide-react";
 import { Button } from "../components/Button";
 import { useI18n } from "../hooks/useI18n";
 import { trackEvent } from "../lib/analytics";
@@ -27,28 +27,37 @@ export function Guide() {
 
   return (
     <section id="guide" className="mx-auto max-w-5xl px-4 py-(--spacing-section)">
-      <h2 className="font-heading text-center text-3xl font-bold sm:text-4xl">
+      <h2 className="text-gradient font-heading text-center text-3xl font-bold sm:text-4xl">
         {t("guide.title")}
       </h2>
 
-      <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
+      <div className="relative mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
+        {/* Connecting line (desktop only) */}
+        <div className="pointer-events-none absolute top-8 right-[calc(16.67%+16px)] left-[calc(16.67%+16px)] hidden h-px bg-gradient-to-r from-transparent via-accent-blue/30 to-transparent sm:block" />
+
         {STEPS.map(({ icon: Icon, titleKey, descKey }, index) => (
-          <div key={titleKey} className="flex flex-col items-center text-center">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-accent-blue/10">
-              <Icon className="h-8 w-8 text-accent-blue" aria-hidden="true" />
+          <div key={titleKey} className="group flex flex-col items-center text-center">
+            {/* Step number badge */}
+            <div className="relative">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-accent-blue/10 transition-all duration-300 group-hover:bg-accent-blue/20 group-hover:shadow-[0_0_20px_rgba(29,155,240,0.15)]">
+                <Icon className="h-7 w-7 text-accent-blue transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
+              </div>
+              <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-accent-blue text-xs font-bold text-white">
+                {index + 1}
+              </span>
             </div>
-            <span className="mt-4 text-sm font-medium text-text-secondary">
-              {t("guide.step")} {index + 1}
-            </span>
-            <h3 className="mt-2 font-heading text-lg font-semibold">{t(titleKey)}</h3>
+            <h3 className="mt-4 font-heading text-lg font-semibold">{t(titleKey)}</h3>
             <p className="mt-2 text-sm leading-relaxed text-text-secondary">{t(descKey)}</p>
           </div>
         ))}
       </div>
 
       <div className="mt-12 text-center">
-        <Button href={CHROME_STORE_URL} onClick={handleCtaClick}>
-          <Globe className="h-5 w-5" aria-hidden="true" />
+        <Button
+          href={CHROME_STORE_URL}
+          onClick={handleCtaClick}
+          className="shadow-[0_0_20px_rgba(29,155,240,0.3)] transition-shadow hover:shadow-[0_0_30px_rgba(29,155,240,0.5)]"
+        >
           {t("hero.cta")}
         </Button>
       </div>

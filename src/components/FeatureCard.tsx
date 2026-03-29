@@ -5,15 +5,25 @@ interface FeatureCardProps {
   title: string;
   description: string;
   className?: string;
+  accent?: string;
 }
 
-export function FeatureCard({ icon: Icon, title, description, className = "" }: FeatureCardProps) {
+export function FeatureCard({
+  icon: Icon,
+  title,
+  description,
+  className = "",
+  accent = "accent-blue",
+}: FeatureCardProps) {
   return (
     <div
-      className={`rounded-2xl border border-border bg-bg-card p-6 transition-colors duration-200 hover:border-text-secondary ${className}`}
+      className={`glass-card glow-border-hover group rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 ${className}`}
     >
-      <div className="mb-4 inline-flex rounded-xl bg-accent-blue/10 p-3">
-        <Icon className="h-6 w-6 text-accent-blue" aria-hidden="true" />
+      <div className={`mb-4 inline-flex rounded-xl bg-${accent}/10 p-3`}>
+        <Icon
+          className={`h-6 w-6 text-${accent} transition-transform duration-300 group-hover:scale-110`}
+          aria-hidden="true"
+        />
       </div>
       <h3 className="font-heading text-lg font-semibold">{title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-text-secondary">{description}</p>

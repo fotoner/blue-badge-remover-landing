@@ -7,22 +7,28 @@ export function SocialProof() {
   return (
     <section className="bg-bg-card py-(--spacing-section)">
       <div className="mx-auto max-w-5xl px-4">
-        <h2 className="font-heading text-center text-3xl font-bold sm:text-4xl">
+        <h2 className="text-gradient font-heading text-center text-3xl font-bold sm:text-4xl">
           {t("social.title")}
         </h2>
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {/* RT Stats */}
-          <div className="flex flex-col items-center rounded-2xl border border-border bg-bg-primary p-8 text-center">
-            <Repeat2 className="mb-4 h-10 w-10 text-accent-blue" aria-hidden="true" />
-            <p className="font-heading text-5xl font-bold">{t("social.stat.rt")}</p>
+          <div className="glass-card glow-border-hover group rounded-2xl p-8 text-center transition-all duration-300 hover:-translate-y-1">
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-blue/10">
+              <Repeat2 className="h-7 w-7 text-accent-blue transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
+            </div>
+            <p className="text-gradient font-heading text-5xl font-bold sm:text-6xl">
+              {t("social.stat.rt")}
+            </p>
             <p className="mt-2 text-lg text-text-secondary">{t("social.stat.rt.label")}</p>
             <p className="mt-4 text-sm text-text-secondary">{t("social.stat.users")}</p>
           </div>
 
           {/* Privacy */}
-          <div className="flex flex-col items-center rounded-2xl border border-border bg-bg-primary p-8 text-center">
-            <ShieldCheck className="mb-4 h-10 w-10 text-green-500" aria-hidden="true" />
+          <div className="glass-card glow-border-hover group rounded-2xl p-8 text-center transition-all duration-300 hover:-translate-y-1">
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-green-500/10">
+              <ShieldCheck className="h-7 w-7 text-green-500 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
+            </div>
             <p className="font-heading text-2xl font-bold">{t("social.privacy.title")}</p>
             <p className="mt-4 leading-relaxed text-text-secondary">
               {t("social.privacy.desc")}

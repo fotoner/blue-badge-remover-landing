@@ -36,7 +36,9 @@
       "Bash(kill %1)",
       "WebFetch(domain:landing.kanata.live)",
       "Bash(/Users/fotone/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.6/skills/brainstorming/scripts/start-server.sh --project-dir /Users/fotone/dev/blue-badge-remover-landing)",
-      "Bash(npx playwright:*)"
+      "Bash(npx playwright:*)",
+      "Bash(git clone:*)",
+      "Bash(kill %2)"
     ]
   }
 }
