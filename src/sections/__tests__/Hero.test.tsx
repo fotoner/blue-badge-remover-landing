@@ -4,12 +4,6 @@ import userEvent from "@testing-library/user-event";
 import { Hero } from "../Hero";
 import { I18nProvider } from "../../hooks/useI18n";
 
-vi.mock("lucide-react", () => ({
-  Globe: ({ className, ...props }: any) => (
-    <span className={className} {...props} data-testid="globe-icon" />
-  ),
-}));
-
 vi.mock("../../lib/analytics", () => ({
   trackEvent: vi.fn(),
 }));
@@ -31,6 +25,15 @@ describe("Hero", () => {
     ).toBeInTheDocument();
   });
 
+  it("renders social proof badge", () => {
+    render(
+      <I18nProvider>
+        <Hero />
+      </I18nProvider>,
+    );
+    expect(screen.getByText(/10,000\+ RT/)).toBeInTheDocument();
+  });
+
   it("renders CTA link to Chrome Web Store", () => {
     render(
       <I18nProvider>
@@ -39,6 +42,26 @@ describe("Hero", () => {
     );
     const cta = screen.getByRole("link", { name: /Chrome에 추가/ });
     expect(cta).toHaveAttribute("href", expect.stringContaining("chromewebstore"));
+  });
+
+  it("renders GitHub link", () => {
+    render(
+      <I18nProvider>
+        <Hero />
+      </I18nProvider>,
+    );
+    expect(screen.getByRole("link", { name: /GitHub/ })).toBeInTheDocument();
+  });
+
+  it("renders popup preview", () => {
+    render(
+      <I18nProvider>
+        <Hero />
+      </I18nProvider>,
+    );
+    expect(screen.getByText("Blue Badge Remover")).toBeInTheDocument();
+    expect(screen.getByText("Filtering")).toBeInTheDocument();
+    expect(screen.getByText("Home Timeline")).toBeInTheDocument();
   });
 
   it("tracks CTA click", async () => {

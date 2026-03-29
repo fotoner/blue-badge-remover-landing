@@ -1,0 +1,108 @@
+<h2>Hero Section Design Options</h2>
+<p class="subtitle">현재 히어로가 텍스트+버튼만 있어서 비어보입니다. 어떤 방향이 좋을까요?</p>
+
+<div class="cards">
+  <!-- Option A -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#0f172a;padding:24px;border-radius:8px;min-height:280px;display:flex;gap:24px;align-items:center;">
+        <!-- Left: Text -->
+        <div style="flex:1;text-align:left;">
+          <div style="background:#1e293b;border:1px solid #38444d;border-radius:999px;padding:4px 12px;display:inline-flex;align-items:center;gap:6px;font-size:11px;color:#71767b;margin-bottom:12px;">
+            <span style="width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;"></span>
+            Chrome Extension
+          </div>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#e7e9ea;line-height:1.2;margin:0 0 8px 0;">깨끗한 타임라인을<br>되찾으세요</h3>
+          <p style="font-size:12px;color:#71767b;margin:0 0 16px 0;">유료 파란 뱃지 계정을 자동으로 숨기는<br>Chrome 확장 프로그램</p>
+          <div style="background:#1d9bf0;color:white;padding:8px 20px;border-radius:999px;display:inline-block;font-size:12px;font-weight:600;">Chrome에 추가</div>
+        </div>
+        <!-- Right: Popup Preview -->
+        <div style="flex:0 0 160px;background:#15202b;border:1px solid #38444d;border-radius:12px;padding:12px;font-size:10px;transform:perspective(800px) rotateY(-5deg);box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+          <div style="font-weight:700;color:#e7e9ea;margin-bottom:8px;font-size:11px;">Blue Badge Remover</div>
+          <div style="background:#1d9bf0;color:white;padding:4px 0;border-radius:6px;text-align:center;font-size:10px;font-weight:600;margin-bottom:8px;">Filtering ●</div>
+          <div style="border-top:1px solid #38444d;padding-top:6px;">
+            <div style="display:flex;justify-content:space-between;color:#71767b;margin-bottom:4px;"><span>Home Timeline</span><span style="color:#1d9bf0;">●</span></div>
+            <div style="display:flex;justify-content:space-between;color:#71767b;margin-bottom:4px;"><span>Tweet Detail</span><span style="color:#1d9bf0;">●</span></div>
+            <div style="display:flex;justify-content:space-between;color:#71767b;"><span>Search Results</span><span style="color:#1d9bf0;">●</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A. Extension Preview Hero</h3>
+      <p>왼쪽 텍스트 + 오른쪽 팝업 미리보기. 제품이 무엇인지 즉시 보여줌</p>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#0f172a;padding:24px;border-radius:8px;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#e7e9ea;text-align:center;margin:0 0 16px 0;">깨끗한 타임라인을 되찾으세요</h3>
+        <p style="font-size:11px;color:#71767b;text-align:center;margin:0 0 16px 0;">유료 파란 뱃지 계정을 자동으로 숨기는 Chrome 확장 프로그램</p>
+        <div style="background:#1d9bf0;color:white;padding:8px 20px;border-radius:999px;display:inline-block;font-size:12px;font-weight:600;margin-bottom:20px;">Chrome에 추가</div>
+        <!-- Before/After -->
+        <div style="display:flex;gap:12px;width:100%;">
+          <div style="flex:1;background:#1e293b;border-radius:8px;padding:10px;position:relative;">
+            <div style="position:absolute;top:-8px;left:10px;background:#f4212e;color:white;font-size:9px;padding:2px 8px;border-radius:4px;font-weight:600;">BEFORE</div>
+            <div style="background:#273340;border-radius:6px;padding:6px 8px;margin-bottom:4px;font-size:9px;color:#71767b;">
+              <span style="color:#1d9bf0;">✓</span> @spam_user · 유료 뱃지 스팸 트윗...
+            </div>
+            <div style="background:#273340;border-radius:6px;padding:6px 8px;margin-bottom:4px;font-size:9px;color:#e7e9ea;">
+              @friend · 좋은 내용의 트윗입니다
+            </div>
+            <div style="background:#273340;border-radius:6px;padding:6px 8px;font-size:9px;color:#71767b;">
+              <span style="color:#1d9bf0;">✓</span> @paid_badge · 또 다른 스팸...
+            </div>
+          </div>
+          <div style="flex:1;background:#1e293b;border-radius:8px;padding:10px;position:relative;">
+            <div style="position:absolute;top:-8px;left:10px;background:#22c55e;color:white;font-size:9px;padding:2px 8px;border-radius:4px;font-weight:600;">AFTER</div>
+            <div style="background:#273340;border-radius:6px;padding:6px 8px;margin-bottom:4px;font-size:9px;color:#e7e9ea;">
+              @friend · 좋은 내용의 트윗입니다
+            </div>
+            <div style="background:#273340;border-radius:6px;padding:6px 8px;font-size:9px;color:#e7e9ea;">
+              @another_friend · 재미있는 트윗!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B. Before / After Hero</h3>
+      <p>스팸이 가득한 타임라인 vs 깨끗한 타임라인 비교. 문제와 해결책을 직관적으로 전달</p>
+    </div>
+  </div>
+
+  <!-- Option C -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#0f172a 100%);padding:24px;border-radius:8px;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+        <!-- Glow effect -->
+        <div style="position:absolute;width:200px;height:200px;background:radial-gradient(circle,rgba(29,155,240,0.15) 0%,transparent 70%);top:20%;left:50%;transform:translateX(-50%);"></div>
+        <!-- Social proof badge -->
+        <div style="background:rgba(29,155,240,0.1);border:1px solid rgba(29,155,240,0.3);border-radius:999px;padding:4px 14px;font-size:10px;color:#1d9bf0;margin-bottom:16px;position:relative;z-index:1;">
+          🔥 10,000+ RT · 활발한 사용자 커뮤니티
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#e7e9ea;text-align:center;margin:0 0 8px 0;position:relative;z-index:1;">깨끗한 타임라인을<br>되찾으세요</h3>
+        <p style="font-size:12px;color:#71767b;text-align:center;margin:0 0 20px 0;position:relative;z-index:1;">유료 파란 뱃지 계정을 자동으로 숨기는 Chrome 확장 프로그램</p>
+        <div style="display:flex;gap:8px;position:relative;z-index:1;">
+          <div style="background:#1d9bf0;color:white;padding:8px 20px;border-radius:999px;font-size:12px;font-weight:600;">Chrome에 추가</div>
+          <div style="border:1px solid #38444d;color:#e7e9ea;padding:8px 20px;border-radius:999px;font-size:12px;">GitHub</div>
+        </div>
+        <!-- Floating popup behind -->
+        <div style="position:absolute;bottom:-20px;right:10%;width:140px;background:#15202b;border:1px solid #38444d;border-radius:12px;padding:10px;font-size:9px;opacity:0.4;transform:rotate(3deg);z-index:0;">
+          <div style="font-weight:700;color:#e7e9ea;margin-bottom:6px;">Blue Badge Remover</div>
+          <div style="color:#71767b;">Filtering ● Home ● Detail ●</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C. Immersive Glow Hero</h3>
+      <p>그라데이션 배경 + 글로우 이펙트 + 소셜 프루프 배지 + 두 개의 CTA. 팝업은 배경에 반투명으로</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:24px;">
+  <p class="subtitle">💡 조합도 가능합니다 — 예: A의 팝업 미리보기 + C의 글로우 배경 + B의 Before/After를 별도 섹션으로</p>
+</div>

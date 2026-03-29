@@ -7,7 +7,6 @@ import "./index.css";
 const router = createRouter({
   routeTree,
   scrollRestoration: true,
-  defaultNotFoundComponent: () => null,
 });
 
 declare module "@tanstack/react-router" {
