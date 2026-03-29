@@ -67,7 +67,7 @@ export function Features() {
     <section
       ref={sectionRef as React.RefObject<HTMLElement>}
       id="features"
-      className={`min-h-[650px] mx-auto max-w-5xl px-4 py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+      className={`min-h-[750px] mx-auto max-w-5xl px-4 py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
     >
       <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
         {t("features.title")}
@@ -132,6 +132,7 @@ export function Features() {
 /* ── Demo Components ───────────────────────────────── */
 
 function BadgeDetectionDemo() {
+  const { t } = useI18n();
   return (
     <div className="p-4">
       <div className="flex gap-3">
@@ -155,10 +156,10 @@ function BadgeDetectionDemo() {
             <span className="text-[15px] text-[#71767b]">@spam</span>
           </div>
           <p className="mt-1 text-[15px] text-[#e7e9ea]">
-            🚀 Buy this coin now...
+            {t("demo.spam.text")}
           </p>
           <div className="mt-3 animate-[fade-in-up_0.5s_ease-out_1s_both] rounded-lg bg-accent-red/10 px-3 py-2 text-xs text-accent-red">
-            ⚠ Paid subscription badge detected
+            {t("demo.badge.alert")}
           </div>
         </div>
       </div>
@@ -210,6 +211,7 @@ function AnimatedToggle({ delay }: { delay: number }) {
 }
 
 function HideModesDemo() {
+  const { t } = useI18n();
   const [mode, setMode] = useState<"remove" | "collapse">("remove");
 
   useEffect(() => {
@@ -252,7 +254,7 @@ function HideModesDemo() {
             <div className="h-8 w-8 rounded-full bg-[#16181c] text-center text-sm leading-8">
               🤑
             </div>
-            <div className="text-xs text-[#71767b]">Spam tweet removed</div>
+            <div className="text-xs text-[#71767b]">{t("demo.hide.removed")}</div>
           </div>
         ) : (
           <div
@@ -261,7 +263,7 @@ function HideModesDemo() {
           >
             <div className="flex items-center gap-2 text-xs text-[#71767b]">
               <span>▸</span>
-              <span>Hidden tweet (click to expand)</span>
+              <span>{t("demo.hide.collapsed")}</span>
             </div>
           </div>
         )}
@@ -271,6 +273,7 @@ function HideModesDemo() {
 }
 
 function WhitelistDemo() {
+  const { t } = useI18n();
   const [step, setStep] = useState(0);
 
   useEffect(() => {
@@ -300,7 +303,7 @@ function WhitelistDemo() {
         </div>
         {step >= 1 && (
           <span className="animate-[fade-in-up_0.3s_ease-out_both] text-[10px] text-accent-red">
-            filtered
+            {t("demo.whitelist.filtered")}
           </span>
         )}
       </div>
@@ -314,12 +317,12 @@ function WhitelistDemo() {
           <span className="text-sm text-[#e7e9ea]">friend_user</span>
           <span className="ml-1 text-sm text-[#1d9bf0]">✓</span>
           <span className="ml-2 rounded-full bg-green-500/10 px-2 py-0.5 text-[10px] text-green-500">
-            Following
+            {t("demo.whitelist.following")}
           </span>
         </div>
         {step >= 2 && (
           <span className="animate-[fade-in-up_0.3s_ease-out_both] text-[10px] text-green-500">
-            protected
+            {t("demo.whitelist.protected")}
           </span>
         )}
       </div>
@@ -328,6 +331,7 @@ function WhitelistDemo() {
 }
 
 function QuoteTweetDemo() {
+  const { t } = useI18n();
   const [mode, setMode] = useState<"off" | "quote-only" | "hide-entire">("off");
 
   useEffect(() => {
@@ -366,7 +370,7 @@ function QuoteTweetDemo() {
           <span className="text-[#e7e9ea]">user</span>
           <span className="text-[#71767b]">@user · 2h</span>
         </div>
-        <p className="mt-1 text-xs text-[#e7e9ea]">Great analysis 👏</p>
+        <p className="mt-1 text-xs text-[#e7e9ea]">{t("demo.quote.text")}</p>
 
         <div
           className="mt-2 overflow-hidden rounded-lg border border-[#2f3336] transition-all duration-500"
@@ -382,7 +386,7 @@ function QuoteTweetDemo() {
         >
           {mode === "quote-only" ? (
             <div className="px-3 py-1.5 text-[10px] text-[#71767b]">
-              ▸ 파딱의 인용 트윗 숨김 (클릭하여 펼치기)
+              {t("demo.quote.hidden")}
             </div>
           ) : (
             <div className="p-2.5">
@@ -392,7 +396,7 @@ function QuoteTweetDemo() {
                 <span className="text-[#71767b]">@spam</span>
               </div>
               <p className="mt-0.5 text-[10px] text-[#e7e9ea]">
-                🚀 Buy this coin...
+                {t("demo.spam.text")}
               </p>
             </div>
           )}
@@ -400,7 +404,7 @@ function QuoteTweetDemo() {
 
         {mode === "hide-entire" && (
           <div className="mt-2 animate-[fade-in-up_0.3s_ease-out_both] text-[10px] text-accent-red/70">
-            전체 트윗 숨김 처리됨
+            {t("demo.quote.entire")}
           </div>
         )}
       </div>

@@ -106,7 +106,7 @@ export function BeforeAfter() {
   return (
     <section
       ref={sectionRef as React.RefObject<HTMLElement>}
-      className={`min-h-[700px] bg-bg-card py-(--spacing-section) transition-all duration-700 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+      className={`min-h-[750px] bg-bg-card py-(--spacing-section) transition-all duration-700 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
     >
       <div className="mx-auto max-w-2xl px-4">
         <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">

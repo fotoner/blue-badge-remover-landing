@@ -6,29 +6,41 @@ interface Testimonial {
   handle: string;
 }
 
-const ROW_1: Testimonial[] = [
-  { text: "와 이거 성능 지린다 얘들아 이거 쓰고 광명찾자", handle: "사용자 A씨" },
-  { text: "이 시대의 희망. 참된 위인. 그저 빛.", handle: "사용자 B씨" },
-  { text: "공익을 위해 리트윗합니다", handle: "사용자 C씨" },
-  { text: "최근 본 툴 중에 가장 혁신적이다", handle: "사용자 D씨" },
-  { text: "헐 대박 ㅇㅇㅇ 정신적인 스트레스 반은 줄어들듯", handle: "사용자 E씨" },
-  { text: "원하던 거였어요", handle: "사용자 F씨" },
-  { text: "구원자🙏", handle: "사용자 G씨" },
+const LABELS = "ABCDEFGHIJKLMN".split("");
+
+const ROW_1_TEXTS = [
+  "와 이거 성능 지린다 얘들아 이거 쓰고 광명찾자",
+  "이 시대의 희망. 참된 위인. 그저 빛.",
+  "공익을 위해 리트윗합니다",
+  "최근 본 툴 중에 가장 혁신적이다",
+  "헐 대박 ㅇㅇㅇ 정신적인 스트레스 반은 줄어들듯",
+  "원하던 거였어요",
+  "구원자🙏",
 ];
 
-const ROW_2: Testimonial[] = [
-  { text: "본인이 뭔가에 불편함을 느끼고 그 해결책을 스스로 만든 거 아님? 리얼로 리스펙한다", handle: "사용자 H씨" },
-  { text: "참다참다 결국 이거 사용함", handle: "사용자 I씨" },
-  { text: "이 사람을 청와대로!!!", handle: "사용자 J씨" },
-  { text: "드디어내탐라청소를할수있어", handle: "사용자 K씨" },
-  { text: "이거 내가 맘속에서 있었으면 좋겠다고 계속 생각했던건데💕😭", handle: "사용자 L씨" },
-  { text: "노고에 경의를 표합니다", handle: "사용자 M씨" },
-  { text: "개발자계의 나이팅게일", handle: "사용자 N씨" },
+const ROW_2_TEXTS = [
+  "본인이 뭔가에 불편함을 느끼고 그 해결책을 스스로 만든 거 아님? 리얼로 리스펙한다",
+  "참다참다 결국 이거 사용함",
+  "이 사람을 청와대로!!!",
+  "드디어내탐라청소를할수있어",
+  "이거 내가 맘속에서 있었으면 좋겠다고 계속 생각했던건데💕😭",
+  "노고에 경의를 표합니다",
+  "개발자계의 나이팅게일",
 ];
 
 export function SocialProof() {
   const { t } = useI18n();
   const { ref: sectionRef, inView } = useInView();
+
+  const anon = t("social.anon");
+  const row1: Testimonial[] = ROW_1_TEXTS.map((text, i) => ({
+    text,
+    handle: `${anon} ${LABELS[i]}`,
+  }));
+  const row2: Testimonial[] = ROW_2_TEXTS.map((text, i) => ({
+    text,
+    handle: `${anon} ${LABELS[i + ROW_1_TEXTS.length]}`,
+  }));
 
   return (
     <section
@@ -46,8 +58,8 @@ export function SocialProof() {
 
       {/* Marquee area - full width */}
       <div className="group relative mt-10 flex flex-col gap-4">
-        <MarqueeRow testimonials={ROW_1} direction="left" />
-        <MarqueeRow testimonials={ROW_2} direction="right" />
+        <MarqueeRow testimonials={row1} direction="left" />
+        <MarqueeRow testimonials={row2} direction="right" />
       </div>
     </section>
   );
