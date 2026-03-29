@@ -20,7 +20,7 @@ describe("SocialProof", () => {
       </I18nProvider>,
     );
     expect(screen.getAllByText(/광명찾자/).length).toBeGreaterThan(0);
-    expect(screen.getAllByText("X 사용자").length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/사용자 [A-N]씨/).length).toBeGreaterThan(0);
   });
 
   it("renders subtitle with RT count", () => {
