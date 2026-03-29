@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  /* === Colors: X-branded dark palette === */
+  --color-bg-primary: #0f172a;
+  --color-bg-card: #1e293b;
+  --color-bg-muted: #273340;
+  --color-text-primary: #e7e9ea;
+  --color-text-secondary: #71767b;
+  --color-accent-blue: #1d9bf0;
+  --color-accent-blue-hover: #1a8cd8;
+  --color-accent-red: #f4212e;
+  --color-border: #38444d;
+
+  /* === Typography === */
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* === Spacing === */
+  --spacing-section: 5rem;
+  --spacing-section-mobile: 3rem;
+}

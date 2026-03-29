@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="X(Twitter)에서 유료 파란 뱃지 계정을 자동으로 숨기는 Chrome 확장 프로그램" />
+    <title>Blue Badge Remover</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Blue Badge Remover" />
+    <meta property="og:description" content="X(Twitter)에서 유료 파란 뱃지 계정을 자동으로 숨기는 Chrome 확장 프로그램" />
+    <meta property="og:image" content="/og-image.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Blue Badge Remover" />
+    <meta name="twitter:description" content="X(Twitter)에서 유료 파란 뱃지 계정을 자동으로 숨기는 Chrome 확장 프로그램" />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Blue Badge Remover",
+      "operatingSystem": "Chrome",
+      "applicationCategory": "BrowserApplication",
+      "description": "X(Twitter)에서 유료 파란 뱃지 계정을 자동으로 숨기는 Chrome 확장 프로그램",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- GA4 -->
+    <script>
+      (function() {
+        var id = '%VITE_GA_MEASUREMENT_ID%';
+        if (!id || id.indexOf('VITE_') === 0) return;
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+        s.async = true;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', id);
+      })();
+    </script>
+  </head>
+  <body class="bg-bg-primary text-text-primary font-body antialiased">
+    <div id="root"></div>
+    <script>
+      (function(l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

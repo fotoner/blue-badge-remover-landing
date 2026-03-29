@@ -32,3 +32,6 @@ data/
 # Logs
 *.log
 logs/
+
+# TanStack Router
+.tanstack/
