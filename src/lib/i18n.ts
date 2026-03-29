@@ -21,6 +21,9 @@ const translations = {
     "ba.clean1": "오늘 날씨 진짜 좋다 ☀️",
     "ba.clean2": "이 영화 진짜 추천! 주말에 꼭 보세요 🎬",
     "ba.hidden": "스팸 트윗 2개 숨김 처리됨",
+    "demo.title": "이렇게 작동합니다",
+    "demo.subtitle": "토글을 켜보세요. 유료 뱃지 스팸이 사라집니다.",
+    "demo.badge.detected": "유료 뱃지 감지",
     "features.title": "주요 기능",
     "features.badge.title": "유료 뱃지 감지",
     "features.badge.desc":
@@ -92,6 +95,9 @@ const translations = {
     "ba.clean1": "Such beautiful weather today ☀️",
     "ba.clean2": "This movie is amazing! Must watch this weekend 🎬",
     "ba.hidden": "2 spam tweets hidden",
+    "demo.title": "See it in action",
+    "demo.subtitle": "Toggle the filter and watch paid badge spam disappear.",
+    "demo.badge.detected": "Paid badge detected",
     "features.title": "Key Features",
     "features.badge.title": "Paid Badge Detection",
     "features.badge.desc":
@@ -162,6 +168,9 @@ const translations = {
     "ba.clean1": "今日の天気めっちゃいい ☀️",
     "ba.clean2": "この映画マジおすすめ！週末にぜひ 🎬",
     "ba.hidden": "スパムツイート2件を非表示",
+    "demo.title": "動作を確認",
+    "demo.subtitle": "フィルターをオンにすると有料バッジスパムが消えます。",
+    "demo.badge.detected": "有料バッジ検出",
     "features.title": "主な機能",
     "features.badge.title": "有料バッジ検出",
     "features.badge.desc":
