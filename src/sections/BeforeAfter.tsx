@@ -58,55 +58,11 @@ export function BeforeAfter() {
     });
   }, [addTimer, clearTimers]);
 
-  const spamTweets = [
-    {
-      avatar: "🤑",
-      name: "spam_promoter",
-      handle: "@spam_promo",
-      time: "2h",
-      textKey: "ba.spam1" as const,
-      delay: 0,
-    },
-    {
-      avatar: "💸",
-      name: "badge_buyer",
-      handle: "@badge_buy",
-      time: "4h",
-      textKey: "ba.spam2" as const,
-      delay: 150,
-    },
-  ];
-
-  const cleanTweets = [
-    {
-      avatar: "😊",
-      name: "친구",
-      handle: "@friend_kr",
-      time: "3h",
-      textKey: "ba.clean1" as const,
-    },
-    {
-      avatar: "🎬",
-      name: "동료",
-      handle: "@colleague",
-      time: "5h",
-      textKey: "ba.clean2" as const,
-    },
-  ];
-
-  const allTweets: Array<{
-    avatar: string;
-    name: string;
-    handle: string;
-    time: string;
-    textKey: "ba.spam1" | "ba.spam2" | "ba.clean1" | "ba.clean2";
-    isSpam: boolean;
-    delay: number;
-  }> = [
-    { ...spamTweets[0], isSpam: true },
-    { ...cleanTweets[0], isSpam: false, delay: 0 },
-    { ...spamTweets[1], isSpam: true },
-    { ...cleanTweets[1], isSpam: false, delay: 0 },
+  const allTweets = [
+    { avatar: "🤑", name: "spam_promoter", handle: "@spam_promo", time: "2h", textKey: "ba.spam1" as const, isSpam: true, delay: 0 },
+    { avatar: "😊", name: "친구", handle: "@friend_kr", time: "3h", textKey: "ba.clean1" as const, isSpam: false, delay: 0 },
+    { avatar: "💸", name: "badge_buyer", handle: "@badge_buy", time: "4h", textKey: "ba.spam2" as const, isSpam: true, delay: 150 },
+    { avatar: "🎬", name: "동료", handle: "@colleague", time: "5h", textKey: "ba.clean2" as const, isSpam: false, delay: 0 },
   ];
 
   const { ref: sectionRef, inView } = useInView();
