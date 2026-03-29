@@ -38,7 +38,24 @@
       "Bash(/Users/fotone/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.6/skills/brainstorming/scripts/start-server.sh --project-dir /Users/fotone/dev/blue-badge-remover-landing)",
       "Bash(npx playwright:*)",
       "Bash(git clone:*)",
-      "Bash(kill %2)"
+      "Bash(kill %2)",
+      "Bash(B=~/.claude/skills/gstack/browse/dist/browse)",
+      "Bash(SS=/tmp/design-review-screenshots)",
+      "Bash(mkdir -p \"$SS\")",
+      "Bash(__NEW_LINE_5bfadd1cb678a405__ $B goto \"http://localhost:5173\")",
+      "Bash($B screenshot:*)",
+      "Bash(__NEW_LINE_52918ce39f41df9a__ $B goto \"http://localhost:5173\")",
+      "Bash($B js:*)",
+      "Bash($B restart:*)",
+      "Bash($B goto:*)",
+      "Bash(B=~/.claude/skills/gstack/browse/dist/browse $B html)",
+      "Bash($B console:*)",
+      "Bash($B viewport:*)",
+      "Bash(git restore:*)",
+      "Bash(__NEW_LINE_f2870d8f8a8cbce8__ B=~/.claude/skills/gstack/browse/dist/browse)",
+      "Bash(__NEW_LINE_9a3a069b7b2de4af__ git:*)",
+      "Bash(gh repo:*)",
+      "Bash(git push:*)"
     ]
   }
 }

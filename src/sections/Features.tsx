@@ -40,7 +40,7 @@ const FEATURES: FeatureItem[] = [
 export function Features() {
   const { t } = useI18n();
   const [active, setActive] = useState(0);
-  const intervalRef = useRef<ReturnType<typeof setInterval>>();
+  const intervalRef = useRef<ReturnType<typeof setInterval>>(undefined);
 
   function startAutoRotate() {
     clearInterval(intervalRef.current);
@@ -60,7 +60,7 @@ export function Features() {
     startAutoRotate();
   }
 
-  const ActiveDemo = FEATURES[active].Demo;
+  const ActiveDemo = FEATURES[active]!.Demo;
   const { ref: sectionRef, inView } = useInView();
 
   return (
@@ -343,7 +343,7 @@ function QuoteTweetDemo() {
     let idx = 0;
     const interval = setInterval(() => {
       idx = (idx + 1) % modes.length;
-      setMode(modes[idx]);
+      setMode(modes[idx]!);
     }, 2500);
     return () => clearInterval(interval);
   }, []);

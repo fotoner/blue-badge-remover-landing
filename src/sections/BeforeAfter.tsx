@@ -94,7 +94,15 @@ export function BeforeAfter() {
     },
   ];
 
-  const allTweets = [
+  const allTweets: Array<{
+    avatar: string;
+    name: string;
+    handle: string;
+    time: string;
+    textKey: "ba.spam1" | "ba.spam2" | "ba.clean1" | "ba.clean2";
+    isSpam: boolean;
+    delay: number;
+  }> = [
     { ...spamTweets[0], isSpam: true },
     { ...cleanTweets[0], isSpam: false, delay: 0 },
     { ...spamTweets[1], isSpam: true },
