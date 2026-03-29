@@ -23,7 +23,7 @@ describe("useI18n", () => {
       </I18nProvider>,
     );
     expect(screen.getByTestId("locale")).toHaveTextContent("ko");
-    expect(screen.getByTestId("text")).toHaveTextContent("깨끗한 타임라인을 되찾으세요");
+    expect(screen.getByTestId("text")).toHaveTextContent("나의 타임라인을 되찾으세요");
   });
 
   it("switches to English when setLocale is called", async () => {

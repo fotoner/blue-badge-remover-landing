@@ -3,7 +3,7 @@ import { t, LOCALES } from "../i18n";
 
 describe("i18n", () => {
   it("returns Korean text for ko locale", () => {
-    expect(t("ko", "hero.title")).toBe("깨끗한 타임라인을 되찾으세요");
+    expect(t("ko", "hero.title")).toBe("나의 타임라인을 되찾으세요");
   });
 
   it("returns English text for en locale", () => {

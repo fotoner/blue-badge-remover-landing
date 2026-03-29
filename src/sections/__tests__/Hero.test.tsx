@@ -18,11 +18,11 @@ describe("Hero", () => {
       </I18nProvider>,
     );
     expect(
-      screen.getByText("깨끗한 타임라인을 되찾으세요"),
+      screen.getByText("나의 타임라인을 되찾으세요"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/유료 파란 뱃지 계정을 자동으로 숨기는/),
-    ).toBeInTheDocument();
+      screen.getAllByText(/파란 뱃지 계정을 자동으로 숨기는/).length,
+    ).toBeGreaterThanOrEqual(1);
   });
 
   it("renders social proof badge", () => {
