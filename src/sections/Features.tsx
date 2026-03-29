@@ -9,7 +9,8 @@ interface FeatureItem {
   titleKey: TranslationKeys;
   descKey: TranslationKeys;
   className?: string;
-  accent?: string;
+  iconBg: string;
+  iconColor: string;
 }
 
 const FEATURES: FeatureItem[] = [
@@ -18,38 +19,44 @@ const FEATURES: FeatureItem[] = [
     titleKey: "features.badge.title",
     descKey: "features.badge.desc",
     className: "sm:col-span-2",
-    accent: "accent-blue",
+    iconBg: "bg-blue-500/10",
+    iconColor: "text-blue-400",
   },
   {
     icon: Filter,
     titleKey: "features.filter.title",
     descKey: "features.filter.desc",
-    accent: "purple-400",
+    iconBg: "bg-purple-500/10",
+    iconColor: "text-purple-400",
   },
   {
     icon: EyeOff,
     titleKey: "features.hide.title",
     descKey: "features.hide.desc",
-    accent: "amber-400",
+    iconBg: "bg-amber-500/10",
+    iconColor: "text-amber-400",
   },
   {
     icon: UserCheck,
     titleKey: "features.whitelist.title",
     descKey: "features.whitelist.desc",
-    accent: "green-400",
+    iconBg: "bg-green-500/10",
+    iconColor: "text-green-400",
   },
   {
     icon: Quote,
     titleKey: "features.quote.title",
     descKey: "features.quote.desc",
-    accent: "rose-400",
+    iconBg: "bg-rose-500/10",
+    iconColor: "text-rose-400",
   },
   {
     icon: Globe,
     titleKey: "features.i18n.title",
     descKey: "features.i18n.desc",
     className: "sm:col-span-2",
-    accent: "cyan-400",
+    iconBg: "bg-cyan-500/10",
+    iconColor: "text-cyan-400",
   },
 ];
 
@@ -62,14 +69,15 @@ export function Features() {
         {t("features.title")}
       </h2>
       <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {FEATURES.map(({ icon, titleKey, descKey, className, accent }) => (
+        {FEATURES.map(({ icon, titleKey, descKey, className, iconBg, iconColor }) => (
           <FeatureCard
             key={titleKey}
             icon={icon}
             title={t(titleKey)}
             description={t(descKey)}
             className={className}
-            accent={accent}
+            iconBg={iconBg}
+            iconColor={iconColor}
           />
         ))}
       </div>

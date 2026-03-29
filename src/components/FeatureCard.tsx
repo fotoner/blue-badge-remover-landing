@@ -5,7 +5,8 @@ interface FeatureCardProps {
   title: string;
   description: string;
   className?: string;
-  accent?: string;
+  iconBg?: string;
+  iconColor?: string;
 }
 
 export function FeatureCard({
@@ -13,15 +14,16 @@ export function FeatureCard({
   title,
   description,
   className = "",
-  accent = "accent-blue",
+  iconBg = "bg-accent-blue/10",
+  iconColor = "text-accent-blue",
 }: FeatureCardProps) {
   return (
     <div
       className={`glass-card glow-border-hover group rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 ${className}`}
     >
-      <div className={`mb-4 inline-flex rounded-xl bg-${accent}/10 p-3`}>
+      <div className={`mb-4 inline-flex rounded-xl p-3 ${iconBg}`}>
         <Icon
-          className={`h-6 w-6 text-${accent} transition-transform duration-300 group-hover:scale-110`}
+          className={`h-6 w-6 transition-transform duration-300 group-hover:scale-110 ${iconColor}`}
           aria-hidden="true"
         />
       </div>
