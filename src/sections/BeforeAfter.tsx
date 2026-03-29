@@ -116,7 +116,7 @@ export function BeforeAfter() {
           {t("demo.subtitle")}
         </p>
 
-        <div className="relative mt-10 overflow-hidden rounded-2xl border border-white/[0.08] bg-black shadow-[0_25px_80px_rgba(0,0,0,0.5)]">
+        <div className="relative mt-10 min-h-[320px] overflow-hidden rounded-2xl border border-white/[0.08] bg-black shadow-[0_25px_80px_rgba(0,0,0,0.5)]">
           {/* Extension header bar */}
           <div className="flex items-center justify-between border-b border-[#2f3336] px-4 py-3">
             <div className="flex items-center gap-2">

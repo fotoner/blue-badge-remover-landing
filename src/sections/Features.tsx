@@ -30,6 +30,11 @@ const FEATURES: FeatureItem[] = [
     descKey: "features.whitelist.desc",
     Demo: WhitelistDemo,
   },
+  {
+    titleKey: "features.quote.title",
+    descKey: "features.quote.desc",
+    Demo: QuoteTweetDemo,
+  },
 ];
 
 export function Features() {
@@ -110,7 +115,7 @@ export function Features() {
         </div>
 
         {/* Right: Demo area */}
-        <div className="flex items-center justify-center">
+        <div className="flex min-h-[280px] items-center justify-center">
           <div
             key={active}
             className="w-full max-w-sm animate-[fade-in-up_0.4s_ease-out_both] overflow-hidden rounded-2xl border border-white/[0.08] bg-black shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
@@ -315,6 +320,82 @@ function WhitelistDemo() {
           <span className="animate-[fade-in-up_0.3s_ease-out_both] text-[10px] text-green-500">
             protected
           </span>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function QuoteTweetDemo() {
+  const [mode, setMode] = useState<"off" | "quote-only" | "hide-entire">("off");
+
+  useEffect(() => {
+    const modes: Array<"off" | "quote-only" | "hide-entire"> = [
+      "off",
+      "quote-only",
+      "hide-entire",
+    ];
+    let idx = 0;
+    const interval = setInterval(() => {
+      idx = (idx + 1) % modes.length;
+      setMode(modes[idx]);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="p-4">
+      <div className="mb-3 flex gap-1.5">
+        {(["off", "quote-only", "hide-entire"] as const).map((m) => (
+          <span
+            key={m}
+            className={`rounded-md px-2 py-1 text-[10px] font-medium transition-colors ${
+              mode === m
+                ? "bg-accent-blue/20 text-accent-blue"
+                : "text-[#71767b]"
+            }`}
+          >
+            {m === "off" ? "Off" : m === "quote-only" ? "Quote Only" : "Entire"}
+          </span>
+        ))}
+      </div>
+
+      <div className="rounded-lg border border-[#2f3336] p-3">
+        <div className="flex items-center gap-1.5 text-xs">
+          <span className="text-[#e7e9ea]">user</span>
+          <span className="text-[#71767b]">@user · 2h</span>
+        </div>
+        <p className="mt-1 text-xs text-[#e7e9ea]">Great analysis 👏</p>
+
+        <div
+          className="mt-2 overflow-hidden rounded-lg border border-[#2f3336] transition-all duration-500"
+          style={{
+            maxHeight: mode === "hide-entire" ? "0px" : mode === "quote-only" ? "28px" : "60px",
+            opacity: mode === "hide-entire" ? 0 : 1,
+          }}
+        >
+          {mode === "quote-only" ? (
+            <div className="px-3 py-1.5 text-[10px] text-[#71767b]">
+              ▸ 파딱의 인용 트윗 숨김 (클릭하여 펼치기)
+            </div>
+          ) : (
+            <div className="p-2.5">
+              <div className="flex items-center gap-1 text-[10px]">
+                <span className="text-[#e7e9ea]">spammer</span>
+                <span className="text-[#1d9bf0]">✓</span>
+                <span className="text-[#71767b]">@spam</span>
+              </div>
+              <p className="mt-0.5 text-[10px] text-[#e7e9ea]">
+                🚀 Buy this coin...
+              </p>
+            </div>
+          )}
+        </div>
+
+        {mode === "hide-entire" && (
+          <div className="mt-2 animate-[fade-in-up_0.3s_ease-out_both] text-[10px] text-accent-red/70">
+            전체 트윗 숨김 처리됨
+          </div>
         )}
       </div>
     </div>
