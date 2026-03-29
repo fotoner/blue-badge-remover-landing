@@ -17,7 +17,7 @@ export function LanguageSwitch() {
           key={loc}
           onClick={() => setLocale(loc)}
           aria-pressed={locale === loc}
-          className={`cursor-pointer rounded-md px-2 py-1 text-xs font-medium transition-colors duration-200 ${
+          className={`cursor-pointer rounded-md px-3 py-2 text-xs font-medium transition-colors duration-200 ${
             locale === loc
               ? "text-accent-blue"
               : "text-text-secondary hover:text-text-primary"
