@@ -26,7 +26,7 @@ export function Hero() {
             {t("hero.badge")}
           </div>
 
-          <h1 className="text-gradient font-heading text-4xl font-bold leading-tight tracking-tight break-keep sm:text-5xl md:text-6xl">
+          <h1 className="whitespace-pre-line text-gradient font-heading text-4xl font-bold leading-tight tracking-tight break-keep sm:text-5xl md:text-6xl">
             {t("hero.title")}
           </h1>
 

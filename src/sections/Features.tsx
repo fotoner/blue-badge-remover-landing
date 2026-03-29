@@ -67,7 +67,7 @@ export function Features() {
     <section
       ref={sectionRef as React.RefObject<HTMLElement>}
       id="features"
-      className={`mx-auto max-w-5xl px-4 py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+      className={`min-h-[550px] mx-auto max-w-5xl px-4 py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
     >
       <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
         {t("features.title")}

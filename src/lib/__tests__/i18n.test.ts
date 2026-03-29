@@ -11,7 +11,7 @@ describe("i18n", () => {
   });
 
   it("returns Japanese text for ja locale", () => {
-    expect(t("ja", "hero.title")).toBe("クリーンなタイムラインを取り戻そう");
+    expect(t("ja", "hero.title")).toBe("タイムラインを\n取り戻そう");
   });
 
   it("returns key as fallback for missing translation", () => {

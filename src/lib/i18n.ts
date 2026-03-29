@@ -7,7 +7,7 @@ const translations = {
   ko: {
     "hero.title": "나의 타임라인을 되찾으세요",
     "hero.subtitle":
-      "X에서 파란 뱃지 계정을 자동으로 숨기는 Chrome 확장 프로그램",
+      "X의 유료 파란 뱃지 계정을 자동으로 숨겨주는 무료 Chrome 확장",
     "hero.cta": "Chrome에 추가",
     "hero.cta.sub": "무료 · 데이터 수집 없음",
     "hero.badge": "10,000+ RT · Chrome Extension",
@@ -59,9 +59,9 @@ const translations = {
       "아래 버튼을 클릭하여 확장 프로그램 페이지로 이동합니다",
     "guide.step2.title": "Chrome에 추가",
     "guide.step2.desc": "'Chrome에 추가' 버튼을 클릭하여 설치합니다",
-    "guide.step3.title": "X에서 사용",
+    "guide.step3.title": "팔로우 동기화 후 사용",
     "guide.step3.desc":
-      "X(Twitter)를 열면 자동으로 유료 뱃지 계정의 트윗이 필터링됩니다",
+      "X의 팔로잉 페이지를 한 번 방문하여 팔로우 목록을 초기화한 뒤, 타임라인에서 바로 필터링이 시작됩니다",
     "faq.title": "자주 묻는 질문",
     "faq.q1": "팔로우 중인 계정도 숨겨지나요?",
     "faq.a1":
@@ -135,9 +135,9 @@ const translations = {
     "guide.step1.desc": "Click the button below to go to the extension page",
     "guide.step2.title": "Add to Chrome",
     "guide.step2.desc": "Click 'Add to Chrome' button to install",
-    "guide.step3.title": "Use on X",
+    "guide.step3.title": "Sync follows & go",
     "guide.step3.desc":
-      "Open X (Twitter) and tweets from paid badge accounts will be automatically filtered",
+      "Visit your Following page on X once to sync your follow list, then filtering starts automatically on your timeline",
     "faq.title": "FAQ",
     "faq.q1": "Are followed accounts also hidden?",
     "faq.a1":
@@ -158,7 +158,7 @@ const translations = {
     "footer.feedback": "Send Feedback",
   },
   ja: {
-    "hero.title": "クリーンなタイムラインを取り戻そう",
+    "hero.title": "タイムラインを\n取り戻そう",
     "hero.subtitle":
       "X（Twitter）で有料青バッジアカウントのツイートを自動的に非表示にするChrome拡張機能",
     "hero.cta": "Chromeに追加",
@@ -212,9 +212,9 @@ const translations = {
     "guide.step2.title": "Chromeに追加",
     "guide.step2.desc":
       "「Chromeに追加」ボタンをクリックしてインストールします",
-    "guide.step3.title": "Xで使用",
+    "guide.step3.title": "フォロー同期して使用",
     "guide.step3.desc":
-      "X（Twitter）を開くと、有料バッジアカウントのツイートが自動的にフィルタリングされます",
+      "Xのフォロー中ページを一度訪問してフォローリストを同期すると、タイムラインで自動的にフィルタリングが始まります",
     "faq.title": "よくある質問",
     "faq.q1": "フォロー中のアカウントも非表示になりますか？",
     "faq.a1":

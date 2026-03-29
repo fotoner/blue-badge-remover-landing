@@ -1,4 +1,4 @@
-import { ExternalLink, Download, Zap } from "lucide-react";
+import { ExternalLink, Download, Users } from "lucide-react";
 import { Button } from "../components/Button";
 import { useI18n } from "../hooks/useI18n";
 import { useInView } from "../hooks/useInView";
@@ -16,7 +16,7 @@ interface StepItem {
 const STEPS: StepItem[] = [
   { icon: ExternalLink, titleKey: "guide.step1.title", descKey: "guide.step1.desc" },
   { icon: Download, titleKey: "guide.step2.title", descKey: "guide.step2.desc" },
-  { icon: Zap, titleKey: "guide.step3.title", descKey: "guide.step3.desc" },
+  { icon: Users, titleKey: "guide.step3.title", descKey: "guide.step3.desc" },
 ];
 
 export function Guide() {
@@ -39,10 +39,7 @@ export function Guide() {
         {t("guide.title")}
       </h2>
 
-      <div className="relative mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
-        {/* Connecting line (desktop only) */}
-        <div className="pointer-events-none absolute top-8 right-[calc(16.67%+16px)] left-[calc(16.67%+16px)] hidden h-px bg-gradient-to-r from-transparent via-accent-blue/30 to-transparent sm:block" />
-
+      <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
         {STEPS.map(({ icon: Icon, titleKey, descKey }, index) => (
           <div key={titleKey} className="group flex flex-col items-center text-center">
             {/* Step number badge */}

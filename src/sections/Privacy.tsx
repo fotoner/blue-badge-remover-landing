@@ -23,21 +23,27 @@ export function Privacy() {
   return (
     <section
       ref={sectionRef as React.RefObject<HTMLElement>}
-      className={`py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+      className={`bg-green-500/[0.03] py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
     >
       <div className="mx-auto max-w-4xl px-4">
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-500/10">
+          <ShieldCheck className="h-8 w-8 text-green-500" aria-hidden="true" />
+        </div>
         <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
           {t("privacy.title")}
         </h2>
-        <p className="mt-3 text-center text-text-secondary">
+        <p className="mx-auto mt-3 max-w-md text-center text-text-secondary">
           {t("privacy.subtitle")}
         </p>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-3">
           {ITEMS.map(({ icon: Icon, titleKey, descKey }) => (
-            <div key={titleKey} className="text-center">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-500/10">
-                <Icon className="h-6 w-6 text-green-500" aria-hidden="true" />
+            <div
+              key={titleKey}
+              className="rounded-xl border border-green-500/10 bg-green-500/[0.03] p-6 text-center"
+            >
+              <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-lg bg-green-500/10">
+                <Icon className="h-5 w-5 text-green-500" aria-hidden="true" />
               </div>
               <h3 className="mt-4 font-heading text-base font-semibold">
                 {t(titleKey)}
