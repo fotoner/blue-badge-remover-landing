@@ -1,4 +1,4 @@
-import { ShieldCheck, EyeOff, Github } from "lucide-react";
+import { ShieldCheck, EyeOff, Code } from "lucide-react";
 import { useI18n } from "../hooks/useI18n";
 import { useInView } from "../hooks/useInView";
 import type { TranslationKeys } from "../lib/i18n";
@@ -13,7 +13,7 @@ interface PrivacyItem {
 const ITEMS: PrivacyItem[] = [
   { icon: ShieldCheck, titleKey: "privacy.local.title", descKey: "privacy.local.desc" },
   { icon: EyeOff, titleKey: "privacy.nocollect.title", descKey: "privacy.nocollect.desc" },
-  { icon: Github, titleKey: "privacy.opensource.title", descKey: "privacy.opensource.desc" },
+  { icon: Code, titleKey: "privacy.opensource.title", descKey: "privacy.opensource.desc" },
 ];
 
 export function Privacy() {
