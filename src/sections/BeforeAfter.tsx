@@ -106,7 +106,7 @@ export function BeforeAfter() {
   return (
     <section
       ref={sectionRef as React.RefObject<HTMLElement>}
-      className={`min-h-[600px] bg-bg-card py-(--spacing-section) transition-all duration-700 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+      className={`min-h-[700px] bg-bg-card py-(--spacing-section) transition-all duration-700 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
     >
       <div className="mx-auto max-w-2xl px-4">
         <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
@@ -116,7 +116,7 @@ export function BeforeAfter() {
           {t("demo.subtitle")}
         </p>
 
-        <div className="relative mt-10 min-h-[320px] overflow-hidden rounded-2xl border border-white/[0.08] bg-black shadow-[0_25px_80px_rgba(0,0,0,0.5)]">
+        <div className="relative mt-10 overflow-hidden rounded-2xl border border-white/[0.08] bg-black shadow-[0_25px_80px_rgba(0,0,0,0.5)]">
           {/* Extension header bar */}
           <div className="flex items-center justify-between border-b border-[#2f3336] px-4 py-3">
             <div className="flex items-center gap-2">
@@ -130,9 +130,7 @@ export function BeforeAfter() {
             <button
               onClick={handleToggle}
               className="cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
-              aria-label={
-                isActive ? "Disable filtering" : "Enable filtering"
-              }
+              aria-label={isActive ? "Disable filtering" : "Enable filtering"}
             >
               <ToggleSwitch on={isActive} />
             </button>
@@ -151,7 +149,7 @@ export function BeforeAfter() {
                 isSpam={tweet.isSpam}
                 isHidden={isActive && tweet.isSpam}
                 badgeLabel={t("demo.badge.detected")}
-                delay={tweet.isSpam ? tweet.delay ?? 0 : 0}
+                delay={tweet.isSpam ? (tweet.delay ?? 0) : 0}
               />
             ))}
           </div>
@@ -242,9 +240,7 @@ function TweetRow({
             <span className="text-[15px] text-[#71767b]">{time}</span>
           </div>
           {/* Text */}
-          <p className="mt-0.5 text-[15px] leading-5 text-[#e7e9ea]">
-            {text}
-          </p>
+          <p className="mt-0.5 text-[15px] leading-5 text-[#e7e9ea]">{text}</p>
           {/* Spam indicator */}
           {isSpam && (
             <div className="mt-2 flex items-center gap-1 text-[11px] text-accent-red/70">

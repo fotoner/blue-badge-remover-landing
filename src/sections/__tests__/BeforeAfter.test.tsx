@@ -30,7 +30,7 @@ describe("BeforeAfter (Live Demo)", () => {
     renderDemo();
     expect(screen.getByText("이렇게 작동합니다")).toBeInTheDocument();
     expect(
-      screen.getByText(/토글을 켜보세요/),
+      screen.getByText(/토글을 직접 눌러보세요/),
     ).toBeInTheDocument();
   });
 

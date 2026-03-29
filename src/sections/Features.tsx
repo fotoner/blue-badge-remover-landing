@@ -67,11 +67,14 @@ export function Features() {
     <section
       ref={sectionRef as React.RefObject<HTMLElement>}
       id="features"
-      className={`min-h-[550px] mx-auto max-w-5xl px-4 py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+      className={`min-h-[650px] mx-auto max-w-5xl px-4 py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
     >
       <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
         {t("features.title")}
       </h2>
+      <p className="mx-auto mt-3 max-w-md text-center text-text-secondary">
+        {t("features.subtitle")}
+      </p>
 
       <div className="mt-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_1.2fr]">
         {/* Left: Feature tabs */}
@@ -81,9 +84,7 @@ export function Features() {
               key={f.titleKey}
               onClick={() => handleSelect(i)}
               className={`group relative cursor-pointer overflow-hidden rounded-xl px-5 py-4 text-left transition-all duration-300 ${
-                active === i
-                  ? "bg-white/[0.06]"
-                  : "hover:bg-white/[0.03]"
+                active === i ? "bg-white/[0.06]" : "hover:bg-white/[0.03]"
               }`}
             >
               {/* Progress bar */}
@@ -370,7 +371,12 @@ function QuoteTweetDemo() {
         <div
           className="mt-2 overflow-hidden rounded-lg border border-[#2f3336] transition-all duration-500"
           style={{
-            maxHeight: mode === "hide-entire" ? "0px" : mode === "quote-only" ? "28px" : "60px",
+            maxHeight:
+              mode === "hide-entire"
+                ? "0px"
+                : mode === "quote-only"
+                  ? "28px"
+                  : "60px",
             opacity: mode === "hide-entire" ? 0 : 1,
           }}
         >
