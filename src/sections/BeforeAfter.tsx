@@ -5,7 +5,8 @@ export function BeforeAfter() {
   const { t } = useI18n();
 
   return (
-    <section className="mx-auto max-w-4xl px-4 py-(--spacing-section)">
+    <section className="bg-bg-card py-(--spacing-section)">
+      <div className="mx-auto max-w-4xl px-4">
       <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-[1fr_auto_1fr]">
         {/* Before */}
         <div className="overflow-hidden rounded-2xl border border-accent-red/20 bg-accent-red/[0.04]">
@@ -88,6 +89,7 @@ export function BeforeAfter() {
             {t("ba.hidden")}
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

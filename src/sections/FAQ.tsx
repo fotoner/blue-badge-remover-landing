@@ -13,14 +13,16 @@ export function FAQ() {
   const { t } = useI18n();
 
   return (
-    <section id="faq" className="mx-auto max-w-3xl px-4 py-(--spacing-section)">
-      <h2 className="font-heading text-center text-3xl font-bold sm:text-4xl">
-        {t("faq.title")}
-      </h2>
-      <div className="mt-12">
-        {FAQ_KEYS.map(({ q, a }) => (
-          <FAQItem key={q} question={t(q)} answer={t(a)} />
-        ))}
+    <section id="faq" className="bg-bg-card py-(--spacing-section)">
+      <div className="mx-auto max-w-3xl px-4">
+        <h2 className="font-heading text-center text-3xl font-bold sm:text-4xl">
+          {t("faq.title")}
+        </h2>
+        <div className="mt-12">
+          {FAQ_KEYS.map(({ q, a }) => (
+            <FAQItem key={q} question={t(q)} answer={t(a)} />
+          ))}
+        </div>
       </div>
     </section>
   );
