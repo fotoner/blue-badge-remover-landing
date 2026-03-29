@@ -21,7 +21,7 @@ describe("Hero", () => {
       screen.getByText("나의 타임라인을 되찾으세요"),
     ).toBeInTheDocument();
     expect(
-      screen.getAllByText(/파란 뱃지 계정을 자동으로 숨기는/).length,
+      screen.getAllByText(/유료 파란 뱃지 계정을 자동으로/).length,
     ).toBeGreaterThanOrEqual(1);
   });
 

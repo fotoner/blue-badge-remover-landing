@@ -73,6 +73,40 @@
   box-shadow: 0 0 20px rgba(29, 155, 240, 0.08), 0 0 40px rgba(29, 155, 240, 0.04);
 }
 
+/* === Feature demo animations === */
+@keyframes progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@keyframes badge-scan {
+  0%, 100% { filter: drop-shadow(0 0 0px transparent); }
+  50% { filter: drop-shadow(0 0 8px rgba(244, 33, 46, 0.6)); }
+}
+
+@keyframes slide-out {
+  0% { opacity: 1; transform: translateX(0); }
+  70% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(40px); }
+}
+
+@keyframes collapse-tweet {
+  0% { max-height: 60px; }
+  40% { max-height: 60px; }
+  100% { max-height: 32px; }
+}
+
+/* === Marquee animations === */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
 /* === Reduced motion === */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

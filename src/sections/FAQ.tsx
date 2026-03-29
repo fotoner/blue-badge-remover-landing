@@ -1,5 +1,6 @@
 import { FAQItem } from "../components/FAQItem";
 import { useI18n } from "../hooks/useI18n";
+import { useInView } from "../hooks/useInView";
 import type { TranslationKeys } from "../lib/i18n";
 
 const FAQ_KEYS: Array<{ q: TranslationKeys; a: TranslationKeys }> = [
@@ -7,15 +8,25 @@ const FAQ_KEYS: Array<{ q: TranslationKeys; a: TranslationKeys }> = [
   { q: "faq.q2", a: "faq.a2" },
   { q: "faq.q3", a: "faq.a3" },
   { q: "faq.q4", a: "faq.a4" },
+  { q: "faq.q5", a: "faq.a5" },
+  { q: "faq.q6", a: "faq.a6" },
+  { q: "faq.q7", a: "faq.a7" },
+  { q: "faq.q8", a: "faq.a8" },
 ];
 
 export function FAQ() {
   const { t } = useI18n();
 
+  const { ref: sectionRef, inView } = useInView();
+
   return (
-    <section id="faq" className="bg-bg-card py-(--spacing-section)">
+    <section
+      ref={sectionRef as React.RefObject<HTMLElement>}
+      id="faq"
+      className={`py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+    >
       <div className="mx-auto max-w-3xl px-4">
-        <h2 className="text-gradient font-heading text-center text-3xl font-bold sm:text-4xl">
+        <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
           {t("faq.title")}
         </h2>
         <div className="mt-12">

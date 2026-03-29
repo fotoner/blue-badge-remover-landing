@@ -10,8 +10,8 @@ vi.mock("lucide-react", () => ({
   Download: ({ className, ...props }: any) => (
     <span className={className} {...props} data-testid="download-icon" />
   ),
-  Zap: ({ className, ...props }: any) => (
-    <span className={className} {...props} data-testid="zap-icon" />
+  Users: ({ className, ...props }: any) => (
+    <span className={className} {...props} data-testid="users-icon" />
   ),
   Globe: ({ className, ...props }: any) => (
     <span className={className} {...props} data-testid="globe-icon" />
@@ -40,7 +40,7 @@ describe("Guide", () => {
     );
     expect(screen.getByText("Chrome 웹 스토어 방문")).toBeInTheDocument();
     expect(screen.getAllByText("Chrome에 추가").length).toBeGreaterThan(0);
-    expect(screen.getByText("X에서 사용")).toBeInTheDocument();
+    expect(screen.getByText("팔로우 동기화 후 사용")).toBeInTheDocument();
   });
 
   it("has guide id for anchor navigation", () => {

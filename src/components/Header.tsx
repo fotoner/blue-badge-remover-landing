@@ -25,7 +25,7 @@ export function Header() {
             <a
               key={key}
               href={href}
-              className="text-sm text-text-secondary transition-colors duration-200 hover:text-text-primary"
+              className="inline-flex items-center px-2 py-3 text-sm text-text-secondary transition-colors duration-200 hover:text-text-primary"
             >
               {t(key)}
             </a>

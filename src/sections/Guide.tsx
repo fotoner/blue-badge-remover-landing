@@ -1,6 +1,7 @@
-import { ExternalLink, Download, Zap } from "lucide-react";
+import { ExternalLink, Download, Users } from "lucide-react";
 import { Button } from "../components/Button";
 import { useI18n } from "../hooks/useI18n";
+import { useInView } from "../hooks/useInView";
 import { trackEvent } from "../lib/analytics";
 import { CHROME_STORE_URL } from "../lib/constants";
 import type { LucideIcon } from "lucide-react";
@@ -15,7 +16,7 @@ interface StepItem {
 const STEPS: StepItem[] = [
   { icon: ExternalLink, titleKey: "guide.step1.title", descKey: "guide.step1.desc" },
   { icon: Download, titleKey: "guide.step2.title", descKey: "guide.step2.desc" },
-  { icon: Zap, titleKey: "guide.step3.title", descKey: "guide.step3.desc" },
+  { icon: Users, titleKey: "guide.step3.title", descKey: "guide.step3.desc" },
 ];
 
 export function Guide() {
@@ -25,16 +26,20 @@ export function Guide() {
     trackEvent("cta_click", { location: "guide" });
   }
 
+  const { ref: sectionRef, inView } = useInView();
+
   return (
-    <section id="guide" className="mx-auto max-w-5xl px-4 py-(--spacing-section)">
-      <h2 className="text-gradient font-heading text-center text-3xl font-bold sm:text-4xl">
+    <section
+      ref={sectionRef as React.RefObject<HTMLElement>}
+      id="guide"
+      className={`bg-bg-card py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+    >
+    <div className="mx-auto max-w-5xl px-4">
+      <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
         {t("guide.title")}
       </h2>
 
-      <div className="relative mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
-        {/* Connecting line (desktop only) */}
-        <div className="pointer-events-none absolute top-8 right-[calc(16.67%+16px)] left-[calc(16.67%+16px)] hidden h-px bg-gradient-to-r from-transparent via-accent-blue/30 to-transparent sm:block" />
-
+      <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
         {STEPS.map(({ icon: Icon, titleKey, descKey }, index) => (
           <div key={titleKey} className="group flex flex-col items-center text-center">
             {/* Step number badge */}
@@ -56,11 +61,11 @@ export function Guide() {
         <Button
           href={CHROME_STORE_URL}
           onClick={handleCtaClick}
-          className="shadow-[0_0_20px_rgba(29,155,240,0.3)] transition-shadow hover:shadow-[0_0_30px_rgba(29,155,240,0.5)]"
         >
           {t("hero.cta")}
         </Button>
       </div>
+    </div>
     </section>
   );
 }
