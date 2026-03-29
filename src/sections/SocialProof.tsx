@@ -44,12 +44,8 @@ export function SocialProof() {
         </p>
       </div>
 
-      {/* Marquee area - full width, no px constraint */}
-      <div className="group relative mt-10 space-y-4">
-        {/* Edge fade gradients */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-bg-primary to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-bg-primary to-transparent" />
-
+      {/* Marquee area - full width */}
+      <div className="group relative mt-10 flex flex-col gap-4">
         <MarqueeRow testimonials={ROW_1} direction="left" />
         <MarqueeRow testimonials={ROW_2} direction="right" />
       </div>
