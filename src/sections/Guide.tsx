@@ -1,6 +1,7 @@
 import { ExternalLink, Download, Zap } from "lucide-react";
 import { Button } from "../components/Button";
 import { useI18n } from "../hooks/useI18n";
+import { useInView } from "../hooks/useInView";
 import { trackEvent } from "../lib/analytics";
 import { CHROME_STORE_URL } from "../lib/constants";
 import type { LucideIcon } from "lucide-react";
@@ -25,9 +26,15 @@ export function Guide() {
     trackEvent("cta_click", { location: "guide" });
   }
 
+  const { ref: sectionRef, inView } = useInView();
+
   return (
-    <section id="guide" className="mx-auto max-w-5xl px-4 py-(--spacing-section)">
-      <h2 className="text-gradient font-heading text-center text-3xl font-bold sm:text-4xl">
+    <section
+      ref={sectionRef as React.RefObject<HTMLElement>}
+      id="guide"
+      className={`mx-auto max-w-5xl px-4 py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+    >
+      <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
         {t("guide.title")}
       </h2>
 

@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Check, ShieldAlert } from "lucide-react";
 import { useI18n } from "../hooks/useI18n";
+import { useInView } from "../hooks/useInView";
 
 export function BeforeAfter() {
   const { t } = useI18n();
@@ -100,8 +101,13 @@ export function BeforeAfter() {
     { ...cleanTweets[1], isSpam: false, delay: 0 },
   ];
 
+  const { ref: sectionRef, inView } = useInView();
+
   return (
-    <section className="bg-bg-card py-(--spacing-section)">
+    <section
+      ref={sectionRef as React.RefObject<HTMLElement>}
+      className={`bg-bg-card py-(--spacing-section) transition-all duration-700 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+    >
       <div className="mx-auto max-w-2xl px-4">
         <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
           {t("demo.title")}

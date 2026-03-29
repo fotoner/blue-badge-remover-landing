@@ -1,13 +1,19 @@
 import { Repeat2, ShieldCheck } from "lucide-react";
 import { useI18n } from "../hooks/useI18n";
+import { useInView } from "../hooks/useInView";
 
 export function SocialProof() {
   const { t } = useI18n();
 
+  const { ref: sectionRef, inView } = useInView();
+
   return (
-    <section className="bg-bg-card py-(--spacing-section)">
+    <section
+      ref={sectionRef as React.RefObject<HTMLElement>}
+      className={`bg-bg-card py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+    >
       <div className="mx-auto max-w-5xl px-4">
-        <h2 className="text-gradient font-heading text-center text-3xl font-bold sm:text-4xl">
+        <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
           {t("social.title")}
         </h2>
 

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useI18n } from "../hooks/useI18n";
+import { useInView } from "../hooks/useInView";
 import type { TranslationKeys } from "../lib/i18n";
 
 interface FeatureItem {
@@ -55,9 +56,14 @@ export function Features() {
   }
 
   const ActiveDemo = FEATURES[active].Demo;
+  const { ref: sectionRef, inView } = useInView();
 
   return (
-    <section id="features" className="mx-auto max-w-5xl px-4 py-(--spacing-section)">
+    <section
+      ref={sectionRef as React.RefObject<HTMLElement>}
+      id="features"
+      className={`mx-auto max-w-5xl px-4 py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+    >
       <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
         {t("features.title")}
       </h2>
