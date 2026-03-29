@@ -89,7 +89,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       <p className="text-sm leading-relaxed text-text-primary">
         &ldquo;{testimonial.text}&rdquo;
       </p>
-      <p className="mt-3 text-xs text-accent-blue">{testimonial.handle}</p>
+      <p className="mt-3 text-xs text-text-secondary">X 사용자</p>
     </div>
   );
 }
