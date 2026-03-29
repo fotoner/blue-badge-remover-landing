@@ -8,4 +8,4 @@ export const AUTHOR_X_URL = "https://x.com/fotoner_p";
 export const AUTHOR_HANDLE = "@fotoner_p";
 
 export const FEEDBACK_URL =
-  "https://docs.google.com/forms/d/e/TODO/viewform";
+  "https://forms.gle/F1hyx1uo8yaFE3Tt6";

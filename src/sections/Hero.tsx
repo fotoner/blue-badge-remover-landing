@@ -20,12 +20,6 @@ export function Hero() {
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-12 lg:flex-row lg:gap-16">
         {/* Left: Content */}
         <div className="flex-1 text-center lg:text-left">
-          {/* Social proof badge */}
-          <div className="glass-card mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm text-accent-blue">
-            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-green-500" />
-            {t("hero.badge")}
-          </div>
-
           <h1 className="whitespace-pre-line text-gradient font-heading text-4xl font-bold leading-tight tracking-tight break-keep sm:text-5xl md:text-6xl">
             {t("hero.title")}
           </h1>
