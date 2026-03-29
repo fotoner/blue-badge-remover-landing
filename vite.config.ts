@@ -4,8 +4,8 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 
-export default defineConfig({
-  base: "/blue-badge-remover-landing/",
+export default defineConfig(({ mode }) => ({
+  base: mode === "production" ? "/blue-badge-remover-landing/" : "/",
   plugins: [TanStackRouterVite({ quoteStyle: "double" }), react(), tailwindcss()],
   test: {
     globals: true,
@@ -13,4 +13,4 @@ export default defineConfig({
     setupFiles: ["./src/test-setup.ts"],
     css: true,
   },
-});
+}));
