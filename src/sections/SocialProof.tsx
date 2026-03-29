@@ -10,7 +10,7 @@ export function SocialProof() {
   return (
     <section
       ref={sectionRef as React.RefObject<HTMLElement>}
-      className={`bg-bg-card py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+      className={`relative overflow-hidden bg-accent-blue/[0.04] py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
     >
       <div className="mx-auto max-w-5xl px-4">
         <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">

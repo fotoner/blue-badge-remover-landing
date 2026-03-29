@@ -19,7 +19,7 @@ export function FAQ() {
     <section
       ref={sectionRef as React.RefObject<HTMLElement>}
       id="faq"
-      className={`bg-bg-card py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+      className={`py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
     >
       <div className="mx-auto max-w-3xl px-4">
         <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">

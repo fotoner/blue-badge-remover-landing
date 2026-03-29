@@ -32,8 +32,9 @@ export function Guide() {
     <section
       ref={sectionRef as React.RefObject<HTMLElement>}
       id="guide"
-      className={`mx-auto max-w-5xl px-4 py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+      className={`bg-bg-card py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
     >
+    <div className="mx-auto max-w-5xl px-4">
       <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
         {t("guide.title")}
       </h2>
@@ -67,6 +68,7 @@ export function Guide() {
           {t("hero.cta")}
         </Button>
       </div>
+    </div>
     </section>
   );
 }
