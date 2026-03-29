@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 
 export default defineConfig(({ mode }) => ({
-  base: mode === "production" ? "/blue-badge-remover-landing/" : "/",
+  base: "/",
   plugins: [TanStackRouterVite({ quoteStyle: "double" }), react(), tailwindcss()],
   test: {
     globals: true,
