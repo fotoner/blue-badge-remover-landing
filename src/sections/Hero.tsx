@@ -34,7 +34,7 @@ export function Hero() {
             {t("hero.subtitle")}
           </p>
 
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:flex sm:flex-row">
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Button href={CHROME_STORE_URL} onClick={handleCtaClick}>
               {t("hero.cta")}
             </Button>
