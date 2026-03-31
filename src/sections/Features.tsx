@@ -188,10 +188,9 @@ function HideModesDemo() {
   const [mode, setMode] = useState<"remove" | "collapse">("remove");
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setMode((prev) => (prev === "remove" ? "collapse" : "remove"));
-    }, 3000);
-    return () => clearInterval(interval);
+    const t1 = setTimeout(() => setMode("collapse"), 3000);
+    const t2 = setTimeout(() => setMode("remove"), 6000);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 
   return (
@@ -308,17 +307,10 @@ function QuoteTweetDemo() {
   const [mode, setMode] = useState<"off" | "quote-only" | "hide-entire">("off");
 
   useEffect(() => {
-    const modes: Array<"off" | "quote-only" | "hide-entire"> = [
-      "off",
-      "quote-only",
-      "hide-entire",
-    ];
-    let idx = 0;
-    const interval = setInterval(() => {
-      idx = (idx + 1) % modes.length;
-      setMode(modes[idx]!);
-    }, 2500);
-    return () => clearInterval(interval);
+    const t1 = setTimeout(() => setMode("quote-only"), 2000);
+    const t2 = setTimeout(() => setMode("hide-entire"), 4000);
+    const t3 = setTimeout(() => setMode("off"), 6000);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
   return (

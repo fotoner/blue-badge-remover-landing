@@ -62,8 +62,8 @@
 
 @keyframes slide-out {
   0% { opacity: 1; transform: translateX(0); }
-  70% { opacity: 1; transform: translateX(0); }
-  100% { opacity: 0; transform: translateX(40px); }
+  40% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(30px); }
 }
 
 @keyframes collapse-tweet {
