@@ -61,8 +61,10 @@ export function Features() {
             <button
               key={f.titleKey}
               onClick={() => setActive(i)}
-              className={`cursor-pointer rounded-xl px-5 py-4 text-left transition-colors duration-200 ${
-                active === i ? "bg-bg-muted" : "hover:bg-bg-muted/50"
+              className={`cursor-pointer border-l-2 rounded-r-xl px-5 py-4 text-left transition-all duration-200 ${
+                active === i
+                  ? "border-accent-blue bg-bg-muted"
+                  : "border-transparent hover:border-border hover:bg-bg-muted/50"
               }`}
             >
               <h3
