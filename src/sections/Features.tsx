@@ -314,8 +314,7 @@ function QuoteTweetDemo() {
   useEffect(() => {
     const t1 = setTimeout(() => setMode("quote-only"), 2500);
     const t2 = setTimeout(() => setMode("hide-entire"), 5000);
-    const t3 = setTimeout(() => setMode("off"), 7500);
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+    return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 
   const isEntire = mode === "hide-entire";
