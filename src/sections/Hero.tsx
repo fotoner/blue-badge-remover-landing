@@ -12,8 +12,11 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[calc(100vh-3.5rem)] border-b border-border px-4 py-24 flex items-center overflow-hidden">
-      {/* Subtle background glow */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(29,155,240,0.08),transparent)]" />
+      {/* Fluid background */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute h-[600px] w-[600px] rounded-full bg-accent-blue/[0.06] blur-[120px] animate-[drift-a_20s_ease-in-out_infinite]" />
+        <div className="absolute h-[500px] w-[500px] rounded-full bg-[#1a6fb5]/[0.05] blur-[120px] animate-[drift-b_25s_ease-in-out_infinite]" />
+      </div>
 
       <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-12 lg:flex-row lg:gap-16">
         {/* Left: Content */}
