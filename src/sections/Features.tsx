@@ -342,25 +342,37 @@ function QuoteTweetDemo() {
           <p className="mt-1 text-xs text-[#e7e9ea]">{t("demo.quote.text")}</p>
 
           {/* Inner quoted content - quote-only mode collapses this */}
-          <div
-            className="mt-2 overflow-hidden rounded-lg border border-[#2f3336] transition-all duration-500 ease-out"
-          >
-            {isQuoteOnly ? (
+          <div className="relative mt-2 overflow-hidden rounded-lg border border-[#2f3336]">
+            {/* Full quote content */}
+            <div
+              className="p-2.5 transition-all duration-500 ease-out"
+              style={{
+                opacity: isQuoteOnly ? 0 : 1,
+                maxHeight: isQuoteOnly ? "0px" : "60px",
+                padding: isQuoteOnly ? "0 10px" : undefined,
+              }}
+            >
+              <div className="flex items-center gap-1 text-[10px]">
+                <span className="text-[#e7e9ea]">spammer</span>
+                <span className="text-[#1d9bf0]">✓</span>
+                <span className="text-[#71767b]">@spam</span>
+              </div>
+              <p className="mt-0.5 text-[10px] text-[#e7e9ea]">
+                {t("demo.spam.text")}
+              </p>
+            </div>
+            {/* Collapsed placeholder */}
+            <div
+              className="transition-all duration-500 ease-out"
+              style={{
+                opacity: isQuoteOnly ? 1 : 0,
+                maxHeight: isQuoteOnly ? "28px" : "0px",
+              }}
+            >
               <div className="px-3 py-1.5 text-[10px] text-[#71767b]">
-                {t("demo.quote.hidden")}
+                ▸ {t("demo.quote.hidden")}
               </div>
-            ) : (
-              <div className="p-2.5">
-                <div className="flex items-center gap-1 text-[10px]">
-                  <span className="text-[#e7e9ea]">spammer</span>
-                  <span className="text-[#1d9bf0]">✓</span>
-                  <span className="text-[#71767b]">@spam</span>
-                </div>
-                <p className="mt-0.5 text-[10px] text-[#e7e9ea]">
-                  {t("demo.spam.text")}
-                </p>
-              </div>
-            )}
+            </div>
           </div>
         </div>
       </div>
