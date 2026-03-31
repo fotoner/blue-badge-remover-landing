@@ -61,15 +61,15 @@ export function Features() {
             <button
               key={f.titleKey}
               onClick={() => setActive(i)}
-              className={`cursor-pointer border-l-2 rounded-r-xl px-5 py-4 text-left transition-all duration-200 ${
+              className={`cursor-pointer rounded-xl px-5 py-4 text-left transition-all duration-200 ${
                 active === i
-                  ? "border-accent-blue bg-bg-muted"
-                  : "border-transparent hover:border-border hover:bg-bg-muted/50"
+                  ? "bg-bg-card border border-border"
+                  : "hover:bg-bg-card/50"
               }`}
             >
               <h3
                 className={`font-heading text-base font-semibold transition-colors ${
-                  active === i ? "text-accent-blue" : "text-text-secondary"
+                  active === i ? "text-text-primary" : "text-text-secondary"
                 }`}
               >
                 {t(f.titleKey)}
