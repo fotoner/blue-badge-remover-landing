@@ -3,6 +3,7 @@ import { useI18n } from "../hooks/useI18n";
 interface Testimonial {
   text: string;
   handle: string;
+  initial: string;
 }
 
 const SELECTED_TEXTS = [
@@ -15,6 +16,7 @@ const SELECTED_TEXTS = [
 ];
 
 const LABELS = "ABCDEF".split("");
+const COLORS = ["#1d9bf0", "#00ba7c", "#f91880", "#ffd400", "#7856ff", "#ff7a00"];
 
 export function SocialProof() {
   const { t } = useI18n();
@@ -22,7 +24,8 @@ export function SocialProof() {
   const anon = t("social.anon");
   const testimonials: Testimonial[] = SELECTED_TEXTS.map((text, i) => ({
     text,
-    handle: `${anon} ${LABELS[i]}`,
+    handle: `@${anon.toLowerCase()}_${LABELS[i]!.toLowerCase()}`,
+    initial: LABELS[i]!,
   }));
 
   return (
@@ -31,21 +34,32 @@ export function SocialProof() {
         <h2 className="font-heading text-2xl font-bold text-text-primary sm:text-3xl">
           {t("social.title")}
         </h2>
-        <p className="mt-2 text-text-secondary">
+        <p className="mt-2 text-sm text-text-secondary">
           {t("social.subtitle")}
         </p>
       </div>
 
-      <div className="mt-8">
-        {testimonials.map((testimonial) => (
+      <div className="mt-6">
+        {testimonials.map((testimonial, i) => (
           <div
             key={testimonial.handle}
-            className="border-b border-border px-4 py-4 last:border-b-0"
+            className="flex gap-3 border-b border-border px-4 py-3 last:border-b-0"
           >
-            <p className="text-sm leading-relaxed text-text-primary">
-              &ldquo;{testimonial.text}&rdquo;
-            </p>
-            <p className="mt-2 text-xs text-text-secondary">{testimonial.handle}</p>
+            <div
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white"
+              style={{ backgroundColor: COLORS[i % COLORS.length] }}
+            >
+              {testimonial.initial}
+            </div>
+            <div className="min-w-0">
+              <div className="flex items-center gap-1">
+                <span className="text-[15px] font-bold text-text-primary">{t("social.anon")} {testimonial.initial}</span>
+                <span className="text-[15px] text-text-secondary">{testimonial.handle}</span>
+              </div>
+              <p className="mt-0.5 text-[15px] leading-snug text-text-primary">
+                {testimonial.text}
+              </p>
+            </div>
           </div>
         ))}
       </div>

@@ -32,26 +32,24 @@ export function Guide() {
           {t("guide.title")}
         </h2>
 
-        <div className="mt-8 flex flex-col gap-4">
+        <div className="mt-6">
           {STEPS.map(({ icon: Icon, titleKey, descKey }, index) => (
-            <div key={titleKey} className="flex items-start gap-4 rounded-2xl border border-border bg-bg-card p-4">
-              <div className="relative shrink-0">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-blue/10 transition-colors group-hover:bg-accent-blue/20">
-                  <Icon className="h-5 w-5 text-accent-blue" aria-hidden="true" />
-                </div>
-                <span className="absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-accent-blue text-[10px] font-bold text-white">
-                  {index + 1}
-                </span>
+            <div key={titleKey} className="flex gap-4 border-b border-border py-4 last:border-b-0">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-blue text-sm font-bold text-white">
+                {index + 1}
               </div>
-              <div>
-                <h3 className="font-heading text-base font-semibold">{t(titleKey)}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-text-secondary">{t(descKey)}</p>
+              <div className="min-w-0 pt-0.5">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-[15px] font-bold text-text-primary">{t(titleKey)}</h3>
+                  <Icon className="h-4 w-4 text-text-secondary" aria-hidden="true" />
+                </div>
+                <p className="mt-1 text-[15px] leading-snug text-text-secondary">{t(descKey)}</p>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-8">
+        <div className="mt-6">
           <Button href={CHROME_STORE_URL} onClick={handleCtaClick}>
             {t("hero.cta")}
           </Button>

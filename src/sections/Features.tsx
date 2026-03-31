@@ -92,7 +92,7 @@ export function Features() {
         <div className="flex min-h-[280px] items-center justify-center">
           <div
             key={active}
-            className="w-full max-w-sm animate-[fade-in-up_0.4s_ease-out_both] overflow-hidden rounded-2xl border border-border bg-black"
+            className="w-full max-w-sm animate-[fade-in-up_0.4s_ease-out_both] overflow-hidden rounded-2xl border border-[#2f3336] bg-black"
           >
             <ActiveDemo />
           </div>
