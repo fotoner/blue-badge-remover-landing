@@ -50,71 +50,77 @@ export function Hero() {
 
         {/* Right: Popup Preview */}
         <div className="w-full max-w-[280px] flex-shrink-0 lg:max-w-[300px]">
-          <div className="rounded-2xl border border-border bg-bg-card shadow-[0_8px_32px_rgba(29,155,240,0.08),0_8px_24px_rgba(0,0,0,0.4)]">
+          <div className="rounded-2xl border border-border bg-[#15202b] shadow-[0_8px_32px_rgba(29,155,240,0.08),0_8px_24px_rgba(0,0,0,0.4)]">
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-border px-4 py-3">
-              <div className="flex items-center gap-2">
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-accent-red">
-                  <span className="text-xs font-bold text-white">✕</span>
-                </div>
-                <span className="font-heading text-sm font-bold">Blue Badge Remover</span>
+            <div className="px-4 pt-4 pb-3">
+              <div className="flex items-center justify-between">
+                <span className="text-[15px] font-bold">Blue Badge Remover</span>
+                <select className="rounded-md border border-border bg-bg-muted px-1.5 py-0.5 text-[10px] text-text-primary" disabled>
+                  <option>한국어</option>
+                </select>
               </div>
-              <span className="text-[10px] text-text-secondary">v2.1</span>
-            </div>
-
-            {/* Stats bar */}
-            <div className="grid grid-cols-3 border-b border-border">
-              <StatCell label="오늘" value="47" />
-              <StatCell label="이번 주" value="312" border />
-              <StatCell label="전체" value="2,841" />
+              <p className="mt-1 text-[11px] text-text-secondary">X에서 수익성 파란 뱃지 계정을 숨깁니다</p>
             </div>
 
             {/* Master toggle */}
-            <div className="border-b border-border px-4 py-3">
-              <div className="flex items-center justify-between rounded-xl bg-accent-blue/[0.08] px-3 py-2.5">
-                <span className="text-sm font-semibold text-accent-blue">Filtering</span>
+            <div className="bg-accent-blue/[0.08] px-4 py-3">
+              <div className="flex items-center justify-between">
+                <span className="text-[13px] font-semibold">필터링</span>
                 <ToggleSwitch on />
               </div>
             </div>
 
+            {/* Keyword filter beta */}
+            <div className="border-b border-white/[0.06] px-4 py-3">
+              <div className="flex items-center justify-between">
+                <span className="text-[12px]">[Beta] 키워드 필터</span>
+                <ToggleSwitch />
+              </div>
+            </div>
+
             {/* Filter Scope */}
-            <div className="border-b border-border px-4 py-3">
-              <p className="mb-2 text-[10px] uppercase tracking-wider text-text-secondary">
-                Filter Scope
+            <div className="border-b border-white/[0.06] px-4 py-3">
+              <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-text-secondary">
+                필터링 범위
               </p>
-              <div className="flex flex-col gap-2">
-                <FilterRow label="Home Timeline" />
-                <FilterRow label="Tweet Detail" />
-                <FilterRow label="Search Results" />
+              <div className="flex flex-col">
+                <FilterRow label="홈 타임라인" />
+                <FilterRow label="트윗 상세 / 답글" />
+                <FilterRow label="검색 결과" />
               </div>
             </div>
 
             {/* Hide Mode */}
-            <div className="border-b border-border px-4 py-3">
-              <p className="mb-2 text-[10px] uppercase tracking-wider text-text-secondary">
-                Hide Mode
+            <div className="border-b border-white/[0.06] px-4 py-3">
+              <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-wider text-text-secondary">
+                숨김 방식
               </p>
-              <div className="flex gap-1.5">
-                <ModeChip label="Remove" active />
-                <ModeChip label="Collapse" />
+              <div className="flex flex-col gap-1.5">
+                <RadioRow label="완전 제거" desc="트윗을 타임라인에서 완전히 제거합니다" checked />
+                <RadioRow label="접어서 표시" desc="클릭하면 펼쳐볼 수 있도록 접어둡니다" />
               </div>
             </div>
 
-            {/* Whitelist */}
-            <div className="px-4 py-3">
-              <p className="mb-2 text-[10px] uppercase tracking-wider text-text-secondary">
-                Whitelist
+            {/* Retweets */}
+            <div className="border-b border-white/[0.06] px-4 py-3">
+              <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-text-secondary">
+                리트윗
               </p>
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-1.5">
-                  {["😊", "🎨", "🎵"].map((emoji) => (
-                    <div key={emoji} className="flex h-6 w-6 items-center justify-center rounded-full border border-bg-card bg-[#16181c] text-xs">
-                      {emoji}
-                    </div>
-                  ))}
-                </div>
-                <span className="text-[10px] text-text-secondary">+24 following</span>
+              <div className="flex items-center justify-between py-1">
+                <span className="text-[12px]">파딱 리트윗 숨기기</span>
+                <ToggleSwitch on />
               </div>
+            </div>
+
+            {/* Follow Sync */}
+            <div className="px-4 py-3">
+              <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-text-secondary">
+                팔로우 동기화
+              </p>
+              <p className="text-[11px] text-text-secondary">@fotoner_p · 수집된 팔로우: 142명</p>
+              <button className="mt-2 w-full rounded-lg bg-bg-muted px-3 py-2 text-[12px] text-text-primary" disabled>
+                팔로잉 페이지 열기
+              </button>
             </div>
           </div>
         </div>
@@ -134,25 +140,22 @@ function ToggleSwitch({ on }: { on?: boolean }) {
 function FilterRow({ label }: { label: string }) {
   return (
     <div className="flex items-center justify-between py-1">
-      <span className="text-xs">{label}</span>
+      <span className="text-[12px]">{label}</span>
       <ToggleSwitch on />
     </div>
   );
 }
 
-function StatCell({ label, value, border }: { label: string; value: string; border?: boolean }) {
+function RadioRow({ label, desc, checked }: { label: string; desc: string; checked?: boolean }) {
   return (
-    <div className={`px-3 py-2.5 text-center ${border ? "border-x border-border" : ""}`}>
-      <p className="text-sm font-bold text-text-primary">{value}</p>
-      <p className="text-[10px] text-text-secondary">{label}</p>
+    <div className="flex items-start gap-2 py-0.5">
+      <div className={`mt-0.5 h-3.5 w-3.5 shrink-0 rounded-full border-2 ${checked ? "border-accent-blue" : "border-[#536471]"}`}>
+        {checked && <div className="m-0.5 h-1.5 w-1.5 rounded-full bg-accent-blue" />}
+      </div>
+      <div>
+        <span className="text-[12px]">{label}</span>
+        <p className="text-[10px] leading-tight text-[#536471]">{desc}</p>
+      </div>
     </div>
-  );
-}
-
-function ModeChip({ label, active }: { label: string; active?: boolean }) {
-  return (
-    <span className={`rounded-md px-2.5 py-1 text-xs font-medium ${active ? "bg-accent-blue/20 text-accent-blue" : "text-text-secondary"}`}>
-      {label}
-    </span>
   );
 }
