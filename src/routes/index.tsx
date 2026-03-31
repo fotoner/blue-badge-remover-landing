@@ -20,9 +20,7 @@ function LandingPage() {
       <div className="mx-auto w-full max-w-[700px] border-x border-border">
         <BeforeAfter />
         <Features />
-      </div>
-      <SocialProof />
-      <div className="mx-auto w-full max-w-[700px] border-x border-border">
+        <SocialProof />
         <Privacy />
         <Guide />
         <CTA />
