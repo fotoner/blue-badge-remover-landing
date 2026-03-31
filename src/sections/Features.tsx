@@ -186,59 +186,53 @@ function AnimatedToggle({ delay }: { delay: number }) {
 function HideModesDemo() {
   const { t } = useI18n();
   const [mode, setMode] = useState<"remove" | "collapse">("remove");
+  const [phase, setPhase] = useState<"visible" | "hiding" | "hidden">("visible");
 
   useEffect(() => {
-    const t1 = setTimeout(() => setMode("collapse"), 3000);
-    const t2 = setTimeout(() => setMode("remove"), 6000);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    const t1 = setTimeout(() => setPhase("hiding"), 1500);
+    const t2 = setTimeout(() => setPhase("hidden"), 2500);
+    const t3 = setTimeout(() => { setMode("collapse"); setPhase("visible"); }, 3500);
+    const t4 = setTimeout(() => setPhase("hiding"), 5000);
+    const t5 = setTimeout(() => setPhase("hidden"), 6000);
+    return () => { [t1, t2, t3, t4, t5].forEach(clearTimeout); };
   }, []);
 
   return (
     <div className="p-4">
       <div className="mb-3 flex gap-2">
         <span
-          className={`rounded-md px-2 py-1 text-xs font-medium transition-colors ${
-            mode === "remove"
-              ? "bg-accent-blue/20 text-accent-blue"
-              : "text-[#71767b]"
+          className={`rounded-md px-2 py-1 text-xs font-medium transition-colors duration-300 ${
+            mode === "remove" ? "bg-accent-blue/20 text-accent-blue" : "text-[#71767b]"
           }`}
         >
           Remove
         </span>
         <span
-          className={`rounded-md px-2 py-1 text-xs font-medium transition-colors ${
-            mode === "collapse"
-              ? "bg-accent-blue/20 text-accent-blue"
-              : "text-[#71767b]"
+          className={`rounded-md px-2 py-1 text-xs font-medium transition-colors duration-300 ${
+            mode === "collapse" ? "bg-accent-blue/20 text-accent-blue" : "text-[#71767b]"
           }`}
         >
           Collapse
         </span>
       </div>
 
-      {/* Demo tweet */}
       <div className="overflow-hidden rounded-lg border border-[#2f3336]">
-        {mode === "remove" ? (
-          <div
-            key="remove"
-            className="animate-[slide-out_1.5s_ease-in-out_0.5s_both] flex gap-3 p-3"
-          >
-            <div className="h-8 w-8 rounded-full bg-[#16181c] text-center text-sm leading-8">
-              🤑
-            </div>
-            <div className="text-xs text-[#71767b]">{t("demo.hide.removed")}</div>
+        <div
+          className="flex gap-3 p-3 transition-all duration-500 ease-out"
+          style={{
+            opacity: phase === "visible" ? 1 : phase === "hiding" ? 0.3 : 0,
+            maxHeight: phase === "hidden" ? "0px" : mode === "collapse" && phase !== "visible" ? "32px" : "50px",
+            transform: mode === "remove" && phase === "hiding" ? "translateX(20px)" : "translateX(0)",
+            padding: phase === "hidden" ? "0 12px" : undefined,
+          }}
+        >
+          <div className="h-8 w-8 shrink-0 rounded-full bg-[#16181c] text-center text-sm leading-8">
+            🤑
           </div>
-        ) : (
-          <div
-            key="collapse"
-            className="animate-[collapse-tweet_1.5s_ease-in-out_0.5s_both] p-3"
-          >
-            <div className="flex items-center gap-2 text-xs text-[#71767b]">
-              <span>▸</span>
-              <span>{t("demo.hide.collapsed")}</span>
-            </div>
+          <div className="text-xs text-[#71767b] self-center">
+            {mode === "remove" ? t("demo.hide.removed") : t("demo.hide.collapsed")}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
@@ -307,9 +301,9 @@ function QuoteTweetDemo() {
   const [mode, setMode] = useState<"off" | "quote-only" | "hide-entire">("off");
 
   useEffect(() => {
-    const t1 = setTimeout(() => setMode("quote-only"), 2000);
-    const t2 = setTimeout(() => setMode("hide-entire"), 4000);
-    const t3 = setTimeout(() => setMode("off"), 6000);
+    const t1 = setTimeout(() => setMode("quote-only"), 2500);
+    const t2 = setTimeout(() => setMode("hide-entire"), 5000);
+    const t3 = setTimeout(() => setMode("off"), 7500);
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
@@ -319,7 +313,7 @@ function QuoteTweetDemo() {
         {(["off", "quote-only", "hide-entire"] as const).map((m) => (
           <span
             key={m}
-            className={`rounded-md px-2 py-1 text-[10px] font-medium transition-colors ${
+            className={`rounded-md px-2 py-1 text-[10px] font-medium transition-colors duration-300 ${
               mode === m
                 ? "bg-accent-blue/20 text-accent-blue"
                 : "text-[#71767b]"
@@ -337,41 +331,46 @@ function QuoteTweetDemo() {
         </div>
         <p className="mt-1 text-xs text-[#e7e9ea]">{t("demo.quote.text")}</p>
 
+        {/* Quote block - always rendered, height/opacity transitions */}
         <div
-          className="mt-2 overflow-hidden rounded-lg border border-[#2f3336] transition-all duration-500"
+          className="mt-2 overflow-hidden rounded-lg border border-[#2f3336] transition-all duration-700 ease-out"
           style={{
-            maxHeight:
-              mode === "hide-entire"
-                ? "0px"
-                : mode === "quote-only"
-                  ? "28px"
-                  : "60px",
+            maxHeight: mode === "hide-entire" ? "0px" : "60px",
             opacity: mode === "hide-entire" ? 0 : 1,
+            borderWidth: mode === "hide-entire" ? 0 : 1,
+            marginTop: mode === "hide-entire" ? 0 : 8,
           }}
         >
-          {mode === "quote-only" ? (
-            <div className="px-3 py-1.5 text-[10px] text-[#71767b]">
-              {t("demo.quote.hidden")}
+          <div className="p-2.5">
+            <div className="flex items-center gap-1 text-[10px]">
+              <span className="text-[#e7e9ea]">spammer</span>
+              <span className="text-[#1d9bf0]">✓</span>
+              <span className="text-[#71767b]">@spam</span>
             </div>
-          ) : (
-            <div className="p-2.5">
-              <div className="flex items-center gap-1 text-[10px]">
-                <span className="text-[#e7e9ea]">spammer</span>
-                <span className="text-[#1d9bf0]">✓</span>
-                <span className="text-[#71767b]">@spam</span>
-              </div>
-              <p className="mt-0.5 text-[10px] text-[#e7e9ea]">
-                {t("demo.spam.text")}
-              </p>
-            </div>
-          )}
+            <p
+              className="mt-0.5 text-[10px] transition-all duration-500"
+              style={{
+                color: mode === "quote-only" ? "#71767b" : "#e7e9ea",
+              }}
+            >
+              {mode === "quote-only" ? t("demo.quote.hidden") : t("demo.spam.text")}
+            </p>
+          </div>
         </div>
 
-        {mode === "hide-entire" && (
-          <div className="mt-2 animate-[fade-in-up_0.3s_ease-out_both] text-[10px] text-accent-red/70">
+        {/* Entire hidden label */}
+        <div
+          className="overflow-hidden transition-all duration-500 ease-out"
+          style={{
+            maxHeight: mode === "hide-entire" ? "24px" : "0px",
+            opacity: mode === "hide-entire" ? 1 : 0,
+            marginTop: mode === "hide-entire" ? 8 : 0,
+          }}
+        >
+          <span className="text-[10px] text-accent-red/70">
             {t("demo.quote.entire")}
-          </div>
-        )}
+          </span>
+        </div>
       </div>
     </div>
   );
