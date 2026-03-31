@@ -15,8 +15,8 @@ export const Route = createFileRoute("/")({
 function LandingPage() {
   return (
     <>
+      <Hero />
       <div className="mx-auto w-full max-w-[700px] border-x border-border">
-        <Hero />
         <BeforeAfter />
         <Features />
         <SocialProof />
