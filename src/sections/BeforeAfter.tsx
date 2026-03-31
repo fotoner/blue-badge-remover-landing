@@ -39,7 +39,7 @@ export function BeforeAfter() {
         <h2 className="font-heading text-2xl font-bold text-text-primary sm:text-3xl">
           {t("demo.title")}
         </h2>
-        <p className="mt-3 max-w-md text-text-secondary">
+        <p className="mt-3 text-sm text-text-secondary">
           {t("demo.subtitle")}
         </p>
 
