@@ -45,7 +45,7 @@ export function Features() {
   return (
     <section
       id="features"
-      className="mx-auto max-w-3xl border-b border-border px-4 py-(--spacing-section)"
+      className="border-b border-border px-4 py-(--spacing-section)"
     >
       <h2 className="font-heading text-2xl font-bold text-text-primary sm:text-3xl">
         {t("features.title")}
@@ -54,50 +54,36 @@ export function Features() {
         {t("features.subtitle")}
       </p>
 
-      <div className="mt-8 grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_1.2fr]">
-        {/* Left: Feature tabs */}
-        <div className="flex flex-col gap-1">
-          {FEATURES.map((f, i) => (
-            <button
-              key={f.titleKey}
-              onClick={() => setActive(i)}
-              className={`cursor-pointer rounded-xl px-5 py-4 text-left transition-colors duration-200 ${
-                active === i ? "bg-bg-muted" : "hover:bg-bg-muted/50"
-              }`}
-            >
-              <h3
-                className={`font-heading text-base font-semibold transition-colors ${
-                  active === i ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
-                }`}
-              >
-                {active === i && <span className="mr-1.5 text-accent-blue">›</span>}
-                {t(f.titleKey)}
-              </h3>
-
-              <div
-                className="overflow-hidden transition-all duration-300"
-                style={{
-                  maxHeight: active === i ? "80px" : "0px",
-                  opacity: active === i ? 1 : 0,
-                }}
-              >
-                <p className="mt-2 text-sm leading-relaxed text-text-secondary">
-                  {t(f.descKey)}
-                </p>
-              </div>
-            </button>
-          ))}
-        </div>
-
-        {/* Right: Demo area */}
-        <div className="relative flex min-h-[280px] items-center justify-center">
-          <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(29,155,240,0.06),transparent_70%)]" />
-          <div
-            key={active}
-            className="relative w-full max-w-sm animate-[fade-in-up_0.4s_ease-out_both] overflow-hidden rounded-2xl border border-[#2f3336] bg-black"
+      {/* Horizontal tabs */}
+      <div className="mt-6 flex gap-1 overflow-x-auto border-b border-border">
+        {FEATURES.map((f, i) => (
+          <button
+            key={f.titleKey}
+            onClick={() => setActive(i)}
+            className={`cursor-pointer whitespace-nowrap px-4 py-3 text-sm font-semibold transition-colors duration-200 ${
+              active === i
+                ? "border-b-2 border-accent-blue text-text-primary"
+                : "text-text-secondary hover:text-text-primary"
+            }`}
           >
-            <ActiveDemo />
-          </div>
+            {t(f.titleKey)}
+          </button>
+        ))}
+      </div>
+
+      {/* Description */}
+      <p className="mt-4 text-sm leading-relaxed text-text-secondary">
+        {t(FEATURES[active]!.descKey)}
+      </p>
+
+      {/* Demo area */}
+      <div className="relative mt-6 flex items-center justify-center">
+        <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(29,155,240,0.06),transparent_70%)]" />
+        <div
+          key={active}
+          className="relative w-full max-w-sm animate-[fade-in-up_0.4s_ease-out_both] overflow-hidden rounded-2xl border border-[#2f3336] bg-black"
+        >
+          <ActiveDemo />
         </div>
       </div>
     </section>
