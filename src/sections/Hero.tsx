@@ -14,8 +14,9 @@ export function Hero() {
     <section className="relative min-h-[calc(100vh-3.5rem)] border-b border-border px-4 py-24 flex items-center overflow-hidden">
       {/* Fluid background */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute h-[600px] w-[600px] rounded-full bg-accent-blue/[0.06] blur-[120px] animate-[drift-a_20s_ease-in-out_infinite]" />
-        <div className="absolute h-[500px] w-[500px] rounded-full bg-[#1a6fb5]/[0.05] blur-[120px] animate-[drift-b_25s_ease-in-out_infinite]" />
+        <div className="absolute h-[600px] w-[600px] rounded-full bg-accent-blue/[0.12] blur-[120px] animate-[drift-a_20s_ease-in-out_infinite]" />
+        <div className="absolute h-[500px] w-[500px] rounded-full bg-[#1a6fb5]/[0.08] blur-[120px] animate-[drift-b_25s_ease-in-out_infinite]" />
+        <div className="absolute h-[400px] w-[400px] rounded-full bg-[#0e4f8b]/[0.06] blur-[100px] animate-[drift-c_30s_ease-in-out_infinite]" />
       </div>
 
       <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-12 lg:flex-row lg:gap-16">
@@ -49,7 +50,7 @@ export function Hero() {
 
         {/* Right: Popup Preview */}
         <div className="w-full max-w-[280px] flex-shrink-0 lg:max-w-[300px]">
-          <div className="rounded-2xl border border-border bg-bg-card p-5 shadow-[0_8px_24px_rgba(0,0,0,0.4)]">
+          <div className="rounded-2xl border border-border bg-bg-card p-5 shadow-[0_8px_32px_rgba(29,155,240,0.08),0_8px_24px_rgba(0,0,0,0.4)]">
             <div className="mb-3 flex items-center gap-2">
               <div className="flex h-6 w-6 items-center justify-center rounded-full bg-accent-red">
                 <span className="text-xs font-bold text-white">✕</span>
