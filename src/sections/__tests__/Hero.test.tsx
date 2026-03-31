@@ -21,17 +21,8 @@ describe("Hero", () => {
       screen.getByText("나의 타임라인을 되찾으세요"),
     ).toBeInTheDocument();
     expect(
-      screen.getAllByText(/유료 파란 뱃지 계정을 자동으로/).length,
+      screen.getAllByText(/파란 뱃지 계정을 자동으로/).length,
     ).toBeGreaterThanOrEqual(1);
-  });
-
-  it("renders social proof badge", () => {
-    render(
-      <I18nProvider>
-        <Hero />
-      </I18nProvider>,
-    );
-    expect(screen.getByText(/10,000\+ RT/)).toBeInTheDocument();
   });
 
   it("renders CTA link to Chrome Web Store", () => {
@@ -60,8 +51,8 @@ describe("Hero", () => {
       </I18nProvider>,
     );
     expect(screen.getByText("Blue Badge Remover")).toBeInTheDocument();
-    expect(screen.getByText("Filtering")).toBeInTheDocument();
-    expect(screen.getByText("Home Timeline")).toBeInTheDocument();
+    expect(screen.getByText("필터링")).toBeInTheDocument();
+    expect(screen.getByText("홈 타임라인")).toBeInTheDocument();
   });
 
   it("tracks CTA click", async () => {

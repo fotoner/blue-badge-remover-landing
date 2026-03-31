@@ -19,16 +19,16 @@ describe("SocialProof", () => {
         <SocialProof />
       </I18nProvider>,
     );
-    expect(screen.getAllByText(/광명찾자/).length).toBeGreaterThan(0);
-    expect(screen.getAllByText(/사용자 [A-N]/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/타임라인/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/사용자 [A-F]/).length).toBeGreaterThan(0);
   });
 
-  it("renders subtitle with RT count", () => {
+  it("renders subtitle", () => {
     render(
       <I18nProvider>
         <SocialProof />
       </I18nProvider>,
     );
-    expect(screen.getByText(/10,000\+ RT/)).toBeInTheDocument();
+    expect(screen.getByText(/10,000회 이상 공유/)).toBeInTheDocument();
   });
 });
