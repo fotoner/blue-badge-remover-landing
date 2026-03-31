@@ -1,6 +1,5 @@
 import { ShieldCheck, EyeOff, Code } from "lucide-react";
 import { useI18n } from "../hooks/useI18n";
-import { useInView } from "../hooks/useInView";
 import type { TranslationKeys } from "../lib/i18n";
 import type { LucideIcon } from "lucide-react";
 
@@ -18,39 +17,34 @@ const ITEMS: PrivacyItem[] = [
 
 export function Privacy() {
   const { t } = useI18n();
-  const { ref: sectionRef, inView } = useInView();
 
   return (
-    <section
-      ref={sectionRef as React.RefObject<HTMLElement>}
-      className={`bg-green-500/[0.03] py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
-    >
-      <div className="mx-auto max-w-4xl px-4">
-        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-500/10">
-          <ShieldCheck className="h-8 w-8 text-green-500" aria-hidden="true" />
-        </div>
-        <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
+    <section className="border-b border-border py-(--spacing-section)">
+      <div className="px-4">
+        <h2 className="font-heading text-2xl font-bold text-text-primary sm:text-3xl">
           {t("privacy.title")}
         </h2>
-        <p className="mx-auto mt-3 max-w-md text-center text-text-secondary">
+        <p className="mt-2 text-sm text-text-secondary">
           {t("privacy.subtitle")}
         </p>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-3">
+        <div className="mt-6">
           {ITEMS.map(({ icon: Icon, titleKey, descKey }) => (
             <div
               key={titleKey}
-              className="rounded-xl border border-green-500/10 bg-green-500/[0.03] p-6 text-center"
+              className="flex gap-3 border-b border-border py-3 last:border-b-0"
             >
-              <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-lg bg-green-500/10">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-500/10">
                 <Icon className="h-5 w-5 text-green-500" aria-hidden="true" />
               </div>
-              <h3 className="mt-4 font-heading text-base font-semibold">
-                {t(titleKey)}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-text-secondary">
-                {t(descKey)}
-              </p>
+              <div className="min-w-0 pt-0.5">
+                <h3 className="text-[15px] font-bold text-text-primary">
+                  {t(titleKey)}
+                </h3>
+                <p className="mt-0.5 text-[15px] leading-snug text-text-secondary">
+                  {t(descKey)}
+                </p>
+              </div>
             </div>
           ))}
         </div>

@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useI18n } from "../hooks/useI18n";
-import { useInView } from "../hooks/useInView";
 import type { TranslationKeys } from "../lib/i18n";
 
 interface FeatureItem {
@@ -40,89 +39,58 @@ const FEATURES: FeatureItem[] = [
 export function Features() {
   const { t } = useI18n();
   const [active, setActive] = useState(0);
-  const intervalRef = useRef<ReturnType<typeof setInterval>>(undefined);
-
-  function startAutoRotate() {
-    clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(() => {
-      setActive((prev) => (prev + 1) % FEATURES.length);
-    }, 5000);
-  }
-
-  useEffect(() => {
-    startAutoRotate();
-    return () => clearInterval(intervalRef.current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  function handleSelect(i: number) {
-    setActive(i);
-    startAutoRotate();
-  }
 
   const ActiveDemo = FEATURES[active]!.Demo;
-  const { ref: sectionRef, inView } = useInView();
 
   return (
     <section
-      ref={sectionRef as React.RefObject<HTMLElement>}
       id="features"
-      className={`min-h-[750px] mx-auto max-w-5xl px-4 py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+      className="border-b border-border px-4 py-(--spacing-section)"
     >
-      <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
+      <h2 className="font-heading text-2xl font-bold text-text-primary sm:text-3xl">
         {t("features.title")}
       </h2>
-      <p className="mx-auto mt-3 max-w-md text-center text-text-secondary">
+      <p className="mt-2 max-w-md text-text-secondary">
         {t("features.subtitle")}
       </p>
 
-      <div className="mt-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_1.2fr]">
-        {/* Left: Feature tabs */}
-        <div className="flex flex-col gap-1">
-          {FEATURES.map((f, i) => (
-            <button
-              key={f.titleKey}
-              onClick={() => handleSelect(i)}
-              className={`group relative cursor-pointer overflow-hidden rounded-xl px-5 py-4 text-left transition-all duration-300 ${
-                active === i ? "bg-white/[0.06]" : "hover:bg-white/[0.03]"
-              }`}
-            >
-              {/* Progress bar */}
-              {active === i && (
-                <div className="absolute bottom-0 left-0 h-0.5 bg-accent-blue animate-[progress_5s_linear]" />
-              )}
-
-              <h3
-                className={`font-heading text-base font-semibold transition-colors ${
-                  active === i ? "text-accent-blue" : "text-text-secondary"
+      {/* Horizontal tabs */}
+      <div className="relative -mx-4 mt-6">
+        <div className="overflow-x-auto overflow-y-hidden border-b border-border scrollbar-hide">
+          <style>{`.scrollbar-hide::-webkit-scrollbar{display:none}.scrollbar-hide{-ms-overflow-style:none;scrollbar-width:none}`}</style>
+          <div className="flex min-w-max px-4">
+            {FEATURES.map((f, i) => (
+              <button
+                key={f.titleKey}
+                onClick={() => setActive(i)}
+                className={`cursor-pointer whitespace-nowrap px-3 py-3 text-[13px] font-semibold transition-colors duration-200 ${
+                  active === i
+                    ? "border-b-2 border-accent-blue text-text-primary"
+                    : "text-text-secondary hover:text-text-primary"
                 }`}
               >
                 {t(f.titleKey)}
-              </h3>
-
-              <div
-                className="overflow-hidden transition-all duration-300"
-                style={{
-                  maxHeight: active === i ? "80px" : "0px",
-                  opacity: active === i ? 1 : 0,
-                }}
-              >
-                <p className="mt-2 text-sm leading-relaxed text-text-secondary">
-                  {t(f.descKey)}
-                </p>
-              </div>
-            </button>
-          ))}
-        </div>
-
-        {/* Right: Demo area */}
-        <div className="flex min-h-[280px] items-center justify-center">
-          <div
-            key={active}
-            className="w-full max-w-sm animate-[fade-in-up_0.4s_ease-out_both] overflow-hidden rounded-2xl border border-white/[0.08] bg-black shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
-          >
-            <ActiveDemo />
+              </button>
+            ))}
           </div>
+        </div>
+        {/* Scroll hint fade - outside scroll container so it stays fixed */}
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-bg-primary to-transparent sm:hidden" />
+      </div>
+
+      {/* Description */}
+      <p className="mt-4 text-sm leading-relaxed text-text-secondary">
+        {t(FEATURES[active]!.descKey)}
+      </p>
+
+      {/* Demo area */}
+      <div className="relative mt-6 flex items-center justify-center">
+        <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(29,155,240,0.06),transparent_70%)]" />
+        <div
+          key={active}
+          className="relative w-full max-w-sm animate-[fade-in-up_0.4s_ease-out_both] overflow-hidden rounded-2xl border border-[#2f3336] bg-black"
+        >
+          <ActiveDemo />
         </div>
       </div>
     </section>
@@ -145,7 +113,7 @@ function BadgeDetectionDemo() {
               spam_user
             </span>
             <svg
-              className="h-[18px] w-[18px] flex-shrink-0 animate-[badge-scan_2s_ease-in-out_infinite]"
+              className="h-[18px] w-[18px] flex-shrink-0"
               viewBox="0 0 22 22"
             >
               <path
@@ -213,60 +181,64 @@ function AnimatedToggle({ delay }: { delay: number }) {
 function HideModesDemo() {
   const { t } = useI18n();
   const [mode, setMode] = useState<"remove" | "collapse">("remove");
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setMode((prev) => (prev === "remove" ? "collapse" : "remove"));
-    }, 3000);
-    return () => clearInterval(interval);
+    // Remove: show tweet → hide it
+    const t1 = setTimeout(() => setHidden(true), 1500);
+    // Switch to Collapse: reset → show tweet → collapse it
+    const t2 = setTimeout(() => { setMode("collapse"); setHidden(false); }, 3500);
+    const t3 = setTimeout(() => setHidden(true), 5000);
+    return () => { [t1, t2, t3].forEach(clearTimeout); };
   }, []);
 
   return (
     <div className="p-4">
       <div className="mb-3 flex gap-2">
-        <span
-          className={`rounded-md px-2 py-1 text-xs font-medium transition-colors ${
-            mode === "remove"
-              ? "bg-accent-blue/20 text-accent-blue"
-              : "text-[#71767b]"
-          }`}
-        >
+        <span className={`rounded-md px-2 py-1 text-xs font-medium transition-colors duration-300 ${mode === "remove" ? "bg-accent-blue/20 text-accent-blue" : "text-[#71767b]"}`}>
           Remove
         </span>
-        <span
-          className={`rounded-md px-2 py-1 text-xs font-medium transition-colors ${
-            mode === "collapse"
-              ? "bg-accent-blue/20 text-accent-blue"
-              : "text-[#71767b]"
-          }`}
-        >
+        <span className={`rounded-md px-2 py-1 text-xs font-medium transition-colors duration-300 ${mode === "collapse" ? "bg-accent-blue/20 text-accent-blue" : "text-[#71767b]"}`}>
           Collapse
         </span>
       </div>
 
-      {/* Demo tweet */}
       <div className="overflow-hidden rounded-lg border border-[#2f3336]">
-        {mode === "remove" ? (
-          <div
-            key="remove"
-            className="animate-[slide-out_1.5s_ease-in-out_0.5s_both] flex gap-3 p-3"
-          >
-            <div className="h-8 w-8 rounded-full bg-[#16181c] text-center text-sm leading-8">
-              🤑
-            </div>
-            <div className="text-xs text-[#71767b]">{t("demo.hide.removed")}</div>
+        {/* Full tweet row */}
+        <div
+          className="flex gap-3 p-3 transition-all duration-500 ease-out"
+          style={{
+            opacity: hidden ? 0 : 1,
+            maxHeight: hidden ? "0px" : "60px",
+            transform: hidden && mode === "remove" ? "translateX(30px)" : "translateX(0)",
+            padding: hidden ? "0 12px" : undefined,
+          }}
+        >
+          <div className="h-8 w-8 shrink-0 rounded-full bg-[#16181c] text-center text-sm leading-8">
+            🤑
           </div>
-        ) : (
-          <div
-            key="collapse"
-            className="animate-[collapse-tweet_1.5s_ease-in-out_0.5s_both] p-3"
-          >
-            <div className="flex items-center gap-2 text-xs text-[#71767b]">
-              <span>▸</span>
-              <span>{t("demo.hide.collapsed")}</span>
+          <div className="min-w-0 self-center">
+            <div className="flex items-center gap-1">
+              <span className="text-xs font-bold text-[#e7e9ea]">spam_user</span>
+              <span className="text-xs text-[#1d9bf0]">✓</span>
             </div>
+            <p className="text-xs text-[#e7e9ea]">{t("demo.spam.text")}</p>
           </div>
-        )}
+        </div>
+
+        {/* Collapsed bar (collapse mode only) */}
+        <div
+          className="transition-all duration-500 ease-out"
+          style={{
+            maxHeight: hidden && mode === "collapse" ? "32px" : "0px",
+            opacity: hidden && mode === "collapse" ? 1 : 0,
+          }}
+        >
+          <div className="flex items-center gap-2 px-3 py-2 text-xs text-[#71767b]">
+            <span>▸</span>
+            <span>{t("demo.hide.collapsed")}</span>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -335,18 +307,13 @@ function QuoteTweetDemo() {
   const [mode, setMode] = useState<"off" | "quote-only" | "hide-entire">("off");
 
   useEffect(() => {
-    const modes: Array<"off" | "quote-only" | "hide-entire"> = [
-      "off",
-      "quote-only",
-      "hide-entire",
-    ];
-    let idx = 0;
-    const interval = setInterval(() => {
-      idx = (idx + 1) % modes.length;
-      setMode(modes[idx]!);
-    }, 2500);
-    return () => clearInterval(interval);
+    const t1 = setTimeout(() => setMode("quote-only"), 2500);
+    const t2 = setTimeout(() => setMode("hide-entire"), 5000);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
+
+  const isEntire = mode === "hide-entire";
+  const isQuoteOnly = mode === "quote-only";
 
   return (
     <div className="p-4">
@@ -354,10 +321,8 @@ function QuoteTweetDemo() {
         {(["off", "quote-only", "hide-entire"] as const).map((m) => (
           <span
             key={m}
-            className={`rounded-md px-2 py-1 text-[10px] font-medium transition-colors ${
-              mode === m
-                ? "bg-accent-blue/20 text-accent-blue"
-                : "text-[#71767b]"
+            className={`rounded-md px-2 py-1 text-[10px] font-medium transition-colors duration-300 ${
+              mode === m ? "bg-accent-blue/20 text-accent-blue" : "text-[#71767b]"
             }`}
           >
             {m === "off" ? "Off" : m === "quote-only" ? "Quote Only" : "Entire"}
@@ -365,31 +330,33 @@ function QuoteTweetDemo() {
         ))}
       </div>
 
-      <div className="rounded-lg border border-[#2f3336] p-3">
-        <div className="flex items-center gap-1.5 text-xs">
-          <span className="text-[#e7e9ea]">user</span>
-          <span className="text-[#71767b]">@user · 2h</span>
-        </div>
-        <p className="mt-1 text-xs text-[#e7e9ea]">{t("demo.quote.text")}</p>
+      {/* Outer tweet - entire mode hides this completely */}
+      <div
+        className="overflow-hidden rounded-lg border border-[#2f3336] transition-all duration-700 ease-out"
+        style={{
+          maxHeight: isEntire ? "0px" : "200px",
+          opacity: isEntire ? 0 : 1,
+          borderWidth: isEntire ? 0 : 1,
+        }}
+      >
+        <div className="p-3">
+          <div className="flex items-center gap-1.5 text-xs">
+            <span className="text-[#e7e9ea]">user</span>
+            <span className="text-[#71767b]">@user · 2h</span>
+          </div>
+          <p className="mt-1 text-xs text-[#e7e9ea]">{t("demo.quote.text")}</p>
 
-        <div
-          className="mt-2 overflow-hidden rounded-lg border border-[#2f3336] transition-all duration-500"
-          style={{
-            maxHeight:
-              mode === "hide-entire"
-                ? "0px"
-                : mode === "quote-only"
-                  ? "28px"
-                  : "60px",
-            opacity: mode === "hide-entire" ? 0 : 1,
-          }}
-        >
-          {mode === "quote-only" ? (
-            <div className="px-3 py-1.5 text-[10px] text-[#71767b]">
-              {t("demo.quote.hidden")}
-            </div>
-          ) : (
-            <div className="p-2.5">
+          {/* Inner quoted content - quote-only mode collapses this */}
+          <div className="relative mt-2 overflow-hidden rounded-lg border border-[#2f3336]">
+            {/* Full quote content */}
+            <div
+              className="p-2.5 transition-all duration-500 ease-out"
+              style={{
+                opacity: isQuoteOnly ? 0 : 1,
+                maxHeight: isQuoteOnly ? "0px" : "60px",
+                padding: isQuoteOnly ? "0 10px" : undefined,
+              }}
+            >
               <div className="flex items-center gap-1 text-[10px]">
                 <span className="text-[#e7e9ea]">spammer</span>
                 <span className="text-[#1d9bf0]">✓</span>
@@ -399,14 +366,34 @@ function QuoteTweetDemo() {
                 {t("demo.spam.text")}
               </p>
             </div>
-          )}
-        </div>
-
-        {mode === "hide-entire" && (
-          <div className="mt-2 animate-[fade-in-up_0.3s_ease-out_both] text-[10px] text-accent-red/70">
-            {t("demo.quote.entire")}
+            {/* Collapsed placeholder */}
+            <div
+              className="transition-all duration-500 ease-out"
+              style={{
+                opacity: isQuoteOnly ? 1 : 0,
+                maxHeight: isQuoteOnly ? "28px" : "0px",
+              }}
+            >
+              <div className="px-3 py-1.5 text-[10px] text-[#71767b]">
+                {t("demo.quote.hidden")}
+              </div>
+            </div>
           </div>
-        )}
+        </div>
+      </div>
+
+      {/* "Entire tweet hidden" label - appears when outer tweet fades */}
+      <div
+        className="overflow-hidden transition-all duration-500 ease-out"
+        style={{
+          maxHeight: isEntire ? "24px" : "0px",
+          opacity: isEntire ? 1 : 0,
+          marginTop: isEntire ? 8 : 0,
+        }}
+      >
+        <span className="text-[10px] text-accent-red/70">
+          {t("demo.quote.entire")}
+        </span>
       </div>
     </div>
   );

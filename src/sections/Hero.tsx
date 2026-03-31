@@ -11,20 +11,22 @@ export function Hero() {
   }
 
   return (
-    <section className="bg-dot-grid relative flex min-h-[calc(100vh-3.5rem)] items-center overflow-hidden px-4">
-      {/* Background glow effects */}
-      <div className="animate-pulse-glow pointer-events-none absolute top-[-20%] right-[5%] h-[500px] w-[500px] rounded-full bg-accent-blue/[0.10] blur-[120px]" />
-      <div className="animate-pulse-glow pointer-events-none absolute bottom-[-15%] left-[5%] h-[400px] w-[400px] rounded-full bg-accent-red/[0.06] blur-[120px]" />
-      <div className="pointer-events-none absolute top-[30%] left-[40%] h-[300px] w-[300px] rounded-full bg-purple-500/[0.04] blur-[100px]" />
+    <section className="relative min-h-[calc(100vh-3.5rem)] border-b border-border px-4 py-24 flex items-center overflow-hidden">
+      {/* Fluid background */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute h-[600px] w-[600px] rounded-full bg-accent-blue/[0.12] blur-[120px] animate-[drift-a_20s_ease-in-out_infinite]" />
+        <div className="absolute h-[500px] w-[500px] rounded-full bg-[#1a6fb5]/[0.08] blur-[120px] animate-[drift-b_25s_ease-in-out_infinite]" />
+        <div className="absolute h-[400px] w-[400px] rounded-full bg-[#0e4f8b]/[0.06] blur-[100px] animate-[drift-c_30s_ease-in-out_infinite]" />
+      </div>
 
-      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-12 lg:flex-row lg:gap-16">
+      <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-12 lg:flex-row lg:gap-16">
         {/* Left: Content */}
-        <div className="flex-1 text-center lg:text-left">
-          <div className="glass-card mb-6 inline-flex items-center rounded-full px-4 py-1.5 text-sm text-accent-blue">
+        <div className="flex-1">
+          <div className="mb-6 inline-flex items-center rounded-full border border-border bg-bg-card px-4 py-1.5 text-sm text-accent-blue">
             Chrome Extension
           </div>
 
-          <h1 className="whitespace-pre-line text-gradient font-heading text-4xl font-bold leading-tight tracking-tight break-keep sm:text-5xl md:text-6xl">
+          <h1 className="whitespace-pre-line font-heading text-4xl font-bold leading-tight tracking-tight text-text-primary break-keep sm:text-5xl md:text-6xl">
             {t("hero.title")}
           </h1>
 
@@ -32,11 +34,8 @@ export function Hero() {
             {t("hero.subtitle")}
           </p>
 
-          <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row lg:items-start">
-            <Button
-              href={CHROME_STORE_URL}
-              onClick={handleCtaClick}
-            >
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <Button href={CHROME_STORE_URL} onClick={handleCtaClick}>
               {t("hero.cta")}
             </Button>
             <Button variant="secondary" href={GITHUB_URL}>
@@ -50,33 +49,78 @@ export function Hero() {
         </div>
 
         {/* Right: Popup Preview */}
-        <div className="w-full max-w-[300px] flex-shrink-0 lg:max-w-[320px]">
-          <div className="animate-float rounded-2xl border border-white/[0.08] bg-[#15202b] p-5 shadow-[0_25px_80px_rgba(0,0,0,0.6),0_0_60px_rgba(29,155,240,0.12)]">
-            {/* Popup Header */}
-            <div className="mb-3 flex items-center gap-2">
-              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-accent-red">
-                <span className="text-xs font-bold text-white">✕</span>
+        <div className="w-full max-w-[280px] flex-shrink-0 lg:max-w-[300px]">
+          <div className="rounded-2xl border border-border bg-[#15202b] shadow-[0_8px_32px_rgba(29,155,240,0.08),0_8px_24px_rgba(0,0,0,0.4)]">
+            {/* Header */}
+            <div className="px-4 pt-4 pb-3">
+              <div className="flex items-center justify-between">
+                <span className="text-[15px] font-bold">Blue Badge Remover</span>
+                <select className="rounded-md border border-border bg-bg-muted px-1.5 py-0.5 text-[10px] text-text-primary" disabled>
+                  <option>한국어</option>
+                </select>
               </div>
-              <span className="font-heading text-sm font-bold">Blue Badge Remover</span>
+              <p className="mt-1 text-[11px] text-text-secondary">X에서 수익성 파란 뱃지 계정을 숨깁니다</p>
             </div>
-            <p className="mb-3 text-xs text-text-secondary">
-              {t("hero.subtitle").slice(0, 30)}...
-            </p>
 
-            {/* Master Toggle */}
-            <div className="mb-4 flex items-center justify-between rounded-xl bg-accent-blue/[0.08] px-3 py-2.5">
-              <span className="text-sm font-semibold text-accent-blue">Filtering</span>
-              <ToggleSwitch on />
+            {/* Master toggle */}
+            <div className="bg-accent-blue/[0.08] px-4 py-3">
+              <div className="flex items-center justify-between">
+                <span className="text-[13px] font-semibold">필터링</span>
+                <ToggleSwitch on />
+              </div>
+            </div>
+
+            {/* Keyword filter beta */}
+            <div className="border-b border-[#38444d]/50 px-4 py-3">
+              <div className="flex items-center justify-between">
+                <span className="text-[12px]">[Beta] 키워드 필터</span>
+                <ToggleSwitch />
+              </div>
             </div>
 
             {/* Filter Scope */}
-            <p className="mb-2 text-[10px] uppercase tracking-wider text-text-secondary">
-              Filter Scope
-            </p>
-            <div className="flex flex-col gap-2">
-              <FilterRow label="Home Timeline" />
-              <FilterRow label="Tweet Detail" />
-              <FilterRow label="Search Results" />
+            <div className="border-b border-[#38444d]/50 px-4 py-3">
+              <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-text-secondary">
+                필터링 범위
+              </p>
+              <div className="flex flex-col">
+                <FilterRow label="홈 타임라인" />
+                <FilterRow label="트윗 상세 / 답글" />
+                <FilterRow label="검색 결과" />
+              </div>
+            </div>
+
+            {/* Hide Mode */}
+            <div className="border-b border-[#38444d]/50 px-4 py-3">
+              <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-wider text-text-secondary">
+                숨김 방식
+              </p>
+              <div className="flex flex-col gap-1.5">
+                <RadioRow label="완전 제거" desc="트윗을 타임라인에서 완전히 제거합니다" checked />
+                <RadioRow label="접어서 표시" desc="클릭하면 펼쳐볼 수 있도록 접어둡니다" />
+              </div>
+            </div>
+
+            {/* Retweets */}
+            <div className="border-b border-[#38444d]/50 px-4 py-3">
+              <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-text-secondary">
+                리트윗
+              </p>
+              <div className="flex items-center justify-between py-1">
+                <span className="text-[12px]">파딱 리트윗 숨기기</span>
+                <ToggleSwitch on />
+              </div>
+            </div>
+
+            {/* Follow Sync */}
+            <div className="px-4 py-3">
+              <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-text-secondary">
+                팔로우 동기화
+              </p>
+              <p className="text-[11px] text-text-secondary">@fotoner_p · 수집된 팔로우: 142명</p>
+              <button className="mt-2 w-full rounded-lg bg-[#273340] px-3 py-2 text-[12px] text-text-primary" disabled>
+                팔로잉 페이지 열기
+              </button>
             </div>
           </div>
         </div>
@@ -96,8 +140,22 @@ function ToggleSwitch({ on }: { on?: boolean }) {
 function FilterRow({ label }: { label: string }) {
   return (
     <div className="flex items-center justify-between py-1">
-      <span className="text-xs">{label}</span>
+      <span className="text-[12px]">{label}</span>
       <ToggleSwitch on />
+    </div>
+  );
+}
+
+function RadioRow({ label, desc, checked }: { label: string; desc: string; checked?: boolean }) {
+  return (
+    <div className="flex items-start gap-2.5 py-0.5">
+      <div className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 ${checked ? "border-accent-blue" : "border-[#536471]"}`}>
+        {checked && <div className="h-2 w-2 rounded-full bg-accent-blue" />}
+      </div>
+      <div>
+        <span className="text-[12px]">{label}</span>
+        <p className="text-[10px] leading-tight text-[#536471]">{desc}</p>
+      </div>
     </div>
   );
 }

@@ -1,102 +1,60 @@
 @import "tailwindcss";
 
 @theme {
-  /* === Colors: X-branded dark palette === */
-  --color-bg-primary: #0f172a;
-  --color-bg-card: #1e293b;
-  --color-bg-muted: #273340;
+  /* === Colors: X-native dark palette === */
+  --color-bg-primary: #000000;
+  --color-bg-card: #16181c;
+  --color-bg-muted: #202327;
   --color-text-primary: #e7e9ea;
   --color-text-secondary: #71767b;
   --color-accent-blue: #1d9bf0;
   --color-accent-blue-hover: #1a8cd8;
   --color-accent-red: #f4212e;
-  --color-border: #38444d;
+  --color-border: #2f3336;
 
-  /* === Typography === */
-  --font-heading: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
+  /* === Typography: X-native system fonts === */
+  --font-heading: "Segoe UI", "SF Pro Display", -apple-system, system-ui, sans-serif;
+  --font-body: "Segoe UI", "SF Pro Text", -apple-system, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
   /* === Spacing === */
-  --spacing-section: 5rem;
+  --spacing-section: 3rem;
   --spacing-section-mobile: 3rem;
 
   /* === Animations === */
-  --animate-float: float 6s ease-in-out infinite;
   --animate-fade-in-up: fade-in-up 0.6s ease-out both;
-  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
 }
 
-/* === Keyframes === */
-@keyframes float {
-  0%, 100% { transform: perspective(1000px) rotateY(-6deg) rotateX(2deg) translateY(0); }
-  50% { transform: perspective(1000px) rotateY(-6deg) rotateX(2deg) translateY(-12px); }
-}
-
+/* === Keyframes (preserved for demo components) === */
 @keyframes fade-in-up {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
+/* === Hero fluid background === */
+@keyframes drift-a {
+  0%, 100% { top: -10%; left: -5%; }
+  33% { top: 20%; left: 60%; }
+  66% { top: -5%; left: 30%; }
 }
 
-/* === Utility: Gradient text === */
-.text-gradient {
-  background: linear-gradient(135deg, #e7e9ea 30%, #1d9bf0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+@keyframes drift-b {
+  0%, 100% { top: 50%; right: -10%; }
+  40% { top: 10%; right: 40%; }
+  70% { top: 40%; right: 20%; }
 }
 
-/* === Utility: Glass card === */
-.glass-card {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+@keyframes drift-c {
+  0%, 100% { bottom: -5%; left: 30%; }
+  50% { bottom: 20%; left: 60%; }
 }
 
-/* === Utility: Dot grid background === */
-.bg-dot-grid {
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 24px 24px;
+@keyframes nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
 }
 
-/* === Utility: Glow border on hover === */
-.glow-border-hover {
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
-}
-.glow-border-hover:hover {
-  border-color: rgba(29, 155, 240, 0.3);
-  box-shadow: 0 0 20px rgba(29, 155, 240, 0.08), 0 0 40px rgba(29, 155, 240, 0.04);
-}
-
-/* === Feature demo animations === */
-@keyframes progress {
-  from { width: 0%; }
-  to { width: 100%; }
-}
-
-@keyframes badge-scan {
-  0%, 100% { filter: drop-shadow(0 0 0px transparent); }
-  50% { filter: drop-shadow(0 0 8px rgba(244, 33, 46, 0.6)); }
-}
-
-@keyframes slide-out {
-  0% { opacity: 1; transform: translateX(0); }
-  70% { opacity: 1; transform: translateX(0); }
-  100% { opacity: 0; transform: translateX(40px); }
-}
-
-@keyframes collapse-tweet {
-  0% { max-height: 60px; }
-  40% { max-height: 60px; }
-  100% { max-height: 32px; }
-}
-
-/* === Marquee animations === */
+/* === SocialProof marquee === */
 @keyframes marquee-left {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -105,6 +63,18 @@
 @keyframes marquee-right {
   0% { transform: translateX(-50%); }
   100% { transform: translateX(0); }
+}
+
+@keyframes slide-out {
+  0% { opacity: 1; transform: translateX(0); }
+  40% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(30px); }
+}
+
+@keyframes collapse-tweet {
+  0% { max-height: 60px; }
+  40% { max-height: 60px; }
+  100% { max-height: 32px; }
 }
 
 /* === Reduced motion === */
