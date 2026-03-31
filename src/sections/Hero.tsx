@@ -11,8 +11,11 @@ export function Hero() {
   }
 
   return (
-    <section className="border-b border-border px-4 py-(--spacing-section)">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-12 lg:flex-row lg:gap-16">
+    <section className="relative min-h-[calc(100vh-3.5rem)] border-b border-border px-4 py-24 flex items-center overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(29,155,240,0.08),transparent)]" />
+
+      <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-12 lg:flex-row lg:gap-16">
         {/* Left: Content */}
         <div className="flex-1">
           <div className="mb-6 inline-flex items-center rounded-full border border-border bg-bg-card px-4 py-1.5 text-sm text-accent-blue">
