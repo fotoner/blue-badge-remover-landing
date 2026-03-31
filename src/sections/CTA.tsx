@@ -1,4 +1,3 @@
-import { Button } from "../components/Button";
 import { useI18n } from "../hooks/useI18n";
 import { trackEvent } from "../lib/analytics";
 import { CHROME_STORE_URL } from "../lib/constants";
