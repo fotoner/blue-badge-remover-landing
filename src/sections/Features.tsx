@@ -307,6 +307,9 @@ function QuoteTweetDemo() {
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
+  const isEntire = mode === "hide-entire";
+  const isQuoteOnly = mode === "quote-only";
+
   return (
     <div className="p-4">
       <div className="mb-3 flex gap-1.5">
@@ -314,9 +317,7 @@ function QuoteTweetDemo() {
           <span
             key={m}
             className={`rounded-md px-2 py-1 text-[10px] font-medium transition-colors duration-300 ${
-              mode === m
-                ? "bg-accent-blue/20 text-accent-blue"
-                : "text-[#71767b]"
+              mode === m ? "bg-accent-blue/20 text-accent-blue" : "text-[#71767b]"
             }`}
           >
             {m === "off" ? "Off" : m === "quote-only" ? "Quote Only" : "Entire"}
@@ -324,53 +325,58 @@ function QuoteTweetDemo() {
         ))}
       </div>
 
-      <div className="rounded-lg border border-[#2f3336] p-3">
-        <div className="flex items-center gap-1.5 text-xs">
-          <span className="text-[#e7e9ea]">user</span>
-          <span className="text-[#71767b]">@user · 2h</span>
-        </div>
-        <p className="mt-1 text-xs text-[#e7e9ea]">{t("demo.quote.text")}</p>
+      {/* Outer tweet - entire mode hides this completely */}
+      <div
+        className="overflow-hidden rounded-lg border border-[#2f3336] transition-all duration-700 ease-out"
+        style={{
+          maxHeight: isEntire ? "0px" : "200px",
+          opacity: isEntire ? 0 : 1,
+          borderWidth: isEntire ? 0 : 1,
+        }}
+      >
+        <div className="p-3">
+          <div className="flex items-center gap-1.5 text-xs">
+            <span className="text-[#e7e9ea]">user</span>
+            <span className="text-[#71767b]">@user · 2h</span>
+          </div>
+          <p className="mt-1 text-xs text-[#e7e9ea]">{t("demo.quote.text")}</p>
 
-        {/* Quote block - always rendered, height/opacity transitions */}
-        <div
-          className="mt-2 overflow-hidden rounded-lg border border-[#2f3336] transition-all duration-700 ease-out"
-          style={{
-            maxHeight: mode === "hide-entire" ? "0px" : "60px",
-            opacity: mode === "hide-entire" ? 0 : 1,
-            borderWidth: mode === "hide-entire" ? 0 : 1,
-            marginTop: mode === "hide-entire" ? 0 : 8,
-          }}
-        >
-          <div className="p-2.5">
-            <div className="flex items-center gap-1 text-[10px]">
-              <span className="text-[#e7e9ea]">spammer</span>
-              <span className="text-[#1d9bf0]">✓</span>
-              <span className="text-[#71767b]">@spam</span>
-            </div>
-            <p
-              className="mt-0.5 text-[10px] transition-all duration-500"
-              style={{
-                color: mode === "quote-only" ? "#71767b" : "#e7e9ea",
-              }}
-            >
-              {mode === "quote-only" ? t("demo.quote.hidden") : t("demo.spam.text")}
-            </p>
+          {/* Inner quoted content - quote-only mode collapses this */}
+          <div
+            className="mt-2 overflow-hidden rounded-lg border border-[#2f3336] transition-all duration-500 ease-out"
+          >
+            {isQuoteOnly ? (
+              <div className="px-3 py-1.5 text-[10px] text-[#71767b]">
+                {t("demo.quote.hidden")}
+              </div>
+            ) : (
+              <div className="p-2.5">
+                <div className="flex items-center gap-1 text-[10px]">
+                  <span className="text-[#e7e9ea]">spammer</span>
+                  <span className="text-[#1d9bf0]">✓</span>
+                  <span className="text-[#71767b]">@spam</span>
+                </div>
+                <p className="mt-0.5 text-[10px] text-[#e7e9ea]">
+                  {t("demo.spam.text")}
+                </p>
+              </div>
+            )}
           </div>
         </div>
+      </div>
 
-        {/* Entire hidden label */}
-        <div
-          className="overflow-hidden transition-all duration-500 ease-out"
-          style={{
-            maxHeight: mode === "hide-entire" ? "24px" : "0px",
-            opacity: mode === "hide-entire" ? 1 : 0,
-            marginTop: mode === "hide-entire" ? 8 : 0,
-          }}
-        >
-          <span className="text-[10px] text-accent-red/70">
-            {t("demo.quote.entire")}
-          </span>
-        </div>
+      {/* "Entire tweet hidden" label - appears when outer tweet fades */}
+      <div
+        className="overflow-hidden transition-all duration-500 ease-out"
+        style={{
+          maxHeight: isEntire ? "24px" : "0px",
+          opacity: isEntire ? 1 : 0,
+          marginTop: isEntire ? 8 : 0,
+        }}
+      >
+        <span className="text-[10px] text-accent-red/70">
+          {t("demo.quote.entire")}
+        </span>
       </div>
     </div>
   );
