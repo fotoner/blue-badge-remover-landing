@@ -54,7 +54,7 @@ export function BeforeAfter() {
             </div>
             <div className="flex items-center gap-2">
               {showHint && (
-                <span className="text-xs text-text-secondary transition-opacity">Try it →</span>
+                <span className="animate-[nudge_1.5s_ease-in-out_infinite] text-xs text-text-secondary">Try it →</span>
               )}
               <button
                 onClick={handleToggle}

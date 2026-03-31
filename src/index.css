@@ -49,6 +49,11 @@
   50% { bottom: 20%; left: 60%; }
 }
 
+@keyframes nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
 /* === SocialProof marquee === */
 @keyframes marquee-left {
   0% { transform: translateX(0); }
