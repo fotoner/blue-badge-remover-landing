@@ -89,10 +89,11 @@ export function Features() {
         </div>
 
         {/* Right: Demo area */}
-        <div className="flex min-h-[280px] items-center justify-center">
+        <div className="relative flex min-h-[280px] items-center justify-center">
+          <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(29,155,240,0.06),transparent_70%)]" />
           <div
             key={active}
-            className="w-full max-w-sm animate-[fade-in-up_0.4s_ease-out_both] overflow-hidden rounded-2xl border border-[#2f3336] bg-black"
+            className="relative w-full max-w-sm animate-[fade-in-up_0.4s_ease-out_both] overflow-hidden rounded-2xl border border-[#2f3336] bg-black"
           >
             <ActiveDemo />
           </div>

@@ -43,7 +43,9 @@ export function BeforeAfter() {
           {t("demo.subtitle")}
         </p>
 
-        <div className="relative mt-8 overflow-hidden rounded-2xl border border-border bg-black">
+        <div className="relative mt-8">
+          <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(29,155,240,0.06),transparent_70%)]" />
+          <div className="relative overflow-hidden rounded-2xl border border-border bg-black">
           {/* Extension header bar */}
           <div className="flex items-center justify-between border-b border-[#2f3336] px-4 py-3">
             <div className="flex items-center gap-2">
@@ -96,6 +98,7 @@ export function BeforeAfter() {
               <Check className="h-3.5 w-3.5" aria-hidden="true" />
               {t("ba.hidden")}
             </div>
+          </div>
           </div>
         </div>
       </div>
