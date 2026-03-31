@@ -5,7 +5,7 @@ export function Footer() {
   const { t } = useI18n();
 
   return (
-    <footer className="border-t border-border py-8">
+    <footer className="border-t border-border py-8 pb-20 lg:pb-8">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-4 text-sm text-text-secondary">
         <div className="flex items-center gap-4">
           <a

@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useI18n } from "../hooks/useI18n";
-import { useInView } from "../hooks/useInView";
 import type { TranslationKeys } from "../lib/i18n";
 
 interface FeatureItem {
@@ -40,58 +39,32 @@ const FEATURES: FeatureItem[] = [
 export function Features() {
   const { t } = useI18n();
   const [active, setActive] = useState(0);
-  const intervalRef = useRef<ReturnType<typeof setInterval>>(undefined);
-
-  function startAutoRotate() {
-    clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(() => {
-      setActive((prev) => (prev + 1) % FEATURES.length);
-    }, 5000);
-  }
-
-  useEffect(() => {
-    startAutoRotate();
-    return () => clearInterval(intervalRef.current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  function handleSelect(i: number) {
-    setActive(i);
-    startAutoRotate();
-  }
 
   const ActiveDemo = FEATURES[active]!.Demo;
-  const { ref: sectionRef, inView } = useInView();
 
   return (
     <section
-      ref={sectionRef as React.RefObject<HTMLElement>}
       id="features"
-      className={`min-h-[750px] mx-auto max-w-5xl px-4 py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+      className="mx-auto max-w-3xl border-b border-border px-4 py-(--spacing-section)"
     >
-      <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
+      <h2 className="font-heading text-2xl font-bold text-text-primary sm:text-3xl">
         {t("features.title")}
       </h2>
-      <p className="mx-auto mt-3 max-w-md text-center text-text-secondary">
+      <p className="mt-2 max-w-md text-text-secondary">
         {t("features.subtitle")}
       </p>
 
-      <div className="mt-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_1.2fr]">
+      <div className="mt-8 grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_1.2fr]">
         {/* Left: Feature tabs */}
         <div className="flex flex-col gap-1">
           {FEATURES.map((f, i) => (
             <button
               key={f.titleKey}
-              onClick={() => handleSelect(i)}
-              className={`group relative cursor-pointer overflow-hidden rounded-xl px-5 py-4 text-left transition-all duration-300 ${
-                active === i ? "bg-white/[0.06]" : "hover:bg-white/[0.03]"
+              onClick={() => setActive(i)}
+              className={`cursor-pointer rounded-xl px-5 py-4 text-left transition-colors duration-200 ${
+                active === i ? "bg-bg-muted" : "hover:bg-bg-muted/50"
               }`}
             >
-              {/* Progress bar */}
-              {active === i && (
-                <div className="absolute bottom-0 left-0 h-0.5 bg-accent-blue animate-[progress_5s_linear]" />
-              )}
-
               <h3
                 className={`font-heading text-base font-semibold transition-colors ${
                   active === i ? "text-accent-blue" : "text-text-secondary"
@@ -119,7 +92,7 @@ export function Features() {
         <div className="flex min-h-[280px] items-center justify-center">
           <div
             key={active}
-            className="w-full max-w-sm animate-[fade-in-up_0.4s_ease-out_both] overflow-hidden rounded-2xl border border-white/[0.08] bg-black shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
+            className="w-full max-w-sm animate-[fade-in-up_0.4s_ease-out_both] overflow-hidden rounded-2xl border border-border bg-black"
           >
             <ActiveDemo />
           </div>
@@ -145,7 +118,7 @@ function BadgeDetectionDemo() {
               spam_user
             </span>
             <svg
-              className="h-[18px] w-[18px] flex-shrink-0 animate-[badge-scan_2s_ease-in-out_infinite]"
+              className="h-[18px] w-[18px] flex-shrink-0"
               viewBox="0 0 22 22"
             >
               <path

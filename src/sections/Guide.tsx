@@ -1,7 +1,6 @@
 import { ExternalLink, Download, Users } from "lucide-react";
 import { Button } from "../components/Button";
 import { useI18n } from "../hooks/useI18n";
-import { useInView } from "../hooks/useInView";
 import { trackEvent } from "../lib/analytics";
 import { CHROME_STORE_URL } from "../lib/constants";
 import type { LucideIcon } from "lucide-react";
@@ -26,46 +25,38 @@ export function Guide() {
     trackEvent("cta_click", { location: "guide" });
   }
 
-  const { ref: sectionRef, inView } = useInView();
-
   return (
-    <section
-      ref={sectionRef as React.RefObject<HTMLElement>}
-      id="guide"
-      className={`bg-bg-card py-(--spacing-section) transition-all duration-700 delay-100 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
-    >
-    <div className="mx-auto max-w-5xl px-4">
-      <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
-        {t("guide.title")}
-      </h2>
+    <section id="guide" className="border-b border-border py-(--spacing-section)">
+      <div className="px-4">
+        <h2 className="font-heading text-2xl font-bold text-text-primary sm:text-3xl">
+          {t("guide.title")}
+        </h2>
 
-      <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
-        {STEPS.map(({ icon: Icon, titleKey, descKey }, index) => (
-          <div key={titleKey} className="group flex flex-col items-center text-center">
-            {/* Step number badge */}
-            <div className="relative">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-accent-blue/10 transition-all duration-300 group-hover:bg-accent-blue/20 group-hover:shadow-[0_0_20px_rgba(29,155,240,0.15)]">
-                <Icon className="h-7 w-7 text-accent-blue transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
+        <div className="mt-8 flex flex-col gap-4">
+          {STEPS.map(({ icon: Icon, titleKey, descKey }, index) => (
+            <div key={titleKey} className="flex items-start gap-4 rounded-2xl border border-border bg-bg-card p-4">
+              <div className="relative shrink-0">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-blue/10 transition-colors group-hover:bg-accent-blue/20">
+                  <Icon className="h-5 w-5 text-accent-blue" aria-hidden="true" />
+                </div>
+                <span className="absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-accent-blue text-[10px] font-bold text-white">
+                  {index + 1}
+                </span>
               </div>
-              <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-accent-blue text-xs font-bold text-white">
-                {index + 1}
-              </span>
+              <div>
+                <h3 className="font-heading text-base font-semibold">{t(titleKey)}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-text-secondary">{t(descKey)}</p>
+              </div>
             </div>
-            <h3 className="mt-4 font-heading text-lg font-semibold">{t(titleKey)}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-text-secondary">{t(descKey)}</p>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <div className="mt-12 text-center">
-        <Button
-          href={CHROME_STORE_URL}
-          onClick={handleCtaClick}
-        >
-          {t("hero.cta")}
-        </Button>
+        <div className="mt-8">
+          <Button href={CHROME_STORE_URL} onClick={handleCtaClick}>
+            {t("hero.cta")}
+          </Button>
+        </div>
       </div>
-    </div>
     </section>
   );
 }

@@ -11,7 +11,7 @@ export function Header() {
   ];
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 border-b border-white/[0.06] bg-bg-primary/70 backdrop-blur-xl">
+    <header className="fixed top-0 right-0 left-0 z-50 border-b border-border bg-black/80">
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
         <div className="flex items-center gap-2">
           <img src="/icon.svg" alt="" className="h-6 w-6" aria-hidden="true" />

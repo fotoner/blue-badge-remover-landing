@@ -11,20 +11,15 @@ export function Hero() {
   }
 
   return (
-    <section className="bg-dot-grid relative flex min-h-[calc(100vh-3.5rem)] items-center overflow-hidden px-4">
-      {/* Background glow effects */}
-      <div className="animate-pulse-glow pointer-events-none absolute top-[-20%] right-[5%] h-[500px] w-[500px] rounded-full bg-accent-blue/[0.10] blur-[120px]" />
-      <div className="animate-pulse-glow pointer-events-none absolute bottom-[-15%] left-[5%] h-[400px] w-[400px] rounded-full bg-accent-red/[0.06] blur-[120px]" />
-      <div className="pointer-events-none absolute top-[30%] left-[40%] h-[300px] w-[300px] rounded-full bg-purple-500/[0.04] blur-[100px]" />
-
-      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-12 lg:flex-row lg:gap-16">
+    <section className="flex min-h-[calc(100vh-3.5rem)] items-center px-4 py-(--spacing-section)">
+      <div className="mx-auto flex w-full flex-col gap-10 lg:flex-row lg:items-center lg:gap-12">
         {/* Left: Content */}
-        <div className="flex-1 text-center lg:text-left">
-          <div className="glass-card mb-6 inline-flex items-center rounded-full px-4 py-1.5 text-sm text-accent-blue">
+        <div className="flex-1">
+          <div className="mb-6 inline-flex items-center rounded-full border border-border bg-bg-card px-4 py-1.5 text-sm text-accent-blue">
             Chrome Extension
           </div>
 
-          <h1 className="whitespace-pre-line text-gradient font-heading text-4xl font-bold leading-tight tracking-tight break-keep sm:text-5xl md:text-6xl">
+          <h1 className="whitespace-pre-line font-heading text-4xl font-bold leading-tight tracking-tight text-text-primary break-keep sm:text-5xl md:text-6xl">
             {t("hero.title")}
           </h1>
 
@@ -32,7 +27,7 @@ export function Hero() {
             {t("hero.subtitle")}
           </p>
 
-          <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row lg:items-start">
+          <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row">
             <Button
               href={CHROME_STORE_URL}
               onClick={handleCtaClick}
@@ -51,7 +46,7 @@ export function Hero() {
 
         {/* Right: Popup Preview */}
         <div className="w-full max-w-[300px] flex-shrink-0 lg:max-w-[320px]">
-          <div className="animate-float rounded-2xl border border-white/[0.08] bg-[#15202b] p-5 shadow-[0_25px_80px_rgba(0,0,0,0.6),0_0_60px_rgba(29,155,240,0.12)]">
+          <div className="rounded-2xl border border-border bg-bg-card p-5 shadow-[0_8px_24px_rgba(0,0,0,0.4)]">
             {/* Popup Header */}
             <div className="mb-3 flex items-center gap-2">
               <div className="flex h-6 w-6 items-center justify-center rounded-full bg-accent-red">

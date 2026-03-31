@@ -1,52 +1,20 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useCallback, useRef } from "react";
 import { Check, ShieldAlert } from "lucide-react";
 import { useI18n } from "../hooks/useI18n";
-import { useInView } from "../hooks/useInView";
 
 export function BeforeAfter() {
   const { t } = useI18n();
   const [isActive, setIsActive] = useState(false);
   const [showStatus, setShowStatus] = useState(false);
-  const userInteracted = useRef(false);
+  const [showHint, setShowHint] = useState(true);
   const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
-
-  const clearTimers = useCallback(() => {
-    timersRef.current.forEach(clearTimeout);
-    timersRef.current = [];
-  }, []);
 
   const addTimer = useCallback((fn: () => void, ms: number) => {
     timersRef.current.push(setTimeout(fn, ms));
   }, []);
 
-  useEffect(() => {
-    if (userInteracted.current) return;
-
-    function cycle() {
-      setIsActive(false);
-      setShowStatus(false);
-
-      addTimer(() => {
-        if (userInteracted.current) return;
-        setIsActive(true);
-        addTimer(() => {
-          if (userInteracted.current) return;
-          setShowStatus(true);
-          addTimer(() => {
-            if (userInteracted.current) return;
-            cycle();
-          }, 3000);
-        }, 900);
-      }, 2500);
-    }
-
-    cycle();
-    return clearTimers;
-  }, [addTimer, clearTimers]);
-
   const handleToggle = useCallback(() => {
-    userInteracted.current = true;
-    clearTimers();
+    setShowHint(false);
     setIsActive((prev) => {
       const next = !prev;
       if (next) {
@@ -56,7 +24,7 @@ export function BeforeAfter() {
       }
       return next;
     });
-  }, [addTimer, clearTimers]);
+  }, [addTimer]);
 
   const allTweets = [
     { avatar: "🤑", name: "spam_promoter", handle: "@spam_promo", time: "2h", textKey: "ba.spam1" as const, isSpam: true, delay: 0 },
@@ -65,22 +33,17 @@ export function BeforeAfter() {
     { avatar: "🎬", name: "동료", handle: "@colleague", time: "5h", textKey: "ba.clean2" as const, isSpam: false, delay: 0 },
   ];
 
-  const { ref: sectionRef, inView } = useInView();
-
   return (
-    <section
-      ref={sectionRef as React.RefObject<HTMLElement>}
-      className={`min-h-[750px] bg-bg-card py-(--spacing-section) transition-all duration-700 ${inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
-    >
-      <div className="mx-auto max-w-2xl px-4">
-        <h2 className="font-heading text-center text-3xl font-bold text-text-primary sm:text-4xl">
+    <section className="border-b border-border py-(--spacing-section)">
+      <div className="px-4">
+        <h2 className="font-heading text-2xl font-bold text-text-primary sm:text-3xl">
           {t("demo.title")}
         </h2>
-        <p className="mx-auto mt-4 max-w-md text-center text-text-secondary">
+        <p className="mt-3 max-w-md text-text-secondary">
           {t("demo.subtitle")}
         </p>
 
-        <div className="relative mt-10 overflow-hidden rounded-2xl border border-white/[0.08] bg-black shadow-[0_25px_80px_rgba(0,0,0,0.5)]">
+        <div className="relative mt-8 overflow-hidden rounded-2xl border border-border bg-black">
           {/* Extension header bar */}
           <div className="flex items-center justify-between border-b border-[#2f3336] px-4 py-3">
             <div className="flex items-center gap-2">
@@ -91,13 +54,18 @@ export function BeforeAfter() {
                 Blue Badge Remover
               </span>
             </div>
-            <button
-              onClick={handleToggle}
-              className="cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
-              aria-label={isActive ? "Disable filtering" : "Enable filtering"}
-            >
-              <ToggleSwitch on={isActive} />
-            </button>
+            <div className="flex items-center gap-2">
+              {showHint && (
+                <span className="text-xs text-text-secondary transition-opacity">Try it →</span>
+              )}
+              <button
+                onClick={handleToggle}
+                className="cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
+                aria-label={isActive ? "Disable filtering" : "Enable filtering"}
+              >
+                <ToggleSwitch on={isActive} />
+              </button>
+            </div>
           </div>
 
           {/* Tweet list */}
