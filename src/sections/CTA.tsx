@@ -23,9 +23,15 @@ export function CTA() {
           {t("hero.subtitle")}
         </p>
         <div className="mt-8">
-          <Button href={CHROME_STORE_URL} onClick={handleCtaClick} className="px-8 py-4 text-base">
+          <a
+            href={CHROME_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleCtaClick}
+            className="inline-flex items-center justify-center rounded-full bg-accent-blue px-10 py-4 text-lg font-semibold text-white shadow-[0_4px_0_0_#1a6fb5] transition-all duration-200 hover:brightness-110 active:translate-y-1 active:shadow-none"
+          >
             {t("hero.cta")}
-          </Button>
+          </a>
         </div>
         <p className="mt-4 text-sm text-text-secondary">{t("hero.cta.sub")}</p>
       </div>
