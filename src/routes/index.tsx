@@ -17,7 +17,7 @@ function LandingPage() {
   return (
     <>
       <div className="mx-auto flex max-w-[1000px] justify-center">
-        <div className="min-w-0 w-full max-w-[600px] border-x border-border">
+        <div className="min-w-0 w-full max-w-[600px] lg:border-x lg:border-border">
           <Hero />
           <BeforeAfter />
           <Features />
