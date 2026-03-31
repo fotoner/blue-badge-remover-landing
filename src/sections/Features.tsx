@@ -55,9 +55,9 @@ export function Features() {
       </p>
 
       {/* Horizontal tabs */}
-      <div className="relative -mx-4 mt-6 border-b border-border">
-        <div className="flex min-w-max overflow-x-auto px-4 scrollbar-hide">
-          <style>{`.scrollbar-hide::-webkit-scrollbar{display:none}.scrollbar-hide{-ms-overflow-style:none;scrollbar-width:none}`}</style>
+      <div className="relative -mx-4 mt-6 overflow-x-auto overflow-y-hidden border-b border-border scrollbar-hide">
+        <style>{`.scrollbar-hide::-webkit-scrollbar{display:none}.scrollbar-hide{-ms-overflow-style:none;scrollbar-width:none}`}</style>
+        <div className="flex min-w-max px-4">
           {FEATURES.map((f, i) => (
             <button
               key={f.titleKey}
