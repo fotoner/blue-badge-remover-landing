@@ -71,7 +71,7 @@ export function Hero() {
             </div>
 
             {/* Keyword filter beta */}
-            <div className="border-b border-white/[0.06] px-4 py-3">
+            <div className="border-b border-[#38444d]/50 px-4 py-3">
               <div className="flex items-center justify-between">
                 <span className="text-[12px]">[Beta] 키워드 필터</span>
                 <ToggleSwitch />
@@ -79,7 +79,7 @@ export function Hero() {
             </div>
 
             {/* Filter Scope */}
-            <div className="border-b border-white/[0.06] px-4 py-3">
+            <div className="border-b border-[#38444d]/50 px-4 py-3">
               <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-text-secondary">
                 필터링 범위
               </p>
@@ -91,7 +91,7 @@ export function Hero() {
             </div>
 
             {/* Hide Mode */}
-            <div className="border-b border-white/[0.06] px-4 py-3">
+            <div className="border-b border-[#38444d]/50 px-4 py-3">
               <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-wider text-text-secondary">
                 숨김 방식
               </p>
@@ -102,7 +102,7 @@ export function Hero() {
             </div>
 
             {/* Retweets */}
-            <div className="border-b border-white/[0.06] px-4 py-3">
+            <div className="border-b border-[#38444d]/50 px-4 py-3">
               <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-text-secondary">
                 리트윗
               </p>
@@ -118,7 +118,7 @@ export function Hero() {
                 팔로우 동기화
               </p>
               <p className="text-[11px] text-text-secondary">@fotoner_p · 수집된 팔로우: 142명</p>
-              <button className="mt-2 w-full rounded-lg bg-bg-muted px-3 py-2 text-[12px] text-text-primary" disabled>
+              <button className="mt-2 w-full rounded-lg bg-[#273340] px-3 py-2 text-[12px] text-text-primary" disabled>
                 팔로잉 페이지 열기
               </button>
             </div>
@@ -148,9 +148,9 @@ function FilterRow({ label }: { label: string }) {
 
 function RadioRow({ label, desc, checked }: { label: string; desc: string; checked?: boolean }) {
   return (
-    <div className="flex items-start gap-2 py-0.5">
-      <div className={`mt-0.5 h-3.5 w-3.5 shrink-0 rounded-full border-2 ${checked ? "border-accent-blue" : "border-[#536471]"}`}>
-        {checked && <div className="m-0.5 h-1.5 w-1.5 rounded-full bg-accent-blue" />}
+    <div className="flex items-start gap-2.5 py-0.5">
+      <div className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 ${checked ? "border-accent-blue" : "border-[#536471]"}`}>
+        {checked && <div className="h-2 w-2 rounded-full bg-accent-blue" />}
       </div>
       <div>
         <span className="text-[12px]">{label}</span>
