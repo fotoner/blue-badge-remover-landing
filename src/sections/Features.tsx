@@ -380,7 +380,7 @@ function QuoteTweetDemo() {
               }}
             >
               <div className="px-3 py-1.5 text-[10px] text-[#71767b]">
-                ▸ {t("demo.quote.hidden")}
+                {t("demo.quote.hidden")}
               </div>
             </div>
           </div>
