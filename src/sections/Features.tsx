@@ -55,20 +55,22 @@ export function Features() {
       </p>
 
       {/* Horizontal tabs */}
-      <div className="mt-6 flex gap-1 overflow-x-auto border-b border-border">
-        {FEATURES.map((f, i) => (
-          <button
-            key={f.titleKey}
-            onClick={() => setActive(i)}
-            className={`cursor-pointer whitespace-nowrap px-4 py-3 text-sm font-semibold transition-colors duration-200 ${
-              active === i
-                ? "border-b-2 border-accent-blue text-text-primary"
-                : "text-text-secondary hover:text-text-primary"
-            }`}
-          >
-            {t(f.titleKey)}
-          </button>
-        ))}
+      <div className="-mx-4 mt-6 overflow-x-auto border-b border-border">
+        <div className="flex min-w-max px-4">
+          {FEATURES.map((f, i) => (
+            <button
+              key={f.titleKey}
+              onClick={() => setActive(i)}
+              className={`cursor-pointer whitespace-nowrap px-3 py-3 text-[13px] font-semibold transition-colors duration-200 ${
+                active === i
+                  ? "border-b-2 border-accent-blue text-text-primary"
+                  : "text-text-secondary hover:text-text-primary"
+              }`}
+            >
+              {t(f.titleKey)}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Description */}
