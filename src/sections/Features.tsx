@@ -55,8 +55,9 @@ export function Features() {
       </p>
 
       {/* Horizontal tabs */}
-      <div className="-mx-4 mt-6 overflow-x-auto border-b border-border">
-        <div className="flex min-w-max px-4">
+      <div className="relative -mx-4 mt-6 border-b border-border">
+        <div className="flex min-w-max overflow-x-auto px-4 scrollbar-hide">
+          <style>{`.scrollbar-hide::-webkit-scrollbar{display:none}.scrollbar-hide{-ms-overflow-style:none;scrollbar-width:none}`}</style>
           {FEATURES.map((f, i) => (
             <button
               key={f.titleKey}
@@ -71,6 +72,8 @@ export function Features() {
             </button>
           ))}
         </div>
+        {/* Scroll hint fade */}
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-bg-primary to-transparent sm:hidden" />
       </div>
 
       {/* Description */}
