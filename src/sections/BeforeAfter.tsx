@@ -47,9 +47,7 @@ export function BeforeAfter() {
           {/* Extension header bar */}
           <div className="flex items-center justify-between border-b border-[#2f3336] px-4 py-3">
             <div className="flex items-center gap-2">
-              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-accent-red">
-                <span className="text-xs font-bold text-white">✕</span>
-              </div>
+              <img src="/icon.svg" alt="" className="h-6 w-6" aria-hidden="true" />
               <span className="text-sm font-bold text-[#e7e9ea]">
                 Blue Badge Remover
               </span>
