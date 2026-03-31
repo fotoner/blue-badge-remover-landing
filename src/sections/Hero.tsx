@@ -50,26 +50,71 @@ export function Hero() {
 
         {/* Right: Popup Preview */}
         <div className="w-full max-w-[280px] flex-shrink-0 lg:max-w-[300px]">
-          <div className="rounded-2xl border border-border bg-bg-card p-5 shadow-[0_8px_32px_rgba(29,155,240,0.08),0_8px_24px_rgba(0,0,0,0.4)]">
-            <div className="mb-3 flex items-center gap-2">
-              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-accent-red">
-                <span className="text-xs font-bold text-white">✕</span>
+          <div className="rounded-2xl border border-border bg-bg-card shadow-[0_8px_32px_rgba(29,155,240,0.08),0_8px_24px_rgba(0,0,0,0.4)]">
+            {/* Header */}
+            <div className="flex items-center justify-between border-b border-border px-4 py-3">
+              <div className="flex items-center gap-2">
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-accent-red">
+                  <span className="text-xs font-bold text-white">✕</span>
+                </div>
+                <span className="font-heading text-sm font-bold">Blue Badge Remover</span>
               </div>
-              <span className="font-heading text-sm font-bold">Blue Badge Remover</span>
+              <span className="text-[10px] text-text-secondary">v2.1</span>
             </div>
 
-            <div className="mb-4 flex items-center justify-between rounded-xl bg-accent-blue/[0.08] px-3 py-2.5">
-              <span className="text-sm font-semibold text-accent-blue">Filtering</span>
-              <ToggleSwitch on />
+            {/* Stats bar */}
+            <div className="grid grid-cols-3 border-b border-border">
+              <StatCell label="오늘" value="47" />
+              <StatCell label="이번 주" value="312" border />
+              <StatCell label="전체" value="2,841" />
             </div>
 
-            <p className="mb-2 text-[10px] uppercase tracking-wider text-text-secondary">
-              Filter Scope
-            </p>
-            <div className="flex flex-col gap-2">
-              <FilterRow label="Home Timeline" />
-              <FilterRow label="Tweet Detail" />
-              <FilterRow label="Search Results" />
+            {/* Master toggle */}
+            <div className="border-b border-border px-4 py-3">
+              <div className="flex items-center justify-between rounded-xl bg-accent-blue/[0.08] px-3 py-2.5">
+                <span className="text-sm font-semibold text-accent-blue">Filtering</span>
+                <ToggleSwitch on />
+              </div>
+            </div>
+
+            {/* Filter Scope */}
+            <div className="border-b border-border px-4 py-3">
+              <p className="mb-2 text-[10px] uppercase tracking-wider text-text-secondary">
+                Filter Scope
+              </p>
+              <div className="flex flex-col gap-2">
+                <FilterRow label="Home Timeline" />
+                <FilterRow label="Tweet Detail" />
+                <FilterRow label="Search Results" />
+              </div>
+            </div>
+
+            {/* Hide Mode */}
+            <div className="border-b border-border px-4 py-3">
+              <p className="mb-2 text-[10px] uppercase tracking-wider text-text-secondary">
+                Hide Mode
+              </p>
+              <div className="flex gap-1.5">
+                <ModeChip label="Remove" active />
+                <ModeChip label="Collapse" />
+              </div>
+            </div>
+
+            {/* Whitelist */}
+            <div className="px-4 py-3">
+              <p className="mb-2 text-[10px] uppercase tracking-wider text-text-secondary">
+                Whitelist
+              </p>
+              <div className="flex items-center gap-2">
+                <div className="flex -space-x-1.5">
+                  {["😊", "🎨", "🎵"].map((emoji) => (
+                    <div key={emoji} className="flex h-6 w-6 items-center justify-center rounded-full border border-bg-card bg-[#16181c] text-xs">
+                      {emoji}
+                    </div>
+                  ))}
+                </div>
+                <span className="text-[10px] text-text-secondary">+24 following</span>
+              </div>
             </div>
           </div>
         </div>
@@ -92,5 +137,22 @@ function FilterRow({ label }: { label: string }) {
       <span className="text-xs">{label}</span>
       <ToggleSwitch on />
     </div>
+  );
+}
+
+function StatCell({ label, value, border }: { label: string; value: string; border?: boolean }) {
+  return (
+    <div className={`px-3 py-2.5 text-center ${border ? "border-x border-border" : ""}`}>
+      <p className="text-sm font-bold text-text-primary">{value}</p>
+      <p className="text-[10px] text-text-secondary">{label}</p>
+    </div>
+  );
+}
+
+function ModeChip({ label, active }: { label: string; active?: boolean }) {
+  return (
+    <span className={`rounded-md px-2.5 py-1 text-xs font-medium ${active ? "bg-accent-blue/20 text-accent-blue" : "text-text-secondary"}`}>
+      {label}
+    </span>
   );
 }
