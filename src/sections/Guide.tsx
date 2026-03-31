@@ -1,8 +1,5 @@
 import { ExternalLink, Download, Users } from "lucide-react";
-import { Button } from "../components/Button";
 import { useI18n } from "../hooks/useI18n";
-import { trackEvent } from "../lib/analytics";
-import { CHROME_STORE_URL } from "../lib/constants";
 import type { LucideIcon } from "lucide-react";
 import type { TranslationKeys } from "../lib/i18n";
 
@@ -20,10 +17,6 @@ const STEPS: StepItem[] = [
 
 export function Guide() {
   const { t } = useI18n();
-
-  function handleCtaClick() {
-    trackEvent("cta_click", { location: "guide" });
-  }
 
   return (
     <section id="guide" className="border-b border-border py-(--spacing-section)">
@@ -49,11 +42,6 @@ export function Guide() {
           ))}
         </div>
 
-        <div className="mt-6">
-          <Button href={CHROME_STORE_URL} onClick={handleCtaClick}>
-            {t("hero.cta")}
-          </Button>
-        </div>
       </div>
     </section>
   );
