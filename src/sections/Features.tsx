@@ -55,25 +55,27 @@ export function Features() {
       </p>
 
       {/* Horizontal tabs */}
-      <div className="relative -mx-4 mt-6 overflow-x-auto overflow-y-hidden border-b border-border scrollbar-hide">
-        <style>{`.scrollbar-hide::-webkit-scrollbar{display:none}.scrollbar-hide{-ms-overflow-style:none;scrollbar-width:none}`}</style>
-        <div className="flex min-w-max px-4">
-          {FEATURES.map((f, i) => (
-            <button
-              key={f.titleKey}
-              onClick={() => setActive(i)}
-              className={`cursor-pointer whitespace-nowrap px-3 py-3 text-[13px] font-semibold transition-colors duration-200 ${
-                active === i
-                  ? "border-b-2 border-accent-blue text-text-primary"
-                  : "text-text-secondary hover:text-text-primary"
-              }`}
-            >
-              {t(f.titleKey)}
-            </button>
-          ))}
+      <div className="relative -mx-4 mt-6">
+        <div className="overflow-x-auto overflow-y-hidden border-b border-border scrollbar-hide">
+          <style>{`.scrollbar-hide::-webkit-scrollbar{display:none}.scrollbar-hide{-ms-overflow-style:none;scrollbar-width:none}`}</style>
+          <div className="flex min-w-max px-4">
+            {FEATURES.map((f, i) => (
+              <button
+                key={f.titleKey}
+                onClick={() => setActive(i)}
+                className={`cursor-pointer whitespace-nowrap px-3 py-3 text-[13px] font-semibold transition-colors duration-200 ${
+                  active === i
+                    ? "border-b-2 border-accent-blue text-text-primary"
+                    : "text-text-secondary hover:text-text-primary"
+                }`}
+              >
+                {t(f.titleKey)}
+              </button>
+            ))}
+          </div>
         </div>
-        {/* Scroll hint fade */}
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-bg-primary to-transparent sm:hidden" />
+        {/* Scroll hint fade - outside scroll container so it stays fixed */}
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-bg-primary to-transparent sm:hidden" />
       </div>
 
       {/* Description */}
