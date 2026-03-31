@@ -12,9 +12,9 @@ export function Hero() {
 
   return (
     <section className="flex min-h-[calc(100vh-3.5rem)] items-center px-4 py-(--spacing-section)">
-      <div className="mx-auto flex w-full flex-col gap-10 lg:flex-row lg:items-center lg:gap-12">
-        {/* Left: Content */}
-        <div className="flex-1">
+      <div className="flex w-full flex-col gap-10">
+        {/* Content */}
+        <div>
           <div className="mb-6 inline-flex items-center rounded-full border border-border bg-bg-card px-4 py-1.5 text-sm text-accent-blue">
             Chrome Extension
           </div>
@@ -44,8 +44,8 @@ export function Hero() {
           <p className="mt-3 text-sm text-text-secondary">{t("hero.cta.sub")}</p>
         </div>
 
-        {/* Right: Popup Preview */}
-        <div className="w-full max-w-[300px] flex-shrink-0 lg:max-w-[320px]">
+        {/* Popup Preview */}
+        <div className="w-full max-w-[300px]">
           <div className="rounded-2xl border border-border bg-bg-card p-5 shadow-[0_8px_24px_rgba(0,0,0,0.4)]">
             {/* Popup Header */}
             <div className="mb-3 flex items-center gap-2">
