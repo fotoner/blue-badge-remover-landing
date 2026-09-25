@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 
-export function AnimatedToggle({ delay }: { delay: number }) {
+/** delay 후 켜지는 토글. delay가 null이면 꺼진 채로 둔다 */
+export function AnimatedToggle({ delay }: { delay: number | null }) {
   const [on, setOn] = useState(false);
   useEffect(() => {
+    if (delay === null) return;
     const timer = setTimeout(() => setOn(true), delay);
     return () => clearTimeout(timer);
   }, [delay]);

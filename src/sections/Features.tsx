@@ -6,6 +6,7 @@ import { FilteringDemo } from "./features/FilteringDemo";
 import { HideModesDemo } from "./features/HideModesDemo";
 import { WhitelistDemo } from "./features/WhitelistDemo";
 import { QuoteTweetDemo } from "./features/QuoteTweetDemo";
+import { SelectiveFilterDemo } from "./features/SelectiveFilterDemo";
 
 interface FeatureItem {
   titleKey: TranslationKeys;
@@ -23,6 +24,11 @@ const FEATURES: FeatureItem[] = [
     titleKey: "features.filter.title",
     descKey: "features.filter.desc",
     Demo: FilteringDemo,
+  },
+  {
+    titleKey: "features.selective.title",
+    descKey: "features.selective.desc",
+    Demo: SelectiveFilterDemo,
   },
   {
     titleKey: "features.hide.title",
