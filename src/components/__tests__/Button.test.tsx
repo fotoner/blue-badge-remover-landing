@@ -36,4 +36,12 @@ describe("Button", () => {
     expect(link).toHaveAttribute("target", "_blank");
     expect(link).toHaveAttribute("rel", "noopener noreferrer");
   });
+
+  it("링크 버튼에 className을 넘겨도 기본 스타일을 유지한다", () => {
+    render(<Button href="https://example.com" className="w-full">Go</Button>);
+    const link = screen.getByRole("link", { name: "Go" });
+    expect(link).toHaveClass("w-full");
+    expect(link).toHaveClass("rounded-full");
+    expect(link).toHaveClass("bg-accent-blue");
+  });
 });

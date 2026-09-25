@@ -35,7 +35,8 @@ export function Button({ variant = "primary", children, ...props }: ButtonProps)
   const className = `${baseStyles} ${variantStyles[variant]} ${(props as { className?: string }).className ?? ""}`.trim();
 
   if ("href" in props && props.href) {
-    const { href, ...rest } = props as ButtonAsLink;
+    // className은 위에서 기본 스타일과 합쳤으므로 rest에서 빼야 덮어쓰지 않는다
+    const { href, className: _className, ...rest } = props as ButtonAsLink;
     return (
       <a
         href={href}
