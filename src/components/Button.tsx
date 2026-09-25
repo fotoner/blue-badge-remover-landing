@@ -1,9 +1,11 @@
 import type { ComponentPropsWithoutRef } from "react";
 
 type Variant = "primary" | "secondary" | "ghost";
+type Size = "md" | "lg";
 
 type ButtonBaseProps = {
   variant?: Variant;
+  size?: Size;
   children: React.ReactNode;
 };
 
@@ -28,14 +30,20 @@ const variantStyles: Record<Variant, string> = {
     "text-text-secondary hover:text-text-primary bg-transparent",
 };
 
-export function Button({ variant = "primary", children, ...props }: ButtonProps) {
-  const baseStyles =
-    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue";
+const sizeStyles: Record<Size, string> = {
+  md: "px-6 py-3 text-sm",
+  lg: "px-10 py-4 text-lg",
+};
 
-  const className = `${baseStyles} ${variantStyles[variant]} ${(props as { className?: string }).className ?? ""}`.trim();
+export function Button({ variant = "primary", size = "md", children, ...props }: ButtonProps) {
+  const baseStyles =
+    "inline-flex items-center justify-center gap-2 rounded-full transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue";
+
+  const className = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${(props as { className?: string }).className ?? ""}`.trim();
 
   if ("href" in props && props.href) {
-    const { href, ...rest } = props as ButtonAsLink;
+    // className은 위에서 기본 스타일과 합쳤으므로 rest에서 빼야 덮어쓰지 않는다
+    const { href, className: _className, ...rest } = props as ButtonAsLink;
     return (
       <a
         href={href}

@@ -25,6 +25,17 @@ describe("Hero", () => {
     ).toBeGreaterThanOrEqual(1);
   });
 
+  it("Chrome·Firefox·Edge를 지원한다고 표시한다", () => {
+    render(
+      <I18nProvider>
+        <Hero />
+      </I18nProvider>,
+    );
+    expect(screen.getByText("Chrome · Firefox · Edge")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Firefox 부가 기능" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Edge 추가 기능" })).toBeInTheDocument();
+  });
+
   it("renders CTA link to Chrome Web Store", () => {
     render(
       <I18nProvider>
@@ -50,9 +61,12 @@ describe("Hero", () => {
         <Hero />
       </I18nProvider>,
     );
+    // 현재 팝업은 필터링 토글·숨김 통계·상태 요약·설정 열기만 있다 (세부 설정은 대시보드)
     expect(screen.getByText("Blue Badge Remover")).toBeInTheDocument();
     expect(screen.getByText("필터링")).toBeInTheDocument();
-    expect(screen.getByText("홈 타임라인")).toBeInTheDocument();
+    expect(screen.getByText("오늘 128개 숨김")).toBeInTheDocument();
+    expect(screen.getByText("설정 열기")).toBeInTheDocument();
+    expect(screen.queryByText("홈 타임라인")).not.toBeInTheDocument();
   });
 
   it("tracks CTA click", async () => {
@@ -63,6 +77,6 @@ describe("Hero", () => {
       </I18nProvider>,
     );
     await user.click(screen.getByRole("link", { name: /Chrome에 추가/ }));
-    expect(trackEvent).toHaveBeenCalledWith("cta_click", { location: "hero" });
+    expect(trackEvent).toHaveBeenCalledWith("cta_click", { location: "hero", store: "chrome" });
   });
 });

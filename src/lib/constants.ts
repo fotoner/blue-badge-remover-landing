@@ -1,6 +1,12 @@
 export const CHROME_STORE_URL =
   "https://chromewebstore.google.com/detail/Blue%20Badge%20Remover/cjhmbgfnddpcdfmoicfcocekmainhhdm";
 
+export const FIREFOX_STORE_URL =
+  "https://addons.mozilla.org/firefox/addon/blue-badge-remover/";
+
+export const EDGE_STORE_URL =
+  "https://microsoftedge.microsoft.com/addons/detail/jojbfbgedljheefmnbppjneiiilfoccp";
+
 export const GITHUB_URL =
   "https://github.com/fotoner/blue-badge-remover";
 
