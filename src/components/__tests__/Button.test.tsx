@@ -37,6 +37,14 @@ describe("Button", () => {
     expect(link).toHaveAttribute("rel", "noopener noreferrer");
   });
 
+  it("lg 크기는 큰 여백과 글자를 쓰고 기본 크기 클래스와 섞이지 않는다", () => {
+    render(<Button href="https://example.com" size="lg">Big</Button>);
+    const link = screen.getByRole("link", { name: "Big" });
+    expect(link).toHaveClass("px-10", "py-4", "text-lg");
+    expect(link).not.toHaveClass("px-6");
+    expect(link).not.toHaveClass("text-sm");
+  });
+
   it("링크 버튼에 className을 넘겨도 기본 스타일을 유지한다", () => {
     render(<Button href="https://example.com" className="w-full">Go</Button>);
     const link = screen.getByRole("link", { name: "Go" });

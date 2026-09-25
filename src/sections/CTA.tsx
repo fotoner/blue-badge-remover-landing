@@ -1,13 +1,8 @@
+import { StoreCTA } from "../components/StoreCTA";
 import { useI18n } from "../hooks/useI18n";
-import { trackEvent } from "../lib/analytics";
-import { CHROME_STORE_URL } from "../lib/constants";
 
 export function CTA() {
   const { t } = useI18n();
-
-  function handleCtaClick() {
-    trackEvent("cta_click", { location: "bottom_cta" });
-  }
 
   return (
     <section className="relative overflow-hidden border-b border-border py-16">
@@ -21,18 +16,8 @@ export function CTA() {
         <p className="mx-auto mt-4 max-w-md text-base text-text-secondary">
           {t("hero.subtitle")}
         </p>
-        <div className="mt-8">
-          <a
-            href={CHROME_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleCtaClick}
-            className="inline-flex items-center justify-center rounded-full bg-accent-blue px-10 py-4 text-lg font-semibold text-white shadow-[0_4px_0_0_#1a6fb5] transition-all duration-200 hover:brightness-110 active:translate-y-1 active:shadow-none"
-          >
-            {t("hero.cta")}
-          </a>
-        </div>
-        <p className="mt-4 text-sm text-text-secondary">{t("hero.cta.sub")}</p>
+        <StoreCTA location="bottom_cta" className="mt-8" size="lg" />
+        <p className="mt-2 text-sm text-text-secondary">{t("hero.cta.sub")}</p>
       </div>
     </section>
   );
