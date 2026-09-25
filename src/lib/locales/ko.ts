@@ -1,0 +1,102 @@
+// 한국어 — 기준 로케일. 여기 있는 키가 전체 번역 키 목록이 된다.
+export const ko = {
+    "hero.title": "나의 타임라인을 되찾으세요",
+    "hero.subtitle":
+      "X의 유료 파란 뱃지 계정을 자동으로 숨겨주는 무료 Chrome 확장",
+    "hero.cta": "Chrome에 추가",
+    "hero.cta.sub": "무료 · 데이터 수집 없음",
+    "hero.badge": "10,000+ RT · Chrome Extension",
+    "hero.github": "GitHub",
+    "ba.before": "BEFORE",
+    "ba.before.desc": "유료 뱃지 스팸이 가득한 타임라인",
+    "ba.after": "AFTER",
+    "ba.after.desc": "팔로우한 사람의 트윗만 보이는 타임라인",
+    "ba.spam1": "🚀 이 코인 지금 안 사면 후회합니다!! 100배 수익 보장...",
+    "ba.spam2": "팔로우하면 DM으로 투자 정보 드립니다 💰💰",
+    "ba.clean1": "오늘 날씨 진짜 좋다 ☀️",
+    "ba.clean2": "이 영화 진짜 추천! 주말에 꼭 보세요 🎬",
+    "ba.hidden": "스팸 트윗 2개 숨김 처리됨",
+    "demo.title": "이렇게 작동합니다",
+    "demo.subtitle": "확장 프로그램이 유료 뱃지 계정의 트윗을 실시간으로 감지하고 타임라인에서 자동으로 걸러냅니다. 아래 토글을 직접 눌러보세요.",
+    "demo.badge.detected": "유료 뱃지 감지",
+    "features.title": "주요 기능",
+    "features.subtitle": "단순 숨김 그 이상. 타임라인을 원하는 대로 제어하세요.",
+    "demo.badge.alert": "⚠ 유료 구독 뱃지 감지됨",
+    "demo.spam.text": "🚀 이 코인 지금 사세요...",
+    "demo.hide.removed": "스팸 트윗 삭제됨",
+    "demo.hide.collapsed": "숨겨진 트윗 (클릭하여 펼치기)",
+    "demo.quote.text": "좋은 분석이네요 👏",
+    "demo.quote.hidden": "▸ 유료 뱃지 인용 트윗 숨김 (클릭하여 펼치기)",
+    "demo.quote.entire": "전체 트윗 숨김 처리됨",
+    "demo.whitelist.filtered": "필터됨",
+    "demo.whitelist.protected": "보호됨",
+    "demo.whitelist.following": "팔로잉",
+    "social.anon": "사용자",
+    "features.badge.title": "유료 뱃지 감지",
+    "features.badge.desc":
+      "API 응답 분석으로 유료 구독 뱃지와 레거시 인증 뱃지를 정확히 구분합니다",
+    "features.filter.title": "트윗 필터링",
+    "features.filter.desc":
+      "홈 타임라인, 트윗 상세, 검색 결과에서 영역별로 필터링을 설정할 수 있습니다",
+    "features.hide.title": "숨김 모드",
+    "features.hide.desc":
+      "완전 삭제 또는 접기(클릭으로 펼치기) 중 원하는 방식을 선택하세요",
+    "features.whitelist.title": "화이트리스트",
+    "features.whitelist.desc":
+      "팔로우 중인 계정은 자동 제외. 수동 화이트리스트도 지원합니다",
+    "features.quote.title": "인용 트윗 처리",
+    "features.quote.desc":
+      "인용 트윗을 필터링하지 않거나, 인용 블록만 숨기거나, 전체 트윗을 숨길 수 있습니다",
+    "features.i18n.title": "다국어 지원",
+    "features.i18n.desc": "한국어, 영어, 일본어를 지원합니다",
+    "social.title": "사용자 반응",
+    "social.subtitle": "X에서 10,000회 이상 공유된 확장 프로그램",
+    "privacy.title": "프라이버시 보호",
+    "privacy.subtitle": "모든 처리는 브라우저 안에서 끝납니다",
+    "privacy.local.title": "100% 로컬 처리",
+    "privacy.local.desc": "필터링 로직이 브라우저 내에서 실행됩니다. 외부 서버와 통신하지 않습니다.",
+    "privacy.nocollect.title": "데이터 수집 없음",
+    "privacy.nocollect.desc": "사용자 데이터를 수집하거나 저장하지 않습니다. 어떤 정보도 외부로 전송되지 않습니다.",
+    "privacy.opensource.title": "오픈소스",
+    "privacy.opensource.desc": "GitHub에서 전체 소스코드를 확인할 수 있습니다. 투명한 개발을 지향합니다.",
+    "guide.step": "Step",
+    "guide.title": "설치 가이드",
+    "guide.step1.title": "Chrome 웹 스토어 방문",
+    "guide.step1.desc":
+      "Chrome 웹 스토어에서 확장 프로그램 페이지로 이동합니다",
+    "guide.step2.title": "Chrome에 추가",
+    "guide.step2.desc": "'Chrome에 추가' 버튼을 클릭하여 설치합니다",
+    "guide.step3.title": "팔로우 동기화 후 사용",
+    "guide.step3.desc":
+      "X의 팔로잉 페이지를 한 번 방문하여 팔로우 목록을 초기화한 뒤, 타임라인에서 바로 필터링이 시작됩니다",
+    "faq.title": "자주 묻는 질문",
+    "faq.q1": "모바일(iOS/Android)에서도 쓸 수 있나요?",
+    "faq.a1":
+      "현재 PC Chrome 확장 프로그램 전용입니다. 모바일은 구조상 브라우저 확장 프로그램 설치가 불가하여 지원이 어렵습니다.",
+    "faq.q2": "내 트친이 파란 뱃지인데 안 보이게 되나요?",
+    "faq.a2":
+      "아닙니다! 내가 팔로우한 사람은 파란 뱃지여도 숨겨지지 않습니다. 팔로잉 페이지를 방문하면 팔로우 목록이 자동 동기화됩니다.",
+    "faq.q3": "수익 목적이 아닌 파란 뱃지 유저도 숨기나요?",
+    "faq.a3":
+      "현재는 파란 뱃지 유무로 필터링합니다. 팔로우한 사람은 자동 예외 처리되며, 수동 화이트리스트로 특정 계정을 예외 추가할 수도 있습니다.",
+    "faq.q4": "Firefox에서도 되나요?",
+    "faq.a4":
+      "현재 Chrome(및 Chromium 기반 브라우저) 전용입니다. 네이버 웨일 등 Chromium 기반 브라우저에서는 Chrome 웹스토어에서 바로 설치 가능합니다. Firefox 지원은 검토 중입니다.",
+    "faq.q5": "이거 쓰면 계정 정지당하나요?",
+    "faq.a5":
+      "아닙니다. 브라우저에서 화면 표시만 변경하는 방식이라 X 서버와 직접 통신하거나 API를 호출하지 않습니다. 광고 차단기와 같은 원리입니다.",
+    "faq.q6": "파란 뱃지 트윗의 조회수도 안 올라가나요?",
+    "faq.a6":
+      "화면에서 숨기는 방식이라 트윗 로딩 자체는 발생합니다. 조회수 카운트는 올라갈 수 있습니다.",
+    "faq.q7": "기업 인증(금색/회색 뱃지)도 숨겨지나요?",
+    "faq.a7":
+      "아닙니다. 유료 구독으로 받은 파란 뱃지만 감지합니다. 기업 인증(금색)이나 정부 기관(회색) 뱃지는 영향받지 않습니다.",
+    "faq.q8": "개인정보를 수집하나요?",
+    "faq.a8":
+      "전혀 수집하지 않습니다. 모든 처리는 브라우저 내에서 로컬로 이루어지며, 외부 서버와 통신하지 않습니다.",
+    "nav.features": "기능",
+    "nav.guide": "설치",
+    "nav.faq": "FAQ",
+    "footer.credit": "made by",
+    "footer.feedback": "피드백 보내기",
+} as const;

@@ -1,0 +1,104 @@
+import type { Translations } from "./types";
+
+// 日本語 — ko의 모든 키를 빠짐없이 가져야 한다 (누락 시 타입 오류)
+export const ja: Translations = {
+    "hero.title": "タイムラインを\n取り戻そう",
+    "hero.subtitle":
+      "X（Twitter）で有料青バッジアカウントのツイートを自動的に非表示にするChrome拡張機能",
+    "hero.cta": "Chromeに追加",
+    "hero.cta.sub": "無料・データ収集なし",
+    "hero.badge": "10,000+ RT · Chrome Extension",
+    "hero.github": "GitHub",
+    "ba.before": "BEFORE",
+    "ba.before.desc": "有料バッジスパムだらけのタイムライン",
+    "ba.after": "AFTER",
+    "ba.after.desc": "フォローした人のツイートだけのタイムライン",
+    "ba.spam1": "🚀 このコイン今買わないと後悔します！100倍利益保証...",
+    "ba.spam2": "フォローでDM投資情報お届けします💰💰",
+    "ba.clean1": "今日の天気めっちゃいい ☀️",
+    "ba.clean2": "この映画マジおすすめ！週末にぜひ 🎬",
+    "ba.hidden": "スパムツイート2件を非表示",
+    "demo.title": "動作を確認",
+    "demo.subtitle": "拡張機能が有料バッジアカウントのツイートをリアルタイムで検出し、タイムラインから自動的にフィルタリングします。下のトグルを押してみてください。",
+    "features.subtitle": "ただ隠すだけじゃない。タイムラインを思い通りにコントロール。",
+    "demo.badge.alert": "⚠ 有料サブスクバッジ検出",
+    "demo.spam.text": "🚀 このコイン今買ってください...",
+    "demo.hide.removed": "スパムツイート削除済み",
+    "demo.hide.collapsed": "非表示ツイート (クリックで展開)",
+    "demo.quote.text": "良い分析ですね 👏",
+    "demo.quote.hidden": "▸ 有料バッジ引用ツイート非表示 (クリックで展開)",
+    "demo.quote.entire": "ツイート全体を非表示",
+    "demo.whitelist.filtered": "フィルタ済み",
+    "demo.whitelist.protected": "保護中",
+    "demo.whitelist.following": "フォロー中",
+    "social.anon": "ユーザー",
+    "demo.badge.detected": "有料バッジ検出",
+    "features.title": "主な機能",
+    "features.badge.title": "有料バッジ検出",
+    "features.badge.desc":
+      "APIレスポンス分析で有料サブスクバッジとレガシー認証バッジを正確に区別します",
+    "features.filter.title": "ツイートフィルタリング",
+    "features.filter.desc":
+      "ホームタイムライン、ツイート詳細、検索結果ごとにフィルタリングを設定できます",
+    "features.hide.title": "非表示モード",
+    "features.hide.desc":
+      "完全削除または折りたたみ（クリックで展開）から選べます",
+    "features.whitelist.title": "ホワイトリスト",
+    "features.whitelist.desc":
+      "フォロー中のアカウントは自動除外。手動ホワイトリストもサポート",
+    "features.quote.title": "引用ツイート処理",
+    "features.quote.desc":
+      "フィルタしない、引用ブロックのみ非表示、ツイート全体を非表示から選べます",
+    "features.i18n.title": "多言語対応",
+    "features.i18n.desc": "韓国語、英語、日本語に対応しています",
+    "social.title": "ユーザーの反応",
+    "social.subtitle": "Xで10,000回以上シェアされた拡張機能",
+    "privacy.title": "プライバシー保護",
+    "privacy.subtitle": "すべての処理はブラウザ内で完結します",
+    "privacy.local.title": "100%ローカル処理",
+    "privacy.local.desc": "フィルタリングロジックはブラウザ内で実行されます。外部サーバーとの通信はありません。",
+    "privacy.nocollect.title": "データ収集なし",
+    "privacy.nocollect.desc": "ユーザーデータの収集や保存は一切行いません。外部への送信もありません。",
+    "privacy.opensource.title": "オープンソース",
+    "privacy.opensource.desc": "GitHubでソースコード全体を確認できます。透明な開発を目指しています。",
+    "guide.step": "Step",
+    "guide.title": "インストールガイド",
+    "guide.step1.title": "Chrome Web Storeにアクセス",
+    "guide.step1.desc": "Chrome Web Storeの拡張機能ページに移動します",
+    "guide.step2.title": "Chromeに追加",
+    "guide.step2.desc":
+      "「Chromeに追加」ボタンをクリックしてインストールします",
+    "guide.step3.title": "フォロー同期して使用",
+    "guide.step3.desc":
+      "Xのフォロー中ページを一度訪問してフォローリストを同期すると、タイムラインで自動的にフィルタリングが始まります",
+    "faq.title": "よくある質問",
+    "faq.q1": "モバイル（iOS/Android）でも使えますか？",
+    "faq.a1":
+      "現在はPC Chrome拡張機能専用です。モバイルブラウザは拡張機能のインストールに対応していないため、モバイルサポートは困難です。",
+    "faq.q2": "フォロー中の友達が青バッジだと非表示になりますか？",
+    "faq.a2":
+      "いいえ！フォロー中のユーザーは青バッジでも非表示になりません。フォロー中ページを訪問するとフォローリストが自動同期されます。",
+    "faq.q3": "収益目的でない青バッジユーザーも隠されますか？",
+    "faq.a3":
+      "現在は青バッジの有無でフィルタリングしています。フォロー中のアカウントは自動除外され、手動ホワイトリストで特定アカウントを例外追加することもできます。",
+    "faq.q4": "Firefoxでも使えますか？",
+    "faq.a4":
+      "現在はChrome（およびChromiumベースのブラウザ）専用です。ChromiumベースのブラウザならChrome Web Storeから直接インストールできます。Firefoxサポートは検討中です。",
+    "faq.q5": "使うとアカウントが凍結されますか？",
+    "faq.a5":
+      "いいえ。ブラウザの表示を変更するだけで、Xサーバーとの通信やAPIの呼び出しは一切行いません。広告ブロッカーと同じ原理です。",
+    "faq.q6": "非表示にしたツイートの閲覧数もカウントされませんか？",
+    "faq.a6":
+      "表示レベルで非表示にする方式のため、ツイートの読み込み自体は発生します。閲覧数はカウントされる可能性があります。",
+    "faq.q7": "企業認証（金色/灰色バッジ）も非表示になりますか？",
+    "faq.a7":
+      "いいえ。有料サブスクリプションの青バッジのみ検出します。企業認証（金色）や政府機関（灰色）バッジには影響しません。",
+    "faq.q8": "個人情報を収集しますか？",
+    "faq.a8":
+      "一切収集しません。すべての処理はブラウザ内でローカルに行われ、外部サーバーとの通信はありません。",
+    "nav.features": "機能",
+    "nav.guide": "インストール",
+    "nav.faq": "FAQ",
+    "footer.credit": "made by",
+    "footer.feedback": "フィードバックを送る",
+};

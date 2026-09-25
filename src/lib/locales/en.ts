@@ -1,0 +1,103 @@
+import type { Translations } from "./types";
+
+// English — ko의 모든 키를 빠짐없이 가져야 한다 (누락 시 타입 오류)
+export const en: Translations = {
+    "hero.title": "Take back your clean timeline",
+    "hero.subtitle":
+      "A Chrome extension that automatically hides tweets from paid blue badge accounts on X (Twitter)",
+    "hero.cta": "Add to Chrome",
+    "hero.cta.sub": "Free · No data collection",
+    "hero.badge": "10,000+ RT · Chrome Extension",
+    "hero.github": "GitHub",
+    "ba.before": "BEFORE",
+    "ba.before.desc": "Timeline full of paid badge spam",
+    "ba.after": "AFTER",
+    "ba.after.desc": "Only tweets from people you follow",
+    "ba.spam1": "🚀 Don't miss this coin!! 100x returns guaranteed...",
+    "ba.spam2": "Follow me for investment tips via DM 💰💰",
+    "ba.clean1": "Such beautiful weather today ☀️",
+    "ba.clean2": "This movie is amazing! Must watch this weekend 🎬",
+    "ba.hidden": "2 spam tweets hidden",
+    "demo.title": "See it in action",
+    "demo.subtitle": "The extension detects paid badge accounts in real time and filters them from your timeline automatically. Try the toggle below.",
+    "features.subtitle": "More than just hiding. Take full control of your timeline.",
+    "demo.badge.alert": "⚠ Paid subscription badge detected",
+    "demo.spam.text": "🚀 Buy this coin now...",
+    "demo.hide.removed": "Spam tweet removed",
+    "demo.hide.collapsed": "Hidden tweet (click to expand)",
+    "demo.quote.text": "Great analysis 👏",
+    "demo.quote.hidden": "▸ Paid badge quote tweet hidden (click to expand)",
+    "demo.quote.entire": "Entire tweet hidden",
+    "demo.whitelist.filtered": "filtered",
+    "demo.whitelist.protected": "protected",
+    "demo.whitelist.following": "Following",
+    "social.anon": "User",
+    "demo.badge.detected": "Paid badge detected",
+    "features.title": "Key Features",
+    "features.badge.title": "Paid Badge Detection",
+    "features.badge.desc":
+      "Accurately distinguishes paid subscription badges from legacy verified badges through API response analysis",
+    "features.filter.title": "Tweet Filtering",
+    "features.filter.desc":
+      "Configure filtering per area: home timeline, tweet detail, and search results",
+    "features.hide.title": "Hide Modes",
+    "features.hide.desc":
+      "Choose between complete removal or collapse (click to expand)",
+    "features.whitelist.title": "Whitelist",
+    "features.whitelist.desc":
+      "Followed accounts are auto-excluded. Manual whitelist also supported",
+    "features.quote.title": "Quote Tweet Handling",
+    "features.quote.desc":
+      "Don't filter, hide quote block only, or hide the entire tweet",
+    "features.i18n.title": "Multi-language",
+    "features.i18n.desc": "Supports Korean, English, and Japanese",
+    "social.title": "User Response",
+    "social.subtitle": "Shared over 10,000 times on X",
+    "privacy.title": "Privacy First",
+    "privacy.subtitle": "Everything happens inside your browser",
+    "privacy.local.title": "100% Local Processing",
+    "privacy.local.desc": "Filtering runs entirely in your browser. No external server communication.",
+    "privacy.nocollect.title": "No Data Collection",
+    "privacy.nocollect.desc": "We never collect or store user data. Nothing is transmitted externally.",
+    "privacy.opensource.title": "Open Source",
+    "privacy.opensource.desc": "Full source code available on GitHub. We believe in transparent development.",
+    "guide.step": "Step",
+    "guide.title": "Installation Guide",
+    "guide.step1.title": "Visit Chrome Web Store",
+    "guide.step1.desc": "Go to the extension page on Chrome Web Store",
+    "guide.step2.title": "Add to Chrome",
+    "guide.step2.desc": "Click 'Add to Chrome' button to install",
+    "guide.step3.title": "Sync follows & go",
+    "guide.step3.desc":
+      "Visit your Following page on X once to sync your follow list, then filtering starts automatically on your timeline",
+    "faq.title": "FAQ",
+    "faq.q1": "Can I use it on mobile (iOS/Android)?",
+    "faq.a1":
+      "Currently PC Chrome extension only. Mobile browsers don't support extensions, so mobile support is not possible.",
+    "faq.q2": "Will my followed friends with blue badges be hidden?",
+    "faq.a2":
+      "No! People you follow are never hidden, even if they have a blue badge. Visit your Following page to sync your follow list automatically.",
+    "faq.q3": "Does it hide all blue badge users regardless of intent?",
+    "faq.a3":
+      "Currently it filters by blue badge presence. Followed accounts are auto-excluded, and you can also manually whitelist specific accounts.",
+    "faq.q4": "Does it work on Firefox?",
+    "faq.a4":
+      "Currently Chrome (and Chromium-based browsers) only. Browsers like Naver Whale can install directly from the Chrome Web Store. Firefox support is under consideration.",
+    "faq.q5": "Will my account get suspended for using this?",
+    "faq.a5":
+      "No. It only changes what's displayed in your browser. It doesn't communicate with X servers or call any APIs. Same principle as an ad blocker.",
+    "faq.q6": "Do hidden tweets still get view counts?",
+    "faq.a6":
+      "Since it hides at the display level, tweets are still loaded. View counts may still increase.",
+    "faq.q7": "Are business verified (gold/gray badge) accounts hidden too?",
+    "faq.a7":
+      "No. Only blue badges from paid subscriptions are detected. Business (gold) and government (gray) badges are not affected.",
+    "faq.q8": "Do you collect personal data?",
+    "faq.a8":
+      "Absolutely not. All processing happens locally in your browser with no external server communication.",
+    "nav.features": "Features",
+    "nav.guide": "Install",
+    "nav.faq": "FAQ",
+    "footer.credit": "made by",
+    "footer.feedback": "Send Feedback",
+};
