@@ -22,11 +22,30 @@ describe("FAQ", () => {
     expect(screen.getByText(/모바일.*쓸 수 있나요/)).toBeInTheDocument();
     expect(screen.getByText(/트친이 파란 뱃지/)).toBeInTheDocument();
     expect(screen.getByText(/수익 목적이 아닌/)).toBeInTheDocument();
-    expect(screen.getByText(/Firefox에서도/)).toBeInTheDocument();
+    expect(screen.getByText(/Firefox·Edge에서도/)).toBeInTheDocument();
     expect(screen.getByText(/계정 정지/)).toBeInTheDocument();
     expect(screen.getByText(/조회수도 안 올라가나요/)).toBeInTheDocument();
     expect(screen.getByText(/기업 인증.*숨겨지나요/)).toBeInTheDocument();
     expect(screen.getByText(/개인정보를 수집/)).toBeInTheDocument();
+  });
+
+  it("Firefox·Edge 지원 여부를 현재 배포 상태대로 답한다", () => {
+    render(
+      <I18nProvider>
+        <FAQ />
+      </I18nProvider>,
+    );
+    expect(screen.queryByText(/검토 중/)).not.toBeInTheDocument();
+    expect(screen.getByText(/Firefox 부가 기능, Edge 추가 기능에서 설치할 수 있습니다/)).toBeInTheDocument();
+  });
+
+  it("일부 파딱만 숨기고 싶을 때 선택 필터를 안내한다", () => {
+    render(
+      <I18nProvider>
+        <FAQ />
+      </I18nProvider>,
+    );
+    expect(screen.getByText(/선택 필터/)).toBeInTheDocument();
   });
 
   it("has faq id for anchor navigation", () => {

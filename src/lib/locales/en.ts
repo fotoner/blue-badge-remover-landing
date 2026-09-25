@@ -96,26 +96,26 @@ export const en: Translations = {
     "privacy.opensource.desc": "Full source code available on GitHub. We believe in transparent development.",
     "guide.step": "Step",
     "guide.title": "Installation Guide",
-    "guide.step1.title": "Visit Chrome Web Store",
-    "guide.step1.desc": "Go to the extension page on Chrome Web Store",
-    "guide.step2.title": "Add to Chrome",
-    "guide.step2.desc": "Click 'Add to Chrome' button to install",
-    "guide.step3.title": "Sync follows & go",
+    "guide.step1.title": "Visit your browser’s store",
+    "guide.step1.desc": "Open the Chrome Web Store, Firefox Add-ons, or Edge Add-ons depending on your browser. Other Chromium-based browsers can use the Chrome Web Store",
+    "guide.step2.title": "Add from the store",
+    "guide.step2.desc": "Click the store's add button (such as 'Add to Chrome') to install",
+    "guide.step3.title": "Start right away",
     "guide.step3.desc":
-      "Visit your Following page on X once to sync your follow list, then filtering starts automatically on your timeline",
+      "Refresh X and filtering starts immediately. Your follow list is collected automatically as you browse. To fill it all at once, use 'Open Following Page' in the dashboard",
     "faq.title": "FAQ",
     "faq.q1": "Can I use it on mobile (iOS/Android)?",
     "faq.a1":
-      "Currently PC Chrome extension only. Mobile browsers don't support extensions, so mobile support is not possible.",
+      "It currently works on desktop browsers only (Chrome, Firefox, Edge). Most mobile browsers do not support installing extensions.",
     "faq.q2": "Will my followed friends with blue badges be hidden?",
     "faq.a2":
       "No! People you follow are never hidden, even if they have a blue badge. Visit your Following page to sync your follow list automatically.",
     "faq.q3": "Does it hide all blue badge users regardless of intent?",
     "faq.a3":
-      "Currently it filters by blue badge presence. Followed accounts are auto-excluded, and you can also manually whitelist specific accounts.",
-    "faq.q4": "Does it work on Firefox?",
+      "By default, it hides all paid blue badge accounts. Accounts you follow are excluded automatically, and you can whitelist specific accounts. To hide only some of them, turn on the Selective filters (Keyword Filter and Hide new high-reach accounts) in the dashboard.",
+    "faq.q4": "Does it work on Firefox and Edge?",
     "faq.a4":
-      "Currently Chrome (and Chromium-based browsers) only. Browsers like Naver Whale can install directly from the Chrome Web Store. Firefox support is under consideration.",
+      "Yes. You can install it from the Chrome Web Store, Firefox Add-ons, and Edge Add-ons. Other Chromium-based browsers can install it from the Chrome Web Store.",
     "faq.q5": "Will my account get suspended for using this?",
     "faq.a5":
       "No. It only changes what's displayed in your browser. It doesn't communicate with X servers or call any APIs. Same principle as an ad blocker.",
