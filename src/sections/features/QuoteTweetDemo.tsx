@@ -1,9 +1,19 @@
 import { useEffect, useState } from "react";
 import { useI18n } from "../../hooks/useI18n";
+import type { TranslationKeys } from "../../lib/i18n";
+
+type QuoteMode = "off" | "quote-only" | "hide-entire";
+
+/** 확장 설정 화면의 인용 처리 선택지 이름 */
+const MODE_LABEL_KEYS: Record<QuoteMode, TranslationKeys> = {
+  off: "demo.quote.mode.off",
+  "quote-only": "demo.quote.mode.quoteOnly",
+  "hide-entire": "demo.quote.mode.entire",
+};
 
 export function QuoteTweetDemo() {
   const { t } = useI18n();
-  const [mode, setMode] = useState<"off" | "quote-only" | "hide-entire">("off");
+  const [mode, setMode] = useState<QuoteMode>("off");
 
   useEffect(() => {
     const t1 = setTimeout(() => setMode("quote-only"), 2500);
@@ -16,7 +26,7 @@ export function QuoteTweetDemo() {
 
   return (
     <div className="p-4">
-      <div className="mb-3 flex gap-1.5">
+      <div className="mb-3 flex flex-wrap gap-1.5">
         {(["off", "quote-only", "hide-entire"] as const).map((m) => (
           <span
             key={m}
@@ -24,7 +34,7 @@ export function QuoteTweetDemo() {
               mode === m ? "bg-accent-blue/20 text-accent-blue" : "text-[#71767b]"
             }`}
           >
-            {m === "off" ? "Off" : m === "quote-only" ? "Quote Only" : "Entire"}
+            {t(MODE_LABEL_KEYS[m])}
           </span>
         ))}
       </div>
@@ -70,7 +80,7 @@ export function QuoteTweetDemo() {
               className="transition-all duration-500 ease-out"
               style={{
                 opacity: isQuoteOnly ? 1 : 0,
-                maxHeight: isQuoteOnly ? "28px" : "0px",
+                maxHeight: isQuoteOnly ? "64px" : "0px",
               }}
             >
               <div className="px-3 py-1.5 text-[10px] text-[#71767b]">

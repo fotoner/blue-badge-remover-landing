@@ -2,10 +2,11 @@ import { Button } from "../components/Button";
 import { StoreCTA } from "../components/StoreCTA";
 import { useI18n } from "../hooks/useI18n";
 import { GITHUB_URL } from "../lib/constants";
+import { wordBreakClass } from "../lib/i18n";
 import { PopupPreview } from "./hero/PopupPreview";
 
 export function Hero() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   return (
     <section className="relative min-h-[calc(100vh-3.5rem)] border-b border-border px-4 py-24 flex items-center overflow-hidden">
@@ -16,18 +17,19 @@ export function Hero() {
         <div className="absolute h-[400px] w-[400px] rounded-full bg-[#0e4f8b]/[0.06] blur-[100px] animate-[drift-c_30s_ease-in-out_infinite]" />
       </div>
 
-      <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-12 lg:flex-row lg:gap-16">
+      {/* 폭이 제목 길이에 따라 달라지지 않도록 고정한다 (이전 히어로와 같은 936px) */}
+      <div className="relative mx-auto flex w-full max-w-[936px] flex-col items-center gap-12 lg:flex-row lg:gap-16">
         {/* Left: Content */}
         <div className="flex-1">
           <div className="mb-6 inline-flex items-center rounded-full border border-border bg-bg-card px-4 py-1.5 text-sm text-accent-blue">
             Chrome · Firefox · Edge
           </div>
 
-          <h1 className="whitespace-pre-line font-heading text-4xl font-bold leading-tight tracking-tight text-text-primary break-keep sm:text-5xl md:text-6xl">
+          <h1 className={`whitespace-pre-line font-heading text-4xl font-bold leading-tight tracking-tight text-text-primary sm:text-5xl md:text-6xl ${wordBreakClass(locale)}`}>
             {t("hero.title")}
           </h1>
 
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-text-secondary sm:text-xl">
+          <p className={`mt-6 max-w-lg text-lg leading-relaxed text-text-secondary sm:text-xl ${wordBreakClass(locale)}`}>
             {t("hero.subtitle")}
           </p>
 

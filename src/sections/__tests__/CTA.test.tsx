@@ -4,6 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { CTA } from "../CTA";
 import { StickyMobileCTA } from "../../components/StickyMobileCTA";
 import { I18nProvider } from "../../hooks/useI18n";
+import { LanguageSwitch } from "../../components/LanguageSwitch";
 
 vi.mock("../../lib/analytics", () => ({
   trackEvent: vi.fn(),
@@ -17,6 +18,22 @@ describe("하단 CTA", () => {
     await userEvent.click(screen.getByRole("link", { name: "Chrome에 추가" }));
     expect(trackEvent).toHaveBeenCalledWith("cta_click", { location: "bottom_cta", store: "chrome" });
     expect(screen.getByRole("link", { name: "Firefox 부가 기능" })).toBeInTheDocument();
+  });
+});
+
+describe("하단 CTA 제목", () => {
+  it("히어로와 같은 캐치프레이즈를 같은 줄 나눔으로 보여준다", () => {
+    render(<I18nProvider><CTA /></I18nProvider>);
+    const heading = screen.getByRole("heading", { level: 2 });
+    expect(heading).toHaveTextContent(/파딱은 숨기고,\s+트친은 그대로\./);
+    expect(heading).toHaveClass("whitespace-pre-line");
+    expect(heading).toHaveClass("break-keep");
+  });
+
+  it("일본어에서는 어절 단위 줄바꿈을 쓰지 않는다", async () => {
+    render(<I18nProvider><LanguageSwitch /><CTA /></I18nProvider>);
+    await userEvent.click(screen.getByRole("button", { name: "日本語" }));
+    expect(screen.getByRole("heading", { level: 2 })).not.toHaveClass("break-keep");
   });
 });
 

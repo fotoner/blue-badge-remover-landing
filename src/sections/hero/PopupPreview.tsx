@@ -1,6 +1,7 @@
 import { useI18n } from "../../hooks/useI18n";
 
-/** 실제 확장 팝업(필터링 토글·숨김 통계·상태 요약·설정 열기)을 본뜬 미리보기. 세부 설정은 대시보드에 있다 */
+/** 실제 확장 팝업(필터링 토글·숨김 통계·상태 요약·설정 열기)을 본뜬 미리보기. 세부 설정은 대시보드에 있다.
+ *  실제 팝업은 제목 옆에 버전만 표시하고 설명 문구는 없다 */
 export function PopupPreview() {
   const { t } = useI18n();
 
@@ -11,7 +12,6 @@ export function PopupPreview() {
           <img src="/icon.svg" alt="" className="h-5 w-5" />
           <span className="text-[15px] font-bold">Blue Badge Remover</span>
         </div>
-        <p className="mt-1 text-[11px] text-text-secondary">{t("mock.tagline")}</p>
       </div>
 
       <div className="bg-accent-blue/[0.08] px-4 py-3">

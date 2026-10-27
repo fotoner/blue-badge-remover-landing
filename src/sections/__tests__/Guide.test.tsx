@@ -37,6 +37,8 @@ describe("Guide", () => {
     // Chrome뿐 아니라 Firefox·Edge 스토어도 안내하고, 팔로우는 자동 수집됨을 알린다
     expect(screen.getByText(/Firefox 부가 기능.*Edge 추가 기능/)).toBeInTheDocument();
     expect(screen.getByText(/자동으로 모입니다/)).toBeInTheDocument();
+    // 팔로잉 페이지는 열기만 해서는 안 되고 스크롤해야 수집된다
+    expect(screen.getByText(/'팔로잉 페이지 열기'를 누르고 끝까지 스크롤/)).toBeInTheDocument();
   });
 
   it("has guide id for anchor navigation", () => {

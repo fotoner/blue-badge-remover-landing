@@ -23,7 +23,7 @@ describe("useI18n", () => {
       </I18nProvider>,
     );
     expect(screen.getByTestId("locale")).toHaveTextContent("ko");
-    expect(screen.getByTestId("text")).toHaveTextContent("나의 타임라인을 되찾으세요");
+    expect(screen.getByTestId("text")).toHaveTextContent(/파딱은 숨기고,\s+트친은 그대로\./);
   });
 
   it("switches to English when setLocale is called", async () => {
@@ -35,7 +35,7 @@ describe("useI18n", () => {
     );
     await user.click(screen.getByText("EN"));
     expect(screen.getByTestId("locale")).toHaveTextContent("en");
-    expect(screen.getByTestId("text")).toHaveTextContent("Take back your clean timeline");
+    expect(screen.getByTestId("text")).toHaveTextContent(/Hide the paid blue checks\.\s+Keep the people you follow\./);
   });
 
   it("switches to Japanese", async () => {

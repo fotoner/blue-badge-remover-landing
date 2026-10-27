@@ -2,7 +2,7 @@ import type { Translations } from "./types";
 
 // English — ko의 모든 키를 빠짐없이 가져야 한다 (누락 시 타입 오류)
 export const en: Translations = {
-    "hero.title": "Take back your clean timeline",
+    "hero.title": "Hide the paid blue checks.\nKeep the people you follow.",
     "hero.subtitle":
       "A free browser extension that automatically hides tweets from paid blue badge accounts on X (Twitter)",
     "hero.cta.sub": "Free · No data collection",
@@ -14,7 +14,6 @@ export const en: Translations = {
     "store.firefox.name": "Firefox Add-ons",
     "store.edge.name": "Edge Add-ons",
     "store.also": "Also on",
-    "mock.tagline": "Hide paid blue badge accounts on X (Twitter)",
     "mock.filtering": "Filtering",
     "mock.today": "Hidden 128 today",
     "mock.share": "Share",
@@ -33,16 +32,21 @@ export const en: Translations = {
     "ba.spam2": "Follow me for investment tips via DM 💰💰",
     "ba.clean1": "Such beautiful weather today ☀️",
     "ba.clean2": "This movie is amazing! Must watch this weekend 🎬",
-    "ba.hidden": "2 spam tweets hidden",
+    "ba.hidden": "2 paid-badge tweets hidden",
     "demo.title": "See it in action",
     "demo.subtitle": "The extension detects paid badge accounts in real time and filters them from your timeline automatically. Try the toggle below.",
     "features.subtitle": "More than just hiding. Take full control of your timeline.",
     "demo.badge.alert": "⚠ Paid subscription badge detected",
     "demo.spam.text": "🚀 Buy this coin now...",
     "demo.hide.removed": "Spam tweet removed",
-    "demo.hide.collapsed": "Hidden tweet (click to expand)",
+    "demo.hide.collapsed": "Tweet by paid badge @spam_user hidden (click to expand)",
+    "demo.hide.mode.remove": "Remove Completely",
+    "demo.hide.mode.collapse": "Collapse",
     "demo.quote.text": "Great analysis 👏",
-    "demo.quote.hidden": "▸ Paid badge quote tweet hidden (click to expand)",
+    "demo.quote.hidden": "Quote tweet by paid badge @spam hidden (click to expand)",
+    "demo.quote.mode.off": "Don't Filter",
+    "demo.quote.mode.quoteOnly": "Hide Quote Only",
+    "demo.quote.mode.entire": "Hide Entire Tweet",
     "demo.quote.entire": "Entire tweet hidden",
     "demo.whitelist.filtered": "filtered",
     "demo.whitelist.protected": "protected",
@@ -54,10 +58,9 @@ export const en: Translations = {
     "features.badge.desc":
       "Reads the badge itself to pick out paid subscription blue checks only. Gold (organization) and gray (government) badges stay visible",
     "features.filter.title": "Tweet Filtering",
-    "features.filter.desc":
-      "Turn filtering on or off per area — home timeline, tweet detail, search, bookmarks, and lists — and hide retweets of paid-badge posts too",
+    "features.filter.desc": "Turn filtering on or off per area — home timeline, tweet detail, search, bookmarks, and lists — and also hide paid-badge tweets retweeted by accounts you don't follow",
     "features.selective.title": "Selective filters",
-    "features.selective.desc": "Hide only what you choose instead of every paid badge. The Keyword Filter (Beta) targets accounts with specific keywords in their bio, name, or posts, “Hide new high-reach accounts” targets new, fast-spreading accounts, and protection keywords keep the accounts you like",
+    "features.selective.desc": "Hide only what you choose instead of every paid badge. The Keyword Filter targets accounts with specific keywords in their bio, name, or posts, and “Hide new high-reach accounts” targets accounts created within the last 6 months with 1,000+ followers and a following/follower ratio of 10% or less. Paid badge accounts with a protection keyword in their handle, name, or bio are not hidden",
     "demo.scope.title": "Filter Scope",
     "demo.scope.timeline": "Home Timeline",
     "demo.scope.replies": "Tweet Detail / Replies",
@@ -74,14 +77,11 @@ export const en: Translations = {
     "demo.selective.shown": "No match · shown",
     "demo.selective.hidden.aggressor": "New high-reach account · hidden",
     "features.hide.title": "Hide Modes",
-    "features.hide.desc":
-      "Choose between complete removal or collapse (click to expand)",
+    "features.hide.desc": "Choose between Remove Completely (default) or Collapse (click to expand)",
     "features.whitelist.title": "Whitelist",
-    "features.whitelist.desc":
-      "Accounts you follow are excluded automatically. Add many handles at once, or whitelist an author right from an expanded post",
+    "features.whitelist.desc": "Accounts you follow are excluded automatically. Add many handles at once, and in Collapse mode you can whitelist an author right from an expanded post",
     "features.quote.title": "Quote Tweet Handling",
-    "features.quote.desc":
-      "Don't filter, hide quote block only, or hide the entire tweet",
+    "features.quote.desc": "Don't filter, hide the quote only, or hide the entire tweet. Even with 'Hide Entire Tweet', tweets from accounts you follow or whitelist only get the quote hidden",
     "features.i18n.title": "Multi-language",
     "features.i18n.desc": "Supports Korean, English, and Japanese",
     "social.title": "User Response",
@@ -89,9 +89,9 @@ export const en: Translations = {
     "privacy.title": "Privacy First",
     "privacy.subtitle": "Everything happens inside your browser",
     "privacy.local.title": "100% Local Processing",
-    "privacy.local.desc": "Filtering runs entirely in your browser. No external server communication.",
+    "privacy.local.desc": "Filtering runs in your browser and sends no data to the developer or third-party servers.",
     "privacy.nocollect.title": "No Data Collection",
-    "privacy.nocollect.desc": "We never collect or store user data. Nothing is transmitted externally.",
+    "privacy.nocollect.desc": "The developer collects no user data. Settings, lists, and stats are stored only in your browser.",
     "privacy.opensource.title": "Open Source",
     "privacy.opensource.desc": "Full source code available on GitHub. We believe in transparent development.",
     "guide.step": "Step",
@@ -101,18 +101,15 @@ export const en: Translations = {
     "guide.step2.title": "Add from the store",
     "guide.step2.desc": "Click the store's add button (such as 'Add to Chrome') to install",
     "guide.step3.title": "Start right away",
-    "guide.step3.desc":
-      "Refresh X and filtering starts immediately. Your follow list is collected automatically as you browse. To fill it all at once, use 'Open Following Page' in the dashboard",
+    "guide.step3.desc": "Refresh X and filtering starts immediately. Your follow list is collected automatically as you browse. To fill it all at once, click 'Open Following Page' in Settings and scroll to the bottom",
     "faq.title": "FAQ",
     "faq.q1": "Can I use it on mobile (iOS/Android)?",
     "faq.a1":
       "It currently works on desktop browsers only (Chrome, Firefox, Edge). Most mobile browsers do not support installing extensions.",
     "faq.q2": "Will my followed friends with blue badges be hidden?",
-    "faq.a2":
-      "No! People you follow are never hidden, even if they have a blue badge. Visit your Following page to sync your follow list automatically.",
+    "faq.a2": "No! People you follow are never hidden, even if they have a blue badge. Your follow list is collected automatically as you browse. To fill in missing accounts, click 'Open Following Page' in Settings and scroll to the bottom.",
     "faq.q3": "Does it hide all blue badge users regardless of intent?",
-    "faq.a3":
-      "By default, it hides all paid blue badge accounts. Accounts you follow are excluded automatically, and you can whitelist specific accounts. To hide only some of them, turn on the Selective filters (Keyword Filter and Hide new high-reach accounts) in the dashboard.",
+    "faq.a3": "By default, it hides all paid blue badge accounts. Accounts you follow and your own tweets are excluded automatically, and you can exempt specific accounts with the whitelist and protection keywords. To hide only some of them, turn on the Keyword Filter or Hide new high-reach accounts under 'Filters' in Settings.",
     "faq.q4": "Does it work on Firefox and Edge?",
     "faq.a4":
       "Yes. You can install it from the Chrome Web Store, Firefox Add-ons, and Edge Add-ons. Other Chromium-based browsers can install it from the Chrome Web Store.",
@@ -126,8 +123,7 @@ export const en: Translations = {
     "faq.a7":
       "No. Only blue badges from paid subscriptions are detected. Business (gold) and government (gray) badges are not affected.",
     "faq.q8": "Do you collect personal data?",
-    "faq.a8":
-      "Absolutely not. All processing happens locally in your browser with no external server communication.",
+    "faq.a8": "No. Filtering happens in your browser, and settings, lists, and stats are stored only in your browser. No data is sent to the developer or third parties.",
     "nav.features": "Features",
     "nav.guide": "Install",
     "nav.faq": "FAQ",
