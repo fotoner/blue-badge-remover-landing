@@ -50,6 +50,11 @@ describe("BeforeAfter (Live Demo)", () => {
     ).toBeInTheDocument();
   });
 
+  it("숨김 상태 문구가 스팸이 아니라 파딱 트윗을 숨긴다고 말한다", () => {
+    renderDemo();
+    expect(screen.getByText("파딱 트윗 2개 숨김 처리됨")).toBeInTheDocument();
+  });
+
   it("shows spam badge indicators on spam tweets", () => {
     renderDemo();
     const badges = screen.getAllByText("유료 뱃지 감지");

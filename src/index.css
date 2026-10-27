@@ -18,11 +18,17 @@
   --font-mono: "JetBrains Mono", monospace;
 
   /* === Spacing === */
-  --spacing-section: 3rem;
-  --spacing-section-mobile: 3rem;
+  /* 섹션 위아래 여백. 데스크톱은 아래 미디어 쿼리에서 더 넓힌다 */
+  --spacing-section: 4rem;
 
   /* === Animations === */
   --animate-fade-in-up: fade-in-up 0.6s ease-out both;
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --spacing-section: 5rem;
+  }
 }
 
 /* === Keyframes (preserved for demo components) === */

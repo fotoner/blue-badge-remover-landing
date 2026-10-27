@@ -19,10 +19,10 @@ export function HideModesDemo() {
     <div className="p-4">
       <div className="mb-3 flex gap-2">
         <span className={`rounded-md px-2 py-1 text-xs font-medium transition-colors duration-300 ${mode === "remove" ? "bg-accent-blue/20 text-accent-blue" : "text-[#71767b]"}`}>
-          Remove
+          {t("demo.hide.mode.remove")}
         </span>
         <span className={`rounded-md px-2 py-1 text-xs font-medium transition-colors duration-300 ${mode === "collapse" ? "bg-accent-blue/20 text-accent-blue" : "text-[#71767b]"}`}>
-          Collapse
+          {t("demo.hide.mode.collapse")}
         </span>
       </div>
 
@@ -53,13 +53,12 @@ export function HideModesDemo() {
         <div
           className="transition-all duration-500 ease-out"
           style={{
-            maxHeight: hidden && mode === "collapse" ? "32px" : "0px",
+            maxHeight: hidden && mode === "collapse" ? "80px" : "0px",
             opacity: hidden && mode === "collapse" ? 1 : 0,
           }}
         >
-          <div className="flex items-center gap-2 px-3 py-2 text-xs text-[#71767b]">
-            <span>▸</span>
-            <span>{t("demo.hide.collapsed")}</span>
+          <div className="px-3 py-2 text-xs text-[#71767b]">
+            {t("demo.hide.collapsed")}
           </div>
         </div>
       </div>

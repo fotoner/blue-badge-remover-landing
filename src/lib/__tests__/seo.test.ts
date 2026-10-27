@@ -28,6 +28,20 @@ describe("index.html SEO", () => {
     expect(meta("og:image:height")).toBe(String(height));
   });
 
+  it("og:image는 표준 1200×630 크기다", () => {
+    expect(pngSize(ogImage)).toEqual({ width: 1200, height: 630 });
+  });
+
+  it("공유 제목은 영문 이름 Blue Badge Remover와 캐치프레이즈를 담는다", () => {
+    for (const key of ["og:title", "twitter:title"]) {
+      expect(meta(key)).toBe("Blue Badge Remover - 파딱은 숨기고, 트친은 그대로.");
+    }
+  });
+
+  it("구조화 데이터에 출처 없는 평점을 넣지 않는다", () => {
+    expect(html).not.toMatch(/aggregateRating/);
+  });
+
   it("구조화 데이터가 Chrome·Firefox·Edge 지원을 알린다", () => {
     const json =
       html.match(
